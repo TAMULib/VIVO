@@ -13,3 +13,5 @@ utilities/solrtester/.work
 utilities/rdbmigration/.work
 
 **/*.iml
+config/applicationSetup.n3
+config/runtime.properties
