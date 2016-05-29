@@ -112,5 +112,8 @@
     </#local>
 
     ${resourceTitle} ${citationDetails} <@dt.yearSpan "${statement.dateTime!}" /> 
+	<div id="plumx_tamu" style="float: right;">
+		<a href="https://plu.mx/tamu/a/?repo_url=http://vivo.library.tamu.edu${profileUrl(statement.uri('infoResource'))}" class="plumx-plum-print-popup" data-popup="left" data-size="small" data-hide-when-empty="true" data-site="tamu" data-badge="false"></a>
+	</div>	
 </#if>
 </#macro>
