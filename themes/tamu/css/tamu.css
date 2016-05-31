@@ -472,7 +472,7 @@ tr.editformcell td select {
 /* BRANDING ------>  */
 h1.vivo-logo {
     position: absolute;
-    width: 450px;
+    width: 500px;
     height: 100px;
     top: 0px;
     left: 0;
@@ -480,7 +480,7 @@ h1.vivo-logo {
 }
 h1.vivo-logo a {
     display: block;
-    width: 450px;
+    width: 500px;
     height: 100px;
 }
 /* HEADER NAV------>  */
