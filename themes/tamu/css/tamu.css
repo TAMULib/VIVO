@@ -490,6 +490,7 @@ ul#header-nav {
     height: 30px;
     padding-top: 10px;
     margin-right: 13px;
+	display: none;
 }
 ul#header-nav li {
     float: left;
@@ -1120,7 +1121,7 @@ footer p.copyright small {
 ul#footer-nav {
     float: right;
     list-style: none;
-    width: 200px;
+    width: 300px;
     height: 20px;
     margin: 0;
     padding: 0;
@@ -1926,4 +1927,36 @@ span.subclassExpandMinus {
 .collapseArrow {
     background:url(../images/green_minus_sign.gif) right center no-repeat;
     min-height:18px;
+}
+.btn-self-edit {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+	border-radius: 0px;
+	margin-top:8px;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;	
+}
+#self_edit  {
+	position: relative;
+	float: right;
+	bottom: 47px;
+    right: 12%;
 }

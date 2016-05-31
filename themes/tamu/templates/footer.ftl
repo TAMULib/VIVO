@@ -21,12 +21,19 @@
     
     <nav role="navigation">
         <ul id="footer-nav" role="list">
-            <li role="listitem"><a href="${urls.about}" title="${i18n().menu_about}">${i18n().menu_about}</a></li>
+ <!--           <li role="listitem"><a href="${urls.about}" title="${i18n().menu_about}">${i18n().menu_about}</a></li> -->
             <#if urls.contact??>
                 <li role="listitem"><a href="${urls.contact}" title="${i18n().menu_contactus}">${i18n().menu_contactus}</a></li>
             </#if> 
-            <li role="listitem"><a href="http://www.vivoweb.org/support" target="blank" title="${i18n().menu_support}">${i18n().menu_support}</a></li>
-        </ul>
+<!--            <li role="listitem"><a href="http://www.vivoweb.org/support" target="blank" title="${i18n().menu_support}">${i18n().menu_support}</a></li> -->
+			<#if user.loggedIn>
+				<#if user.hasSiteAdminAccess>
+					<li role="listitem">${i18n().you_can} <a href="${urls.siteAdmin}" title="${i18n().add_content_manage_site}">${i18n().add_content_manage_site}</a> ${i18n().from_site_admin_page}</li>
+				</#if>
+			<#else>
+				<li role="listitem">${i18n().please} <a href="${urls.login}" title="${i18n().login_to_manage_site}">${i18n().log_in}</a> ${i18n().to_manage_content}</li>
+			</#if>
+		</ul>
     </nav>
 </footer>
 
