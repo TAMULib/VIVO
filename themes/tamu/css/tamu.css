@@ -490,7 +490,6 @@ ul#header-nav {
     height: 30px;
     padding-top: 10px;
     margin-right: 13px;
-	display: none;
 }
 ul#header-nav li {
     float: left;
@@ -524,6 +523,9 @@ ul#header-nav a:active {
 ul#header-nav a.log-out {
     padding-left: 10px;
 }
+
+ul#header-nav a[title="Index"] { display: none; }
+
 /* SEARCH ------>  */
 #search {
     position: absolute;
@@ -1959,4 +1961,13 @@ span.subclassExpandMinus {
 	float: right;
 	bottom: 47px;
     right: 12%;
+}
+#plumx_tamu_small {
+	float: right;
+	position: relative;
+	bottom: 55px;
+    right: -20px;
+}
+#plumx_tamu {
+	float: right;
 }
