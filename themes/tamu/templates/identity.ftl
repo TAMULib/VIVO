@@ -1,8 +1,12 @@
 <#-- $This file is distributed under the terms of the license in /doc/license.txt$ -->
 
 <header id="branding" role="banner">
-
-    <h1 class="vivo-logo"><a title="${i18n().identity_title}" href="${urls.home}"><span class="displace">${siteName}</span></a></h1>
+    <h1 class="vivo-logo"><img src="themes/tamu/images/VIVO-logo.png" alt="" usemap="#Map" />
+		<map name="Map" id="Map">
+			<area alt="Library Home Page" title="" href="//library.tamu.edu" shape="rect" coords="6,7,235,102" />
+			<area alt="Scholars @ TAMU" title="" href="//scholars.library.tamu.edu" shape="rect" coords="245,6,471,103" />
+		</map>
+	</h1>
     <#-- Since we are using a graphic text for the tagline, we won't render ${siteTagline}
     <#if siteTagline?has_content>
         <em>${siteTagline}</em>
