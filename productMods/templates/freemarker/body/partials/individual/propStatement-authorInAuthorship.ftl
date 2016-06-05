@@ -113,13 +113,15 @@
 	
     <#local digitalObjectIdentifier>
         <#if statement.digitalObjectIdentifier??>
-            <a class="full-text-link" href="http://dx.doi.org/${statement.digitalObjectIdentifier}">full text</a>
+		    <#if statement.digitalObjectIdentifier?has_content>
+				<a class="full-text-link" href="http://dx.doi.org/${statement.digitalObjectIdentifier}">full text</a>
+			</#if>
         </#if>
     </#local>
 
 	<#local fullAuthorListTAMU>
 		<#if statement.fullAuthorListTAMU??>
-		${statement.fullAuthorListTAMU}
+			${statement.fullAuthorListTAMU}
 		</#if>
 	</#local>
 
@@ -130,7 +132,9 @@
 		</span>
 	</#local>
 	
-	${fullAuthorListTAMU} ${resourceTitle} ${citationDetails} <@dt.yearSpan "${statement.dateTime!}" /> ${digitalObjectIdentifier} ${PlumX}
+	
+
+	${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle} ${citationDetails} ${digitalObjectIdentifier} ${PlumX}
 	
 
 </#if>

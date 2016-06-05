@@ -14,7 +14,8 @@
 		
         SELECT DISTINCT ?subclass
             ?authorship
-            ?infoResource ?infoResourceName
+            ?infoResource 
+			?infoResourceName
             ?dateTime
             ?journal
             ?volume
