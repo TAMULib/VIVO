@@ -35,8 +35,10 @@
                         <em>${statement.volume!}</em>(${statement.issue!}), ${statement.startPage!}.
                     <#elseif statement.volume?? && statement.issue??>
                         <em>${statement.volume!}</em>(${statement.issue!}),
+					<#elseif statement.volume?? && statement.startPage?? && statement.endPage??>
+                       <em>${statement.volume!}</em>, ${statement.startPage!}-${statement.endPage!}.							
                     <#elseif statement.volume?? && statement.startPage??>
-                       <em>${statement.volume!}</em>.&nbsp;${statement.startPage!}.						
+                       <em>${statement.volume!}</em>, ${statement.startPage!}.					
 					<#elseif statement.volume??>
                         ${statement.volume!}.
                     <#elseif statement.startPage?? && statement.endPage??>
