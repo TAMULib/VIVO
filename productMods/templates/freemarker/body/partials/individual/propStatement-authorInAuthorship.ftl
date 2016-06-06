@@ -28,13 +28,13 @@
         <#if statement.subclass??>
             <#if statement.subclass?contains("Article")>
                 <#if statement.journal??>
-                    <em>${statement.journal!}</em>.&nbsp;
+                    <em>${statement.journal!}</em>.
                     <#if statement.volume?? && statement.issue?? && statement.startPage?? && statement.endPage??>
-                        <em>${statement.volume!}</em>. (${statement.issue!}), ${statement.startPage!}-${statement.endPage!}.
+                        <em>${statement.volume!}</em>(${statement.issue!}), ${statement.startPage!}-${statement.endPage!}.
                     <#elseif statement.volume?? && statement.issue?? && statement.startPage??>
-                        <em>${statement.volume!}</em>.&nbsp;(${statement.issue!}),&nbsp;${statement.startPage!}.
+                        <em>${statement.volume!}</em>(${statement.issue!}), ${statement.startPage!}.
                     <#elseif statement.volume?? && statement.issue??>
-                        <em>${statement.volume!}</em>.&nbsp;(${statement.issue!}).
+                        <em>${statement.volume!}</em>(${statement.issue!}),
                     <#elseif statement.volume?? && statement.startPage??>
                        <em>${statement.volume!}</em>.&nbsp;${statement.startPage!}.						
 					<#elseif statement.volume??>
@@ -138,7 +138,7 @@
 	
 	
 
-	${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle} ${citationDetails} ${digitalObjectIdentifier} ${PlumX}
+	${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle?trim} ${citationDetails?trim} ${digitalObjectIdentifier} ${PlumX}
 	
 
 </#if>
