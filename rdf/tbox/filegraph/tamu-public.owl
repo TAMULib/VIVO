@@ -218,4 +218,14 @@
     <vitro:prohibitedFromUpdateBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
     <rdfs:subClassOf rdf:resource="http://vivoweb.org/ontology/core#Relationship"/>
   </rdf:Description>
+ <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#otherUniversity">
+    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+    <vitro:descriptionAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#string">External organizations conferring degrees for or collaborating with our faculty. It also contains Texas A&amp;M University.</vitro:descriptionAnnot>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <vitro:hiddenFromPublishBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
+    <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
+    <rdfs:label xml:lang="en-US">External Organizations</rdfs:label>
+    <vitro:prohibitedFromUpdateBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
+    <vitro:inClassGroup rdf:resource="http://vivoweb.org/ontology#vitroClassGrouporganizations"/>
+</rdf:Description>
 </rdf:RDF>
