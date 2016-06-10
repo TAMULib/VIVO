@@ -63,21 +63,6 @@
     <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
     <rdfs:label xml:lang="en-US">OrgID</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#ETDChairOf">
-    <vitro:hiddenFromPublishBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
-    <vitro:displayLimitAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</vitro:displayLimitAnnot>
-    <rdfs:range rdf:resource="http://vivo.library.tamu.edu/ontology/TAMU#ETDChairRole"/>
-    <vitro:inPropertyGroupAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/default#n7179"/>
-    <vitro:prohibitedFromUpdateBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
-    <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <vitro:inPropertyGroupAnnot rdf:resource="http://vivoweb.org/ontology#vitroPropertyGroupaddress"/>
-    <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000023"/>
-    <vitro:selectFromExistingAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</vitro:selectFromExistingAnnot>
-    <vitro:displayRankAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</vitro:displayRankAnnot>
-    <owl:inverseOf rdf:resource="http://vivo.library.tamu.edu/ontology/TAMU#ETDChairedBy"/>
-    <rdfs:label xml:lang="en-US">Chaired ETD</rdfs:label>
-  </rdf:Description>
   <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#NETID">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#dbAdmin"/>
@@ -102,15 +87,6 @@
     <vitro:ontologyPrefixAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tamu</vitro:ontologyPrefixAnnot>
     <rdfs:label xml:lang="en-US">TAMU</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#publishedInDeptOf">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <owl:inverseOf rdf:resource="http://vivo.library.tamu.edu/ontology/TAMU#hasFacultyPublication"/>
-    <rdfs:label xml:lang="en-US">TAMU Author Affiliation</rdfs:label>
-    <rdfs:range rdf:resource="http://vivoweb.org/ontology/core#Relationship"/>
-    <rdfs:domain rdf:resource="http://vivo.library.tamu.edu/ontology/TAMU#publication"/>
-    <vitro:displayLimitAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</vitro:displayLimitAnnot>
-    <vitro:displayRankAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</vitro:displayRankAnnot>
-  </rdf:Description>
   <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#ETDChairRole">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:label xml:lang="en-US">ETDChairRole</rdfs:label>
@@ -121,6 +97,33 @@
     <vitro:prohibitedFromUpdateBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
     <vitro:hiddenFromPublishBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
     <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000023"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#UIN">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#dbAdmin"/>
+    <vitro:prohibitedFromUpdateBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#dbAdmin"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <vitro:inPropertyGroupAnnot rdf:resource="http://vivoweb.org/ontology#vitroPropertyGroupidentifiers"/>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:label xml:lang="en-US">UIN</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#ETDChairOf">
+    <vitro:hiddenFromPublishBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
+    <rdfs:range rdf:resource="http://vivo.library.tamu.edu/ontology/TAMU#ETDChairRole"/>
+    <vitro:prohibitedFromUpdateBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
+    <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000023"/>
+    <owl:inverseOf rdf:resource="http://vivo.library.tamu.edu/ontology/TAMU#ETDChairedBy"/>
+    <rdfs:label xml:lang="en-US">Chaired Theses and Dissertations</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#publishedInDeptOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="http://vivo.library.tamu.edu/ontology/TAMU#hasFacultyPublication"/>
+    <rdfs:label xml:lang="en-US">TAMU Author Affiliation</rdfs:label>
+    <rdfs:range rdf:resource="http://vivoweb.org/ontology/core#Relationship"/>
+    <rdfs:domain rdf:resource="http://vivo.library.tamu.edu/ontology/TAMU#publication"/>
+    <vitro:displayRankAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</vitro:displayRankAnnot>
   </rdf:Description>
   <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#hasFacultyPublication">
     <vitro:selectFromExistingAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</vitro:selectFromExistingAnnot>
@@ -153,6 +156,17 @@
     <vitro:hiddenFromPublishBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
     <vitro:displayRankAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">11</vitro:displayRankAnnot>
     <rdfs:label xml:lang="en-US">Author List (Cited Authors)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#otherUniversity">
+    <vitro:descriptionAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#string">External organization conferring degrees for or collaborating with our faculty. It also contains Texas A&amp;M University.</vitro:descriptionAnnot>
+    <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
+    <vitro:prohibitedFromUpdateBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+    <vitro:inClassGroup rdf:resource="http://vivoweb.org/ontology#vitroClassGrouporganizations"/>
+    <vitro:descriptionAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#string">External organizations conferring degrees for or collaborating with our faculty. It also contains Texas A&amp;M University.</vitro:descriptionAnnot>
+    <vitro:hiddenFromPublishBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
+    <rdfs:label xml:lang="en-US">External Organization</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#ETDChairedBy">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -168,64 +182,4 @@
     <owl:inverseOf rdf:resource="http://vivo.library.tamu.edu/ontology/TAMU#ETDChairOf"/>
     <vitro:displayLimitAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</vitro:displayLimitAnnot>
   </rdf:Description>
-  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#UIN">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#dbAdmin"/>
-    <vitro:prohibitedFromUpdateBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#dbAdmin"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <vitro:inPropertyGroupAnnot rdf:resource="http://vivoweb.org/ontology#vitroPropertyGroupidentifiers"/>
-    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-    <rdfs:label xml:lang="en-US">UIN</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#fullAuthorList">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:label xml:lang="en-US">Author List (Cited Authors)</rdfs:label>
-    <rdfs:domain rdf:resource="http://purl.org/ontology/bibo/Document"/>
-    <vitro:displayRankAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">11</vitro:displayRankAnnot>
-    <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
-    <vitro:prohibitedFromUpdateBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
-    <vitro:hiddenFromPublishBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
-    <vitro:inPropertyGroupAnnot rdf:resource="http://vivoweb.org/ontology#vitroPropertyGroupoverview"/>
-  </rdf:Description>  
-  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#publishedInDeptOf">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <owl:inverseOf rdf:resource="http://vivo.library.tamu.edu/ontology/TAMU#hasFacultyPublication"/>
-    <rdfs:label xml:lang="en-US">TAMU Author Affiliation</rdfs:label>
-    <rdfs:range rdf:resource="http://vivoweb.org/ontology/core#Relationship"/>
-    <rdfs:domain rdf:resource="http://vivo.library.tamu.edu/ontology/TAMU#publication"/>
-    <vitro:displayLimitAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</vitro:displayLimitAnnot>
-    <vitro:displayRankAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</vitro:displayRankAnnot>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#hasFacultyPublication">
-    <vitro:selectFromExistingAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</vitro:selectFromExistingAnnot>
-    <owl:inverseOf rdf:resource="http://vivo.library.tamu.edu/ontology/TAMU#publishedInDeptOf"/>
-    <vitro:displayLimitAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">5</vitro:displayLimitAnnot>
-    <rdfs:range rdf:resource="http://vivo.library.tamu.edu/ontology/TAMU#publication"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <vitro:prohibitedFromUpdateBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
-    <rdfs:domain rdf:resource="http://vivoweb.org/ontology/core#Relationship"/>
-    <rdfs:label xml:lang="en-US">Faculty Publications</rdfs:label>
-    <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
-    <vitro:displayRankAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</vitro:displayRankAnnot>
-    <vitro:hiddenFromPublishBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#publication">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en-US">Publication</rdfs:label>
-    <vitro:hiddenFromPublishBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
-    <vitro:displayRankAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</vitro:displayRankAnnot>
-    <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
-    <vitro:prohibitedFromUpdateBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
-    <rdfs:subClassOf rdf:resource="http://vivoweb.org/ontology/core#Relationship"/>
-  </rdf:Description>
- <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#otherUniversity">
-    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
-    <vitro:descriptionAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#string">External organization conferring degrees for or collaborating with our faculty. It also contains Texas A&amp;M University.</vitro:descriptionAnnot>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <vitro:hiddenFromPublishBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
-    <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
-    <rdfs:label xml:lang="en-US">External Organization</rdfs:label>
-    <vitro:prohibitedFromUpdateBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
-    <vitro:inClassGroup rdf:resource="http://vivoweb.org/ontology#vitroClassGrouporganizations"/>
-</rdf:Description>
 </rdf:RDF>
