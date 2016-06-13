@@ -25,12 +25,15 @@
             
             <#assign googleJSAPI = "https://www.google.com/jsapi?autoload=%7B%22modules%22%3A%5B%7B%22name%22%3A%22visualization%22%2C%22version%22%3A%221%22%2C%22packages%22%3A%5B%22imagesparkline%22%5D%7D%5D%7D"> 
             
-            <span id="sparklineHeading">${i18n().publications_in_vivo}</span>   
-            
-            <div id="vis_container_coauthor">&nbsp;</div>
-            
-            <div class="collaboratorship-link-separator"></div>
-            
+			
+			<#if user.loggedIn>
+				<#if user.hasSiteAdminAccess>
+					<span id="sparklineHeading">${i18n().publications_in_vivo}</span>   
+					<div id="vis_container_coauthor">&nbsp;</div>
+					<div class="collaboratorship-link-separator"></div>
+				</#if>
+            </#if>
+			
             <div id="coauthorship_link_container" class="collaboratorship-link-container">
 				<div class="collaboratorship-icon">
                     <a href="${coAuthorVisUrl}" title="${i18n().co_author}"><img src="${coAuthorIcon}" alt="${i18n().co_author}" width="25px" height="25px" /></a>
