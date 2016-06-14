@@ -120,7 +120,7 @@
     <#local digitalObjectIdentifier>
         <#if statement.digitalObjectIdentifier??>
 		    <#if statement.digitalObjectIdentifier?has_content>
-				<a class="full-text-link" href="http://dx.doi.org/${statement.digitalObjectIdentifier}">full text</a>
+				<a class="full-text-link" href="http://dx.doi.org/${statement.digitalObjectIdentifier}">DOI</a>
 			</#if>
         </#if>
     </#local>
