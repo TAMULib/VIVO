@@ -1958,10 +1958,8 @@ span.subclassExpandMinus {
     right: 12%;
 }
 #plumx_tamu_small {
-	float: right;
+	float: left;
 	position: relative;
-	bottom: 55px;
-    right: -20px;
 }
 #plumx_tamu {
 	float: right;

@@ -140,7 +140,7 @@
 	
 	
 
-	${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle?trim} ${citationDetails?trim} ${digitalObjectIdentifier} ${PlumX}
+	${PlumX} ${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle?trim} ${citationDetails?trim} ${digitalObjectIdentifier}
 	
 
 </#if>
