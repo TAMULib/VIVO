@@ -127,7 +127,11 @@
 
 	<#local fullAuthorListTAMU>
 		<#if statement.fullAuthorListTAMU??>
-			${statement.fullAuthorListTAMU}
+			<#if statement.fullAuthorListTAMU?has_content>
+				${statement.fullAuthorListTAMU}
+			</#if>
+		<#else>
+			
 		</#if>
 	</#local>
 
@@ -139,6 +143,7 @@
         </#if>
     </#local>	
 	
+	
 	<#local PlumX>
 		<span id="plumx_tamu_small">
 			<#-- Since we run this on development machines alot replacing the /vivo/ directory for plumx to match the uri -->
@@ -146,7 +151,10 @@
 		</span>
 	</#local>
 
-	${PlumX} ${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle?trim} ${citationDetails?trim} ${digitalObjectIdentifier} ${pubMedID}
+	${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle?trim} ${citationDetails?trim} 
+	<div>	
+		${digitalObjectIdentifier} ${pubMedID} ${PlumX} 
+	</div>
 
 </#if>
 </#macro>

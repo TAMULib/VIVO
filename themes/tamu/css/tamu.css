@@ -1551,7 +1551,7 @@ ul#individual-tools li a {
     color: #5f6464;
 }
 ul.individual-urls {
-    list-style: url("../images/arrow-maroon.gif");
+    list-style: url(../images/arrow-maroon.gif);
 }
 ul.individual-urls li {
     font-size: .875em;
@@ -1958,11 +1958,11 @@ span.subclassExpandMinus {
     right: 12%;
 }
 #plumx_tamu_small {
-	float: left;
-	position: relative;
+	position: absolute;
+	margin-top: -20px;
 }
 #plumx_tamu {
-	float: right;
+
 }
 a.full-text-link {
     background-color: #a33646;
