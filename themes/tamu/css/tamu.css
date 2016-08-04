@@ -1971,6 +1971,13 @@ a.full-text-link {
     font-size: smaller;
     padding: 0px 2px 0px 2px;
 }
+a.pubmed-link {
+    background-color: #369;
+    color: white!important;
+    text-decoration: none;
+    font-size: smaller;
+    padding: 0px 2px 0px 2px;
+}
 #cit_year {
     padding: 0;
     background: #f4f4f4;
