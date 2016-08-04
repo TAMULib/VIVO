@@ -142,7 +142,7 @@
 	<#local PlumX>
 		<span id="plumx_tamu_small">
 			<#-- Since we run this on development machines alot replacing the /vivo/ directory for plumx to match the uri -->
-			<a href="https://plu.mx/tamu/a/?repo_url=http://vivo.library.tamu.edu${profileUrl(statement.uri('infoResource'))?replace("/vivo/", "/")}" class="plumx-plum-print-popup" data-popup="left" data-hide-when-empty="true" data-site="tamu" data-badge="false" data-size="small"></a>
+			<a href="https://plu.mx/tamu/a/?repo_url=http://vivo.library.tamu.edu${profileUrl(statement.uri('infoResource'))?replace("/vivo/", "/")}" class="plumx-plum-print-popup" data-popup="right" data-hide-when-empty="true" data-site="tamu" data-badge="false" data-size="small"></a>
 		</span>
 	</#local>
 
