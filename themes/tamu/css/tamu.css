@@ -1551,7 +1551,7 @@ ul#individual-tools li a {
     color: #5f6464;
 }
 ul.individual-urls {
-    list-style: url(../../../images/individual/arrow-maroon.gif);
+    list-style: url("../images/arrow-maroon.gif");
 }
 ul.individual-urls li {
     font-size: .875em;
@@ -1591,7 +1591,7 @@ h1.fn .display-title {
 }
 ul#individual-personInPosition {
     font-size: 1em;
-    list-style: url("../../../images/individual/arrow-maroon.gif");
+    list-style: url("../images/arrow-maroon.gif");
 }
 ul#individual-personInPosition li {
     line-height: 1.8em;
