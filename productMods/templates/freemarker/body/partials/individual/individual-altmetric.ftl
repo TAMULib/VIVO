@@ -3,13 +3,15 @@
 <#-- Overview on individual profile page -->
 
 <#if altmetricEnabled??>
-<#assign doi = propertyGroups.getProperty("http://purl.org/ontology/bibo/doi")!>
-	<#if doi?has_content> <#-- true when the property is in the list, even if not populated (when editing) -->
-		<#if doi.statements[0]??>
-			<div id="plumx_tamu" style="float: right;">
-				<a href="https://plu.mx/tamu/a/?doi=${doi.statements[0].value}" class="plumx-plum-print-popup" data-popup="hidden" data-hide-when-empty="true" data-site="tamu" data-badge="true"></a>
-			</div>
-		</#if>
+<#assign identifier = individual.uri!>
+	<#if identifier?has_content> <#-- true when the property is in the list, even if not populated (when editing) -->
+		<div id="plumx_tamu" style="float: right;">
+			<a href="https://plu.mx/tamu/a/?repo_url=http://vivo.library.tamu.edu/display/${identifier[identifier?last_index_of("/")+1..]}" class="plumx-plum-print-popup" data-popup="left" data-hide-when-empty="true" data-site="tamu" data-badge="true"></a>			
+		</div>
 	</#if>
 </#if>
+
+
+
+
 
