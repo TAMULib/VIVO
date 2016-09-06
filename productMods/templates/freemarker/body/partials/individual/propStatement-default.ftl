@@ -13,6 +13,11 @@
   	<#if statement.subclass??>
 		<a href="${profileUrl(statement.uri("object"))}" title="${i18n().name}">${statement.label!statement.localName!}</a>
 	<#else>
-    	<a href="${profileUrl(statement.uri("object"))}" title="${i18n().name}">${statement.label!statement.localName!}</a>&nbsp; ${statement.title!statement.type!}
+		<#-- Disable showing thesis for Works by Students DCH -->
+		<#if statement.type! == "Thesis">
+			<a href="${profileUrl(statement.uri("object"))}" title="${i18n().name}">${statement.label!statement.localName!}</a>&nbsp; ${statement.title!}		
+		<#else>
+			<a href="${profileUrl(statement.uri("object"))}" title="${i18n().name}">${statement.label!statement.localName!}</a>&nbsp; ${statement.title!statement.type!}
+		</#if>		
 	</#if>
 </#macro>
