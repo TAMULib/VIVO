@@ -135,6 +135,16 @@
 		</#if>
 	</#local>
 
+	<#local fullEditorListTAMU>
+		<#if statement.fullEditorListTAMU??>
+			<#if statement.fullEditorListTAMU?has_content>
+				${statement.fullEditorListTAMU}
+			</#if>
+		<#else>
+			
+		</#if>
+	</#local>	
+	
     <#local pubMedID>
         <#if statement.pubMedID??>
 		    <#if statement.pubMedID?has_content>
@@ -151,7 +161,7 @@
 		</span>
 	</#local>
 
-	${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle?trim} ${citationDetails?trim} 
+	${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle?trim} ${fullEditorListTAMU} ${citationDetails?trim} 
 	<div>	
 		${digitalObjectIdentifier} ${pubMedID} ${PlumX} 
 	</div>

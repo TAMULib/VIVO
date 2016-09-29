@@ -29,6 +29,7 @@
             ?hideThis
 			?digitalObjectIdentifier
 			?fullAuthorListTAMU
+			?fullEditorListTAMU
 			?pubMedID 
 			?issue
         WHERE
@@ -45,6 +46,7 @@
             OPTIONAL { ?infoResource core:placeOfPublication ?locale }
             OPTIONAL { ?infoResource bibo:doi ?digitalObjectIdentifier }	
             OPTIONAL { ?infoResource tamu:fullAuthorList ?fullAuthorListTAMU }
+			OPTIONAL { ?infoResource tamu:fullEditorList ?fullEditorListTAMU }
             OPTIONAL { ?infoResource core:pmcid ?pubMedID }			
             OPTIONAL { ?infoResource bibo:issue ?issue }			
 			OPTIONAL
@@ -106,6 +108,7 @@
             ?infoResource core:placeOfPublication ?locale .
             ?infoResource bibo:doi ?digitalObjectIdentifier .
             ?infoResource tamu:fullAuthorList ?fullAuthorListTAMU .	
+			?infoResource tamu:fullEditorList ?fullEditorListTAMU .				
 			?infoResource core:pmcid ?pubMedID .	
             ?infoResource bibo:issue ?issue .				
             ?infoResource bibo:reproducedIn ?appearsInObj .
@@ -211,7 +214,15 @@
                 ?authorship core:relates ?infoResource .
                 ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
                 ?infoResource tamu:fullAuthorList ?fullAuthorListTAMU .
-            }	
+            }
+			UNION
+            {
+                ?subject ?property ?authorship .
+                ?authorship a core:Authorship .
+                ?authorship core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
+                ?infoResource tamu:fullEditorList ?fullEditorListTAMU .
+            }			
 			UNION
             {
                 ?subject ?property ?authorship .
