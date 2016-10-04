@@ -24,6 +24,28 @@
         $('span.hideThis').parent().remove();
     </script>
 <#else>
+
+	<#local bookTitleForChapterTAMU>
+		<#if statement.bookTitleForChapterTAMU??>
+			<#if statement.bookTitleForChapterTAMU?has_content>
+				${statement.bookTitleForChapterTAMU}
+			</#if>
+		<#else>
+
+		</#if>
+	</#local>	
+
+	<#local fullEditorListTAMU>
+		<#if statement.fullEditorListTAMU??>
+			<#if statement.fullEditorListTAMU?has_content>
+				${statement.fullEditorListTAMU}
+			</#if>
+		<#else>
+
+		</#if>
+	</#local>		
+	
+	
     <#local citationDetails>
         <#if statement.subclass??>
             <#if statement.subclass?contains("Article")>
@@ -55,8 +77,16 @@
                 <#elseif statement.partOf??>
                     <em>${statement.partOf!}</em>.
                 </#if>
-                <#if statement.editor??>
-                    ${i18n().editor_abbreviated}&nbsp;${statement.editor!}.&nbsp;
+                <#if statement.fullEditorListTAMU??>
+                    ${statement.fullEditorListTAMU!}&nbsp;(Eds.),
+                </#if>
+                <#if statement.bookTitleForChapterTAMU??> 
+                    ${statement.bookTitleForChapterTAMU!}
+                </#if>				
+                <#if statement.startPage?? && statement.endPage??>
+                    (pp. ${statement.startPage!}-${statement.endPage!}).
+                <#elseif statement.startPage??>
+                    ${statement.startPage!}.
                 </#if>
                 <#if statement.locale?? && statement.publisher??>
                     ${statement.locale!}:&nbsp;${statement.publisher!}.
@@ -64,12 +94,7 @@
                     ${statement.locale!}.
                 <#elseif statement.publisher??>
                     ${statement.publisher!}.
-                </#if>
-                <#if statement.startPage?? && statement.endPage??>
-                    ${statement.startPage!}-${statement.endPage!}.
-                <#elseif statement.startPage??>
-                    ${statement.startPage!}.
-                </#if>
+                </#if>				
             <#elseif statement.subclass?contains("Book")>
                 <#if statement.volume?? && (statement.volume!?length > 0 )>
                     ${i18n().volume_abbreviated}&nbsp;${statement.volume!}.&nbsp;
@@ -135,16 +160,6 @@
 		</#if>
 	</#local>
 
-	<#local fullEditorListTAMU>
-		<#if statement.fullEditorListTAMU??>
-			<#if statement.fullEditorListTAMU?has_content>
-				${statement.fullEditorListTAMU}
-			</#if>
-		<#else>
-			
-		</#if>
-	</#local>	
-	
     <#local pubMedID>
         <#if statement.pubMedID??>
 		    <#if statement.pubMedID?has_content>
@@ -152,7 +167,7 @@
 			</#if>
         </#if>
     </#local>	
-	
+
 	
 	<#local PlumX>
 		<span id="plumx_tamu_small">
@@ -161,7 +176,9 @@
 		</span>
 	</#local>
 
-	${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle?trim} ${fullEditorListTAMU} ${citationDetails?trim} 
+	${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle?trim}${citationDetails?trim} 
+
+
 	<div>	
 		${digitalObjectIdentifier} ${pubMedID} ${PlumX} 
 	</div>

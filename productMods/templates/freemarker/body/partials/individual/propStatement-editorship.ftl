@@ -15,6 +15,60 @@
      next statement -->
 <#macro showEditorship statement>
 <#local citationDetails>
+
+	<#local bookTitleForChapterTAMU>
+		<#if statement.bookTitleForChapterTAMU??>
+			<#if statement.bookTitleForChapterTAMU?has_content>
+				${statement.bookTitleForChapterTAMU}
+			</#if>
+		<#else>
+
+		</#if>
+	</#local>	
+
+	<#local fullEditorListTAMU>
+		<#if statement.fullEditorListTAMU??>
+			<#if statement.fullEditorListTAMU?has_content>
+				${statement.fullEditorListTAMU}
+			</#if>
+		<#else>
+
+		</#if>
+	</#local>	
+
+    <#local digitalObjectIdentifier>
+        <#if statement.digitalObjectIdentifier??>
+		    <#if statement.digitalObjectIdentifier?has_content>
+				<a class="full-text-link" href="http://dx.doi.org/${statement.digitalObjectIdentifier}">DOI</a>
+			</#if>
+        </#if>
+    </#local>
+
+	<#local fullAuthorListTAMU>
+		<#if statement.fullAuthorListTAMU??>
+			<#if statement.fullAuthorListTAMU?has_content>
+				${statement.fullAuthorListTAMU}
+			</#if>
+		<#else>
+			
+		</#if>
+	</#local>
+
+    <#local pubMedID>
+        <#if statement.pubMedID??>
+		    <#if statement.pubMedID?has_content>
+				<a class="pubmed-link" href="https://www.ncbi.nlm.nih.gov/pubmed/${statement.pubMedID}">PubMed</a>
+			</#if>
+        </#if>
+    </#local>	
+	
+	<#local PlumX>
+		<span id="plumx_tamu_small">
+			<#-- Since we run this on development machines alot replacing the /vivo/ directory for plumx to match the uri -->
+			<a href="https://plu.mx/tamu/a/?repo_url=http://vivo.library.tamu.edu${profileUrl(statement.uri('infoResource'))?replace("/vivo/", "/")}" class="plumx-plum-print-popup" data-popup="right" data-hide-when-empty="true" data-site="tamu" data-badge="false" data-size="small"></a>
+		</span>
+	</#local>
+
     <#if statement.subclass??>
         <#if statement.subclass?contains("Article")>
             <#if statement.journal??>
@@ -92,5 +146,10 @@
         </#if>
     </#local>
 
-    ${resourceTitle} ${citationDetails} <@dt.yearSpan "${statement.dateTime!}" /> 
+    ${fullAuthorListTAMU} ${resourceTitle} ${citationDetails} <@dt.yearSpan "${statement.dateTime!}" /> 
+
+	<div>	
+		${digitalObjectIdentifier} ${pubMedID} ${PlumX} 
+	</div>	
+	
 </#macro>
