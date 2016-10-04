@@ -106,6 +106,9 @@
                 ${statement.startPage!}.
             </#if>
         <#elseif statement.subclass?contains("Book")>
+			<#if statement.fullEditorListTAMU??>
+				${statement.fullEditorListTAMU!}&nbsp;(Eds.),
+			</#if>
             <#if statement.volume?? && (statement.volume!?length > 0 )>
                 ${i18n().volume_abbreviated}&nbsp;${statement.volume!}.&nbsp;
             </#if>
@@ -146,7 +149,7 @@
         </#if>
     </#local>
 
-    ${fullAuthorListTAMU} ${resourceTitle} ${citationDetails} <@dt.yearSpan "${statement.dateTime!}" /> 
+    ${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle} ${citationDetails}  
 
 	<div>	
 		${digitalObjectIdentifier} ${pubMedID} ${PlumX} 
