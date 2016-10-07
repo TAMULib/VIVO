@@ -19,7 +19,7 @@
 	<#local bookTitleForChapterTAMU>
 		<#if statement.bookTitleForChapterTAMU??>
 			<#if statement.bookTitleForChapterTAMU?has_content>
-				${statement.bookTitleForChapterTAMU}
+				${statement.bookTitleForChapterTAMU}.
 			</#if>
 		<#else>
 
@@ -139,7 +139,7 @@
     <#local resourceTitle>
         <#if statement.infoResource??>
             <#if citationDetails?has_content>
-                <a href="${profileUrl(statement.uri("infoResource"))}"  title="${i18n().resource_name}">${statement.infoResourceName}</a>.&nbsp;
+                <a href="${profileUrl(statement.uri("infoResource"))}"  title="${i18n().resource_name}">${statement.infoResourceName}</a>
             <#else>
                 <a href="${profileUrl(statement.uri("infoResource"))}"  title="${i18n().resource_name}">${statement.infoResourceName}</a>
             </#if>

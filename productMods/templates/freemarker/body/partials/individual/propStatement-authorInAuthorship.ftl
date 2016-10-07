@@ -81,7 +81,7 @@
                     ${statement.fullEditorListTAMU!}&nbsp;(Eds.),
                 </#if>
                 <#if statement.bookTitleForChapterTAMU??> 
-                    ${statement.bookTitleForChapterTAMU!}
+                    ${statement.bookTitleForChapterTAMU!}.
                 </#if>				
                 <#if statement.startPage?? && statement.endPage??>
                     (pp. ${statement.startPage!}-${statement.endPage!}).
