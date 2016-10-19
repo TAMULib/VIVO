@@ -82,7 +82,7 @@
     <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
     <rdfs:label xml:lang="en-US">UID</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#branchCampus">
+  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#BranchCampus">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:label xml:lang="en-US">Branch Campus</rdfs:label>
     <vitro:inClassGroup rdf:resource="http://vivoweb.org/ontology#vitroClassGrouporganizations"/>
@@ -119,7 +119,7 @@
     <vitro:hiddenFromPublishBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
     <vitro:inPropertyGroupAnnot rdf:resource="http://vivoweb.org/ontology#vitroPropertyGroupoverview"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#affiliatedAgency">
+  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#AffiliatedAgency">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:label xml:lang="en-US">Affiliated Agency</rdfs:label>
     <vitro:inClassGroup rdf:resource="http://vivoweb.org/ontology#vitroClassGrouporganizations"/>
@@ -139,7 +139,7 @@
     <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
     <rdfs:label xml:lang="en-US">UIN</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#administrativeUnit">
+  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#AdministrativeUnit">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:label xml:lang="en-US">Administrative Unit</rdfs:label>
     <vitro:inClassGroup rdf:resource="http://vivoweb.org/ontology#vitroClassGrouporganizations"/>
