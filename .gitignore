@@ -12,6 +12,8 @@ rdf/auth/firsttime/test-user-model.owl
 utilities/solrtester/.work
 utilities/rdbmigration/.work
 
+**/.idea
 **/*.iml
 config/runtime.properties
 config/applicationSetup.n3
+**/overlays
