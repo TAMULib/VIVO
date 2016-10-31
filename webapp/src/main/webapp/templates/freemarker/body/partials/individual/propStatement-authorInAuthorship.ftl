@@ -1,6 +1,6 @@
 <#-- $This file is distributed under the terms of the license in /doc/license.txt$ -->
 
-<#-- Custom object property statement view for faux property "selected publications". See the PropertyConfig.n3 file for details.
+<#-- Custom object property statement view for faux property "selected publications". See the PropertyConfig.3 file for details. 
     
      This template must be self-contained and not rely on other variables set for the individual page, because it
      is also used to generate the property statement during a deletion.  
@@ -24,16 +24,44 @@
         $('span.hideThis').parent().remove();
     </script>
 <#else>
+
+	<#local bookTitleForChapterTAMU>
+		<#if statement.bookTitleForChapterTAMU??>
+			<#if statement.bookTitleForChapterTAMU?has_content>
+				${statement.bookTitleForChapterTAMU}
+			</#if>
+		<#else>
+
+		</#if>
+	</#local>	
+
+	<#local fullEditorListTAMU>
+		<#if statement.fullEditorListTAMU??>
+			<#if statement.fullEditorListTAMU?has_content>
+				${statement.fullEditorListTAMU}
+			</#if>
+		<#else>
+
+		</#if>
+	</#local>		
+	
+	
     <#local citationDetails>
         <#if statement.subclass??>
             <#if statement.subclass?contains("Article")>
                 <#if statement.journal??>
-                    <em>${statement.journal!}</em>.&nbsp;
-                    <#if statement.volume?? && statement.startPage?? && statement.endPage??>
-                        ${statement.volume!}:${statement.startPage!}-${statement.endPage!}.
+                    <em>${statement.journal!}</em>.
+                    <#if statement.volume?? && statement.issue?? && statement.startPage?? && statement.endPage??>
+                        <em>${statement.volume!}</em>(${statement.issue!}), ${statement.startPage!}-${statement.endPage!}.
+                    <#elseif statement.volume?? && statement.issue?? && statement.startPage??>
+                        <em>${statement.volume!}</em>(${statement.issue!}), ${statement.startPage!}.
+                    <#elseif statement.volume?? && statement.issue??>
+                        <em>${statement.volume!}</em>(${statement.issue!}),
+					<#elseif statement.volume?? && statement.startPage?? && statement.endPage??>
+                       <em>${statement.volume!}</em>, ${statement.startPage!}-${statement.endPage!}.							
                     <#elseif statement.volume?? && statement.startPage??>
-                        ${statement.volume!}:${statement.startPage!}.
-                    <#elseif statement.volume??>
+                       <em>${statement.volume!}</em>, ${statement.startPage!}.					
+					<#elseif statement.volume??>
                         ${statement.volume!}.
                     <#elseif statement.startPage?? && statement.endPage??>
                         ${statement.startPage!}-${statement.endPage!}.
@@ -49,8 +77,16 @@
                 <#elseif statement.partOf??>
                     <em>${statement.partOf!}</em>.
                 </#if>
-                <#if statement.editor??>
-                    ${i18n().editor_abbreviated}&nbsp;${statement.editor!}.&nbsp;
+                <#if statement.fullEditorListTAMU??>
+                    ${statement.fullEditorListTAMU!}&nbsp;(Eds.),
+                </#if>
+                <#if statement.bookTitleForChapterTAMU??> 
+                    ${statement.bookTitleForChapterTAMU!}.
+                </#if>				
+                <#if statement.startPage?? && statement.endPage??>
+                    (pp. ${statement.startPage!}-${statement.endPage!}).
+                <#elseif statement.startPage??>
+                    ${statement.startPage!}.
                 </#if>
                 <#if statement.locale?? && statement.publisher??>
                     ${statement.locale!}:&nbsp;${statement.publisher!}.
@@ -58,12 +94,7 @@
                     ${statement.locale!}.
                 <#elseif statement.publisher??>
                     ${statement.publisher!}.
-                </#if>
-                <#if statement.startPage?? && statement.endPage??>
-                    ${statement.startPage!}-${statement.endPage!}.
-                <#elseif statement.startPage??>
-                    ${statement.startPage!}.
-                </#if>
+                </#if>				
             <#elseif statement.subclass?contains("Book")>
                 <#if statement.volume?? && (statement.volume!?length > 0 )>
                     ${i18n().volume_abbreviated}&nbsp;${statement.volume!}.&nbsp;
@@ -110,21 +141,47 @@
             <a href="${profileUrl(statement.uri("authorship"))}" title="${i18n().missing_info_resource}">${i18n().missing_info_resource}</a>
         </#if>
     </#local>
-
-    <#local altMetric>
-        <#if altmetricEnabled??>
-            <#if statement.doi??>
-                <div data-badge-popover="right" data-badge-type="4" data-doi="${statement.doi}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
-            <#elseif statement.pimd??>
-                <div data-badge-popover="right" data-badge-type="4" data-pmid="${statement.pmid}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
-            <#elseif statement.isbn10??>
-                <div data-badge-popover="right" data-badge-type="4" data-isbn="${statement.isbn10}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
-            <#elseif statement.isbn13??>
-                <div data-badge-popover="right" data-badge-type="4" data-isbn="${statement.isbn13}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
-            </#if>
+	
+    <#local digitalObjectIdentifier>
+        <#if statement.digitalObjectIdentifier??>
+		    <#if statement.digitalObjectIdentifier?has_content>
+				<a class="full-text-link" href="http://dx.doi.org/${statement.digitalObjectIdentifier}">DOI</a>
+			</#if>
         </#if>
     </#local>
 
-    ${resourceTitle} ${citationDetails} <@dt.yearSpan "${statement.dateTime!}" /> ${altMetric}
+	<#local fullAuthorListTAMU>
+		<#if statement.fullAuthorListTAMU??>
+			<#if statement.fullAuthorListTAMU?has_content>
+				${statement.fullAuthorListTAMU}
+			</#if>
+		<#else>
+			
+		</#if>
+	</#local>
+
+    <#local pubMedID>
+        <#if statement.pubMedID??>
+		    <#if statement.pubMedID?has_content>
+				<a class="pubmed-link" href="https://www.ncbi.nlm.nih.gov/pubmed/${statement.pubMedID}">PubMed</a>
+			</#if>
+        </#if>
+    </#local>	
+
+	
+	<#local PlumX>
+		<span id="plumx_tamu_small">
+			<#-- Since we run this on development machines alot replacing the /vivo/ directory for plumx to match the uri -->
+			<a href="https://plu.mx/tamu/a/?repo_url=http://scholars.library.tamu.edu${profileUrl(statement.uri('infoResource'))}" class="plumx-plum-print-popup" data-popup="right" data-hide-when-empty="true" data-site="tamu" data-badge="false" data-size="small"></a>
+		</span>
+	</#local>
+
+	${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle?trim}${citationDetails?trim} 
+
+
+	<div>	
+		${digitalObjectIdentifier} ${pubMedID} ${PlumX} 
+	</div>
+
 </#if>
 </#macro>
