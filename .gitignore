@@ -17,3 +17,5 @@ utilities/rdbmigration/.work
 **/target
 
 **/overlays
+
+/installer/settings.xml
