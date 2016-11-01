@@ -14,6 +14,6 @@ utilities/rdbmigration/.work
 
 **/.idea
 **/*.iml
-config/runtime.properties
-config/applicationSetup.n3
+**/target
+
 **/overlays
