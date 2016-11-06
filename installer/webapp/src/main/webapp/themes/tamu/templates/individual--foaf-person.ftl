@@ -57,6 +57,9 @@
                 
         <!-- Websites -->
         <#include "individual-webpage.ftl">
+		
+        <!-- ORCiD -->
+        <#include "individual-orcid.ftl">			
     </section>
 
     <section id="individual-info" ${infoClass!} role="region"> 

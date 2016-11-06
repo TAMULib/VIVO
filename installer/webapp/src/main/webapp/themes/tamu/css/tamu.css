@@ -1982,3 +1982,13 @@ a.pubmed-link {
     padding: 0;
     background: #f4f4f4;
 }
+
+ul#individual-orcidid_id {
+    clear: both;
+    list-style: none;
+}
+a.orcid_link {
+   color: #a6ce39;
+   font-size: smaller;
+}
+
