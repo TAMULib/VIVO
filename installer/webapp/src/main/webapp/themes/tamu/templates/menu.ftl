@@ -10,7 +10,7 @@
             <li role="listitem"><a href="${item.url}" title="${item.linkText} ${i18n().menu_item}" <#if item.active> class="selected" </#if>>${item.linkText}</a></li>
         </#list>
     </ul>
-	<div id="self_edit"><button type="button" class="btn-self-edit" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="window.location.href='https://php.library.tamu.edu/vivo_editor/edit_user.php'">Update Profile</button></div>
+	<div id="self_edit"><button type="button" class="btn-self-edit" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="window.location.href='https://library.tamu.edu/vivo_editor/edit_user.php'">Update Profile</button></div>
 </nav>
 
 <div id="wrapper-content" role="main">        
