@@ -152,7 +152,7 @@
     ${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle} ${citationDetails}  
 
 	<div>	
-		${digitalObjectIdentifier} ${pubMedID} ${PlumX} 
+		<img src="../themes/tamu/images/blank.gif"> ${digitalObjectIdentifier} ${pubMedID} ${PlumX} 
 	</div>	
 	
 </#macro>

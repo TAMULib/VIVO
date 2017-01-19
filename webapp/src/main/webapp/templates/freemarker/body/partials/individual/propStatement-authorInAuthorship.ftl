@@ -196,10 +196,9 @@
 
 	${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle?trim}${citationDetails?trim} 
 
-
 	<div>	
-		${digitalObjectIdentifier} ${pubMedID} ${PlumX} 
-	</div>
+		<img src="../themes/tamu/images/blank.gif"> ${digitalObjectIdentifier} ${pubMedID} ${PlumX} 
+	</div>	
 
 </#if>
 </#macro>
