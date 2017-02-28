@@ -1,6 +1,6 @@
 <#-- $This file is distributed under the terms of the license in /doc/license.txt$ -->
 
-<#-- Custom object property statement view for faux property "selected publications". See the PropertyConfig.3 file for details. 
+<#-- Custom object property statement view for faux property "selected publications". See the PropertyConfig.n3 file for details.
     
      This template must be self-contained and not rely on other variables set for the individual page, because it
      is also used to generate the property statement during a deletion.  
@@ -50,7 +50,7 @@
         <#if statement.subclass??>
             <#if statement.subclass?contains("Article")>
                 <#if statement.journal??>
-                    <em>${statement.journal!}</em>.
+                    <em>${statement.journal!}</em>.&nbsp;
                     <#if statement.volume?? && statement.issue?? && statement.startPage?? && statement.endPage??>
                         <em>${statement.volume!}</em>(${statement.issue!}), ${statement.startPage!}-${statement.endPage!}.
                     <#elseif statement.volume?? && statement.issue?? && statement.startPage??>
@@ -112,7 +112,12 @@
                     ${statement.locale!}.
                 <#elseif statement.publisher??>
                     ${statement.publisher!}.
-                </#if>				
+                </#if>
+                <#if statement.startPage?? && statement.endPage??>
+                    ${statement.startPage!}-${statement.endPage!}.
+                <#elseif statement.startPage??>
+                    ${statement.startPage!}.
+                </#if>
             <#elseif statement.subclass?contains("Book")>
                 <#if statement.volume?? && (statement.volume!?length > 0 )>
                     ${i18n().volume_abbreviated}&nbsp;${statement.volume!}.&nbsp;
@@ -186,11 +191,24 @@
         </#if>
     </#local>	
 
-	
-	${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle?trim}${citationDetails?trim} 
+    <#local altMetric>
+        <#if altmetricEnabled??>
+            <#if statement.doi??>
+                <div data-badge-popover="right" data-badge-type="4" data-doi="${statement.doi}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            <#elseif statement.pimd??>
+                <div data-badge-popover="right" data-badge-type="4" data-pmid="${statement.pmid}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            <#elseif statement.isbn10??>
+                <div data-badge-popover="right" data-badge-type="4" data-isbn="${statement.isbn10}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            <#elseif statement.isbn13??>
+                <div data-badge-popover="right" data-badge-type="4" data-isbn="${statement.isbn13}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            </#if>
+        </#if>
+    </#local>
+
+	${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle?trim}${citationDetails?trim}
 
 	<div>	
-		<img src="../themes/tamu/images/blank.gif"> ${digitalObjectIdentifier} ${pubMedID} 
+		<img src="../themes/tamu/images/blank.gif"> ${digitalObjectIdentifier} ${pubMedID} ${altMetric}
 	</div>	
 
 </#if>

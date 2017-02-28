@@ -31,4 +31,3 @@
 </footer>
 
 <#include "scripts.ftl">
-<script type="text/javascript" src="//d39af2mgp1pqhg.cloudfront.net/widget-popup.js"></script>
