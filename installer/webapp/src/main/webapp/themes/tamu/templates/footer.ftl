@@ -11,7 +11,7 @@
             <#else>
                 ${copyright.text}
             </#if>
-             | <a class="terms" href="//scholars.library.tamu.edu/terms.html" title="${i18n().menu_termuse}">${i18n().menu_termuse}</a></small> | 
+             | <a class="terms" href="//scholars.library.tamu.edu/terms.php" title="${i18n().menu_termuse}">${i18n().menu_termuse}</a></small> | 
         </#if>
         ${i18n().menu_powered} <a class="powered-by-vivo" href="http://vivoweb.org" target="_blank" title="${i18n().menu_powered} VIVO"><strong>VIVO</strong></a>
         <#if user.hasRevisionInfoAccess>
@@ -23,7 +23,7 @@
         <ul id="footer-nav" role="list">
  <!--           <li role="listitem"><a href="${urls.about}" title="${i18n().menu_about}">${i18n().menu_about}</a></li> -->
  
- <li role="listitem"><a href="//scholars.library.tamu.edu/contact.html" title="${i18n().menu_contactus}">${i18n().menu_contactus}</a></li>
+ <li role="listitem"><a href="//scholars.library.tamu.edu/contact.php" title="${i18n().menu_contactus}">${i18n().menu_contactus}</a></li>
  
  <!--           
 	<#if urls.contact??>
