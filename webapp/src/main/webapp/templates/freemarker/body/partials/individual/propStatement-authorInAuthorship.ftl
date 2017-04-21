@@ -113,11 +113,6 @@
                 <#elseif statement.publisher??>
                     ${statement.publisher!}.
                 </#if>
-                <#if statement.startPage?? && statement.endPage??>
-                    ${statement.startPage!}-${statement.endPage!}.
-                <#elseif statement.startPage??>
-                    ${statement.startPage!}.
-                </#if>
             <#elseif statement.subclass?contains("Book")>
                 <#if statement.volume?? && (statement.volume!?length > 0 )>
                     ${i18n().volume_abbreviated}&nbsp;${statement.volume!}.&nbsp;
