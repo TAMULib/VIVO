@@ -186,18 +186,24 @@
         </#if>
     </#local>	
 
-	
-	<#local PlumX>
-		<span id="plumx_tamu_small">
-			<#-- Since we run this on development machines alot replacing the /vivo/ directory for plumx to match the uri -->
-			<a href="https://plu.mx/tamu/a/?repo_url=http://scholars.library.tamu.edu${profileUrl(statement.uri('infoResource'))}" class="plumx-plum-print-popup" data-popup="right" data-hide-when-empty="true" data-site="tamu" data-badge="false" data-size="small"></a>
-		</span>
-	</#local>
+    <#local altMetric>
+        <#if altmetricEnabled??>
+            <#if statement.doi??>
+                <div data-badge-popover="right" data-badge-type="4" data-doi="${statement.doi}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            <#elseif statement.pimd??>
+                <div data-badge-popover="right" data-badge-type="4" data-pmid="${statement.pmid}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            <#elseif statement.isbn10??>
+                <div data-badge-popover="right" data-badge-type="4" data-isbn="${statement.isbn10}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            <#elseif statement.isbn13??>
+                <div data-badge-popover="right" data-badge-type="4" data-isbn="${statement.isbn13}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            </#if>
+        </#if>
+    </#local>
 
-	${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle?trim}${citationDetails?trim} 
+	${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle?trim}${citationDetails?trim}
 
 	<div>	
-		<img src="../themes/tamu/images/blank.gif"> ${digitalObjectIdentifier} ${pubMedID} ${PlumX} 
+		<img src="../themes/tamu/images/blank.gif"> ${digitalObjectIdentifier} ${pubMedID} ${altMetric}
 	</div>	
 
 </#if>
