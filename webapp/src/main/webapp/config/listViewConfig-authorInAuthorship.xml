@@ -10,10 +10,12 @@
         PREFIX bibo: &lt;http://purl.org/ontology/bibo/&gt;
         PREFIX vitro: &lt;http://vitro.mannlib.cornell.edu/ns/vitro/0.7#&gt;
         PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
-
+        PREFIX tamu: &lt;http://vivo.library.tamu.edu/ontology/TAMU#&gt;  		
+		
         SELECT DISTINCT ?subclass
             ?authorship
-            ?infoResource ?infoResourceName
+            ?infoResource 
+			?infoResourceName
             ?dateTime
             ?journal
             ?volume
@@ -29,6 +31,12 @@
             ?partOf
             ?editor
             ?hideThis
+			?digitalObjectIdentifier
+			?fullAuthorListTAMU
+			?fullEditorListTAMU
+			?pubMedID 
+			?bookTitleForChapterTAMU
+			?issue
         WHERE
         {
             ?subject ?property ?authorship .
@@ -46,7 +54,13 @@
             OPTIONAL { ?infoResource bibo:isbn13 ?isbn13 }
             OPTIONAL { ?infoResource bibo:oclc ?oclc }
             OPTIONAL { ?infoResource core:placeOfPublication ?locale }
-            OPTIONAL
+            OPTIONAL { ?infoResource bibo:doi ?digitalObjectIdentifier }	
+            OPTIONAL { ?infoResource tamu:fullAuthorList ?fullAuthorListTAMU }
+			OPTIONAL { ?infoResource tamu:fullEditorList ?fullEditorListTAMU }
+            OPTIONAL { ?infoResource core:pmcid ?pubMedID }		
+			OPTIONAL { ?infoResource tamu:bookTitleForChapter ?bookTitleForChapterTAMU }			
+            OPTIONAL { ?infoResource bibo:issue ?issue }			
+			OPTIONAL
             {
                 ?infoResource bibo:reproducedIn ?appearsInObj .
                 ?appearsInObj rdfs:label ?appearsIn .
@@ -88,6 +102,8 @@
         PREFIX bibo: &lt;http://purl.org/ontology/bibo/&gt;
         PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
         PREFIX vitro: &lt;http://vitro.mannlib.cornell.edu/ns/vitro/0.7#&gt;
+        PREFIX tamu: &lt;http://vivo.library.tamu.edu/ontology/TAMU#&gt;  
+		
         CONSTRUCT
         {
             ?subject ?property ?authorship .
@@ -106,6 +122,12 @@
             ?infoResource bibo:isbn13 ?isbn13 .
             ?infoResource bibo:oclc ?oclc .
             ?infoResource core:placeOfPublication ?locale .
+            ?infoResource bibo:doi ?digitalObjectIdentifier .
+            ?infoResource tamu:fullAuthorList ?fullAuthorListTAMU .	
+			?infoResource tamu:fullEditorList ?fullEditorListTAMU .				
+			?infoResource core:pmcid ?pubMedID .	
+			?infoResource tamu:bookTitleForChapter ?bookTitleForChapterTAMU .				
+            ?infoResource bibo:issue ?issue .				
             ?infoResource bibo:reproducedIn ?appearsInObj .
             ?appearsInObj rdfs:label ?appearsIn .
 
@@ -234,6 +256,54 @@
                 ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
                 ?infoResource core:placeOfPublication ?locale .
             }
+			UNION
+            {
+                ?subject ?property ?authorship .
+                ?authorship a core:Authorship .
+                ?authorship core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
+                ?infoResource bibo:doi ?digitalObjectIdentifier .
+            }
+			UNION
+            {
+                ?subject ?property ?authorship .
+                ?authorship a core:Authorship .
+                ?authorship core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
+                ?infoResource tamu:fullAuthorList ?fullAuthorListTAMU .
+            }
+			UNION
+            {
+                ?subject ?property ?authorship .
+                ?authorship a core:Authorship .
+                ?authorship core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
+                ?infoResource tamu:fullEditorList ?fullEditorListTAMU .
+            }			
+			UNION
+            {
+                ?subject ?property ?authorship .
+                ?authorship a core:Authorship .
+                ?authorship core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
+                ?infoResource core:pmcid ?pubMedID .
+            }
+			UNION
+            {
+                ?subject ?property ?authorship .
+                ?authorship a core:Authorship .
+                ?authorship core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
+                ?infoResource tamu:bookTitleForChapter ?bookTitleForChapterTAMU .
+            }			
+            UNION
+            {
+                ?subject ?property ?authorship .
+                ?authorship a core:Authorship .
+                ?authorship core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
+                ?infoResource bibo:issue ?issue .
+            }			
             UNION
             {
                 ?subject ?property ?authorship .

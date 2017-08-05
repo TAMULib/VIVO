@@ -15,6 +15,53 @@
      next statement -->
 <#macro showEditorship statement>
 <#local citationDetails>
+
+	<#local bookTitleForChapterTAMU>
+		<#if statement.bookTitleForChapterTAMU??>
+			<#if statement.bookTitleForChapterTAMU?has_content>
+				${statement.bookTitleForChapterTAMU}.
+			</#if>
+		<#else>
+
+		</#if>
+	</#local>	
+
+	<#local fullEditorListTAMU>
+		<#if statement.fullEditorListTAMU??>
+			<#if statement.fullEditorListTAMU?has_content>
+				${statement.fullEditorListTAMU}
+			</#if>
+		<#else>
+
+		</#if>
+	</#local>	
+
+    <#local digitalObjectIdentifier>
+        <#if statement.digitalObjectIdentifier??>
+		    <#if statement.digitalObjectIdentifier?has_content>
+				<a class="full-text-link" href="http://dx.doi.org/${statement.digitalObjectIdentifier}">DOI</a>
+			</#if>
+        </#if>
+    </#local>
+
+	<#local fullAuthorListTAMU>
+		<#if statement.fullAuthorListTAMU??>
+			<#if statement.fullAuthorListTAMU?has_content>
+				${statement.fullAuthorListTAMU}
+			</#if>
+		<#else>
+			
+		</#if>
+	</#local>
+
+    <#local pubMedID>
+        <#if statement.pubMedID??>
+		    <#if statement.pubMedID?has_content>
+				<a class="pubmed-link" href="https://www.ncbi.nlm.nih.gov/pubmed/${statement.pubMedID}">PubMed</a>
+			</#if>
+        </#if>
+    </#local>	
+	
     <#if statement.subclass??>
         <#if statement.subclass?contains("Article")>
             <#if statement.journal??>
@@ -52,6 +99,9 @@
                 ${statement.startPage!}.
             </#if>
         <#elseif statement.subclass?contains("Book")>
+			<#if statement.fullEditorListTAMU??>
+				${statement.fullEditorListTAMU!}&nbsp;(Eds.),
+			</#if>
             <#if statement.volume?? && (statement.volume!?length > 0 )>
                 ${i18n().volume_abbreviated}&nbsp;${statement.volume!}.&nbsp;
             </#if>
@@ -82,7 +132,7 @@
     <#local resourceTitle>
         <#if statement.infoResource??>
             <#if citationDetails?has_content>
-                <a href="${profileUrl(statement.uri("infoResource"))}"  title="${i18n().resource_name}">${statement.infoResourceName}</a>.&nbsp;
+                <a href="${profileUrl(statement.uri("infoResource"))}"  title="${i18n().resource_name}">${statement.infoResourceName}</a>
             <#else>
                 <a href="${profileUrl(statement.uri("infoResource"))}"  title="${i18n().resource_name}">${statement.infoResourceName}</a>
             </#if>
@@ -92,5 +142,10 @@
         </#if>
     </#local>
 
-    ${resourceTitle} ${citationDetails} <@dt.yearSpan "${statement.dateTime!}" /> 
+    ${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle} ${citationDetails}  
+
+	<div>	
+		<img src="../themes/tamu/images/blank.gif"> ${digitalObjectIdentifier} ${pubMedID} 
+	</div>	
+	
 </#macro>
