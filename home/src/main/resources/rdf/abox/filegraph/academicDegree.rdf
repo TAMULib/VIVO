@@ -772,5 +772,49 @@
     <rdfs:label xml:lang="en-US">H.S.C. Higher School Certificate</rdfs:label>
     <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
   </rdf:Description>
-  
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n7321">
+    <core:abbreviation>M.P.A.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">M.P.A. Master of Professional Accounting</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n671">
+    <core:abbreviation>S.M.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">S.M. Scientiae Magister</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n9702">
+    <core:abbreviation>M.Tech.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">M.Tech. Master of Technology</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n7372">
+    <core:abbreviation>E.M.B.A.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">E.M.B.A. Executive Master of Business Administration</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n3685">
+    <core:abbreviation>B.T.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">B.T. Bachelor of Technology</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n15329">
+    <core:abbreviation>D.E.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">D.E. Diploma in Engineering</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n4835">
+    <core:abbreviation>A.L.M.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">A.L.M. Magistri in Artibus Liberalibus Studiorum Prolatorum</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n927">
+    <core:abbreviation>A.M.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">A.M. Artium Magister</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n1094">
+    <core:abbreviation>B.Com.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">B.Com. Bachelor of Commerce</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>  
 </rdf:RDF>
