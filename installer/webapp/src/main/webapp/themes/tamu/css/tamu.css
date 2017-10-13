@@ -27,7 +27,7 @@ body {
     margin: 0 auto;
 }
 body {   
-   	background: url(../images/header-background.png) center 0 no-repeat, url(../images/base-background-texture.gif); 
+   	background: #fff url(../images/header-background.png) center 0 no-repeat; 
 }
 a:hover {
     text-decoration: underline;
@@ -466,7 +466,7 @@ tr.editformcell td select {
 #branding {
     position: relative;
     width: 970px;
-    height: 114px;
+   height: 132px; 
     margin: 0 auto;
 }
 /* BRANDING ------>  */
@@ -483,12 +483,79 @@ h1.vivo-logo a {
     width: 500px;
     height: 100px;
 }
+
+
+#branding a:hover, #branding a {
+    text-decoration: none;
+}
+
+
+/* ------------------------------------------------->  */
+/* Tina additions -------------->  */
+/* ------------------------------------------------->  */
+.global-nav{
+   /* background: #3c0000;*/
+}
+
+
+.lib-link a {
+    color: #fff;
+    display: block;
+    padding: 5px 0 5px 55px;
+    margin: 10px 0;
+    font-size: 0.8rem;
+    background: url(../images/tam.png) no-repeat;
+}
+
+
+.nav-wrapper {
+   /* background: #ededed;
+    box-shadow: 0 1px 1px rgba(0,0,0,.3);*/
+}
+
+
+.siteTitle{
+    width:100%; 
+    margin: 40px 0 30px 0; 
+    padding:0px; 
+    font-weight: 400;
+ 
+    
+}
+
+
+
+.siteTitle,
+.siteTitle a {
+    color: #ffffff;
+    font-size: 1.5em;
+
+}
+
+
+
+.siteTitle{
+    padding: 0;
+}
+
+.site-title {
+   /* background: #500000;
+    border-top: 1px solid #8d8d8d;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black; */
+}
+
+
+
+
+
 /* HEADER NAV------>  */
 ul#header-nav {
     float: right;
     list-style: none;
-    height: 30px;
-    padding-top: 10px;
+    /*height: 30px;
+    padding-top: 10px;*/
     margin-right: 13px;
 }
 ul#header-nav li {
@@ -531,7 +598,7 @@ ul#header-nav a[title="Index"] { display: none; }
     position: absolute;
     width: 396px;
     height: 38px;
-    top: 40px;
+    top: 60px;
     right: 10px;
     padding-top: 5px;
 }
@@ -568,35 +635,41 @@ input.search-vivo {
 ul#main-nav {
     display: block;
     width: 968px;
-    height: 46px;
+     height: 50px;
     border: none;
     background-color: transparent;
-    margin: 0 auto;
+    margin: 0 auto 0 auto;
     list-style: none;
     font-size: 1em;
     color: #ffffff;
 }
 #main-nav li {
     float: left;
-    line-height: 46px;
+    line-height: 64px;
+    margin-top:-4px;
     /* background: url(../images/separator-main-nav.jpg) right -2px no-repeat; */
 }
 #main-nav li a {
     padding-left: 16px;
     padding-right: 16px;
     display: block;
-    color: #ffffff;
+    color: #4D4D4D;
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    font-style: normal;
     text-decoration: none;
 }
-#main-nav li a:hover {
+/* #main-nav li a:hover {
     color: #ffffff;
     text-decoration: underline;
-}
-#main-nav li a.selected {
+}*/
+#main-nav li a:hover , #main-nav li a.selected {
     color: #ffffff;
     /* background: url(../images/selected-main-nav.jpg) left -1px no-repeat; */
-    text-decoration: underline;
+    background: #4D4D4D;
+    text-decoration: none;
     margin-left: 0px;
+    display:block;
 }
 /* WRAPPER CONTENT------>  */
 #wrapper-content {
@@ -1955,7 +2028,7 @@ span.subclassExpandMinus {
 	position: relative;
 	float: right;
 	bottom: 47px;
-    right: 12%;
+    right: 20%;
 }
 #plumx_tamu_small {
 	position: absolute;
@@ -1991,4 +2064,3 @@ a.orcid_link {
    color: #a6ce39;
    font-size: smaller;
 }
-

@@ -1,12 +1,11 @@
 <#-- $This file is distributed under the terms of the license in /doc/license.txt$ -->
 
-<header id="branding" role="banner">
-    <h1 class="vivo-logo"><img src="${urls.home?replace("/vivo", "/vivo/")}themes/tamu/images/VIVO-logo.png" alt="" usemap="#Map" />
-		<map name="Map" id="Map">
-			<area alt="Library Home Page" title="" href="//library.tamu.edu" shape="rect" coords="6,7,235,102" />
-			<area alt="Scholars @ TAMU" title="" href="//scholars.library.tamu.edu" shape="rect" coords="245,6,471,103" />
-		</map>
-	</h1>
+<header id="branding" class="global-nav" role="banner">
+	<div class="lib-link"> <a href="//library.tamu.edu/index.html">Texas A&amp;M University Libraries</a></div>
+	<div class="site-title">
+		<div class="siteTitle"><a href="http://scholars.library.tamu.edu">Scholars@TAMU</a>
+		</div>
+	</div>
     <#-- Since we are using a graphic text for the tagline, we won't render ${siteTagline}
     <#if siteTagline?has_content>
         <em>${siteTagline}</em>
