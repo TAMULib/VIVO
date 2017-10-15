@@ -12,7 +12,7 @@
     </#if>-->
 
     <nav role="navigation">
-        <ul id="header-nav" role="list">
+		<ul id="header-nav" class="nav-wrapper" role="list">	
             <#include "languageSelector.ftl">
             <li role="listitem"><a href="${urls.index}" title="${i18n().identity_index}">${i18n().identity_index}</a></li>
             <#if user.loggedIn>
