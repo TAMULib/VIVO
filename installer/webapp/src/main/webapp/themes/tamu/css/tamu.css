@@ -516,8 +516,8 @@ h1.vivo-logo a {
 
 .siteTitle{
     width:100%; 
-    margin: 40px 0 30px 0; 
-    padding:0px; 
+    margin: 0px 0px 0px 0px; 
+    padding:15px 0px 0px 0px; 
     font-weight: 400;
  
     
@@ -530,12 +530,6 @@ h1.vivo-logo a {
     color: #ffffff;
     font-size: 1.5em;
 
-}
-
-
-
-.siteTitle{
-    padding: 0;
 }
 
 .site-title {

@@ -2,10 +2,10 @@
 
 <header id="branding" class="global-nav" role="banner">
 	<div class="lib-link"> <a href="//library.tamu.edu/index.html">Texas A&amp;M University Libraries</a></div>
-	<div class="site-title">
-		<div class="siteTitle"><a href="http://scholars.library.tamu.edu">Scholars@TAMU</a>
-		</div>
-	</div>
+<div class="siteTitle">
+<a href="http://scholars.library.tamu.edu/">
+<img alt="Scholars@TAMU" class="img-responsive" src="/vivo/themes/tamu/images/scholars_logo_white.png"></a>
+</div>
     <#-- Since we are using a graphic text for the tagline, we won't render ${siteTagline}
     <#if siteTagline?has_content>
         <em>${siteTagline}</em>
