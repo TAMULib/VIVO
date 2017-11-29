@@ -816,5 +816,10 @@
     <core:abbreviation>B.Com.</core:abbreviation>
     <rdfs:label xml:lang="en-US">B.Com. Bachelor of Commerce</rdfs:label>
     <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
-  </rdf:Description>  
+  </rdf:Description> 
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n185">
+    <core:abbreviation>M.P.P.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">M.P.P. Master of Public Policy</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>    
 </rdf:RDF>

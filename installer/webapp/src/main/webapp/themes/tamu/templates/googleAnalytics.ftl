@@ -13,3 +13,28 @@ Please see documentation at https://confluence.cornell.edu/display/ennsrd/Google
   ga('send', 'pageview');
 
 </script>
+
+<script>
+$.getJSON('https://php.library.tamu.edu/utilities/vivo_page_info.php', function(data) {
+	var client_ip = data['client_ip'];
+	var client_referrer = data['referer'];
+	var display_title;
+
+		if ($(".person").length > 0) {
+			display_title = 'person';
+		} else { 
+			display_title = $(".display-title")[0].innerHTML;
+		}
+	
+	 $.ajax({
+	  url: '//scholars.library.tamu.edu/vivo_editor/insert_stat.php',
+	  method: 'GET',
+	  data: {
+		  client_ip: client_ip, 
+		  client_referrer: client_referrer,
+		  display_title: display_title
+	  }
+	});
+	
+});
+</script> 
