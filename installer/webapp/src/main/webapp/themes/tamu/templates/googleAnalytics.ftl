@@ -11,7 +11,6 @@ Please see documentation at https://confluence.cornell.edu/display/ennsrd/Google
 
   ga('create', 'UA-54069646-2', 'auto');
   ga('send', 'pageview');
-
 </script>
 
 <script>
@@ -19,11 +18,15 @@ $.getJSON('https://php.library.tamu.edu/utilities/vivo_page_info.php', function(
 	var client_ip = data['client_ip'];
 	var client_referrer = data['referer'];
 	var display_title;
-
+	
 		if ($(".person").length > 0) {
 			display_title = 'person';
 		} else { 
-			display_title = $(".display-title")[0].innerHTML;
+			try {
+				display_title = $(".display-title")[0].innerHTML;
+			} catch(err) {
+				display_title = "";
+			}
 		}
 	
 	 $.ajax({
