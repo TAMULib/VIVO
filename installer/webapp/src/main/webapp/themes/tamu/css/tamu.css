@@ -1997,13 +1997,14 @@ span.subclassExpandMinus {
     background:url(../images/green_minus_sign.gif) right center no-repeat;
     min-height:18px;
 }
+
+.self_edit {
+	float: right;
+	margin-top: 12px;
+	margin-right: 5%;
+}
+
 .btn-self-edit {
-    color: #333;
-    background-color: #fff;
-    border-color: #ccc;
-    border-radius: 0px;
-    margin-top: 8px;
-	display: inline-block;
     padding: 6px 12px;
     margin-bottom: 0;
     font-size: 14px;
@@ -2013,21 +2014,18 @@ span.subclassExpandMinus {
     white-space: nowrap;
     vertical-align: middle;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
     background-image: none;
     border: 1px solid transparent;
+    border-radius: 4px;
+	background: #4D4D4D;
+	color: #ffffff;
 }
-#self_edit  {
-	position: relative;
-	float: right;
-	bottom: 47px;
-    right: 20%;
-}
+
 #plumx_tamu_small {
 	position: absolute;
 	margin-top: -20px;
 }
+
 #plumx_tamu {
 
 }

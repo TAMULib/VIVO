@@ -3,18 +3,18 @@
 </header>
 
 <#include "developer.ftl">
-
+<div>
 <nav role="navigation">
+	<div class="self_edit" id="self_edit">
+		<button aria-pressed="false" autocomplete="off" class="btn-self-edit" data-toggle="button" onclick="window.location.href='https://scholars.library.tamu.edu/vivo_editor/edit_people.php'" type="button">Update Profile</button>
+	</div>
 	<ul id="main-nav" class="nav-wrapper" role="list">
         <#list menu.items as item>
             <li role="listitem"><a href="${item.url}" title="${item.linkText} ${i18n().menu_item}" <#if item.active> class="selected" </#if>>${item.linkText}</a></li>
         </#list>
     </ul>
-	<div id="self_edit">
-		<button type="button" class="btn-self-edit" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="window.location.href=&#39;https://scholars.library.tamu.edu/vivo_editor/edit_people.php&#39;">Update Profile</button>
-	</div>
 </nav>
-
+</div>
 <div id="wrapper-content" role="main">
     <#if flash?has_content>
         <#if flash?starts_with(i18n().menu_welcomestart) >
