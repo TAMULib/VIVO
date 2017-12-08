@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="generator" content="VIVO ${version.label}" />
 
-<title>${(title?html?keep_after(","))} ${(title?html?keep_before(","))} - Texas A&M University (TAMU) Scholar</title>
+<title>${(title?html)!siteName!}</title>
 
 <#-- VIVO OpenSocial Extension by UCSF -->
 <#if openSocial??>
@@ -26,7 +26,7 @@
 <#if metaTags??>
     ${metaTags.list()}
 </#if>
-<meta name="description" content="${(title?html?keep_after(","))} ${(title?html?keep_before(","))} - Texas A&M University (TAMU) Scholar profile, educations, publications, research, recent courses, and student works">
+
 <!--[if (gte IE 6)&(lte IE 8)]>
 <script type="text/javascript" src="${urls.base}/js/selectivizr.js"></script>
 <![endif]-->
