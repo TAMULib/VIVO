@@ -150,9 +150,9 @@
     <#local resourceTitle>
         <#if statement.infoResource??>
             <#if citationDetails?has_content>
-                <a href="${profileUrl(statement.uri("infoResource"))}"  title="${i18n().resource_name}">${statement.infoResourceName}</a>.&nbsp;
+                <a href="${profileUrl(statement.uri("infoResource"))}"  title="${i18n().resource_name}">${statement.infoResourceName?remove_ending(".")}</a>.&nbsp;
             <#else>
-                <a href="${profileUrl(statement.uri("infoResource"))}"  title="${i18n().resource_name}">${statement.infoResourceName}</a>
+                <a href="${profileUrl(statement.uri("infoResource"))}"  title="${i18n().resource_name}">${statement.infoResourceName?remove_ending(".")}</a>
             </#if>
         <#else>
             <#-- This shouldn't happen, but we must provide for it -->
