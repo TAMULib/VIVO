@@ -7,13 +7,13 @@
 
     <groupId>org.vivoweb</groupId>
     <artifactId>vivo-api</artifactId>
-    <version>1.9.2</version>
+    <version>1.9.3</version>
     <packaging>jar</packaging>
 
     <parent>
         <groupId>org.vivoweb</groupId>
         <artifactId>vivo-project</artifactId>
-        <version>1.9.2</version>
+        <version>1.9.3</version>
         <relativePath>..</relativePath>
     </parent>
 
@@ -67,9 +67,9 @@
             <version>1.0</version>
         </dependency>
         <dependency>
-            <groupId>org.vivoweb.dependencies</groupId>
+            <groupId>org.vivoweb</groupId>
             <artifactId>orcid-api-client</artifactId>
-            <version>0.2</version>
+            <version>0.6.0-hc425</version>
         </dependency>
 
         <dependency>
