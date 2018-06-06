@@ -1,4 +1,4 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 
 package edu.cornell.mannlib.vitro.webapp.visualization.coprincipalinvestigator;
 
@@ -111,14 +111,11 @@ public class CoPIVisCodeGenerator {
 			try {
 				minGrantYear = Integer.parseInt(Collections
 						.min(investigatedYears));
-			} catch (NoSuchElementException e1) {
+			} catch (NoSuchElementException | NumberFormatException e1) {
 				log.debug("vis: " + e1.getMessage() + " error occurred for "
 						+ yearToUniqueCoPIs.toString());
-			} catch (NumberFormatException e2) {
-				log.debug("vis: " + e2.getMessage() + " error occurred for "
-						+ yearToUniqueCoPIs.toString());
 			}
-		}
+        }
 
 		int minGrantYearConsidered = 0;
 

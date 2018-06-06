@@ -1,4 +1,4 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 
 package edu.cornell.mannlib.vitro.webapp.controller.visualization;
 
@@ -6,15 +6,17 @@ import java.io.IOException;
 import java.util.Map;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.hp.hpl.jena.query.Dataset;
-import com.hp.hpl.jena.query.Syntax;
-import com.hp.hpl.jena.rdf.model.Model;
+import org.apache.jena.query.Dataset;
+import org.apache.jena.query.Syntax;
+import org.apache.jena.rdf.model.Model;
 
 import edu.cornell.mannlib.vitro.webapp.controller.VitroHttpServlet;
 import edu.cornell.mannlib.vitro.webapp.controller.VitroRequest;
@@ -30,6 +32,7 @@ import edu.cornell.mannlib.vitro.webapp.visualization.visutils.VisualizationRequ
  * @author cdtank
  */
 @SuppressWarnings("serial")
+@WebServlet(name = "DataVisualizationController", urlPatterns = {"/visualizationData"})
 public class DataVisualizationController extends VitroHttpServlet {
 
 	public static final String URL_ENCODING_SCHEME = "UTF-8";
@@ -90,10 +93,8 @@ public class DataVisualizationController extends VitroHttpServlet {
 						   response,
 						   log);
 			}
-			
-            return;
-            
-    	} else {
+
+        } else {
     		
     		UtilityFunctions.handleMalformedParameters(
     								"Inappropriate query parameters were submitted.",
@@ -126,18 +127,18 @@ public class DataVisualizationController extends VitroHttpServlet {
 		Dataset dataset = setupJENADataSource(vitroRequest);
         
 		if (dataset != null && visRequestHandler != null) {
-				return visRequestHandler.generateDataVisualization(vitroRequest, 
-														log, 
-														dataset);
-        	
-        } else {
-        	
-    		String errorMessage = "Data Model Empty &/or Inappropriate " 
-    									+ "query parameters were submitted. ";
-    		
-    		throw new MalformedQueryParametersException(errorMessage);
-			
+			try {
+				return visRequestHandler.generateDataVisualization(vitroRequest,
+						log,
+						dataset);
+			} catch (JsonProcessingException e) {
+			}
         }
+        	
+		String errorMessage = "Data Model Empty &/or Inappropriate "
+									+ "query parameters were submitted. ";
+
+		throw new MalformedQueryParametersException(errorMessage);
 	}
 
 	private VisualizationRequestHandler getVisualizationRequestHandler(

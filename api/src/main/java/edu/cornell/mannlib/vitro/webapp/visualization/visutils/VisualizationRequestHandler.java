@@ -1,11 +1,12 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 package edu.cornell.mannlib.vitro.webapp.visualization.visutils;
 
 import java.util.Map;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.apache.commons.logging.Log;
 
-import com.hp.hpl.jena.query.Dataset;
+import org.apache.jena.query.Dataset;
 
 import edu.cornell.mannlib.vitro.webapp.auth.requestedAction.AuthorizationRequest;
 import edu.cornell.mannlib.vitro.webapp.controller.VitroRequest;
@@ -38,10 +39,10 @@ public interface VisualizationRequestHandler {
 	
 	Object generateAjaxVisualization(VitroRequest vitroRequest,
 								     Log log, 
-								     Dataset dataSource) throws MalformedQueryParametersException;
+								     Dataset dataSource) throws MalformedQueryParametersException, JsonProcessingException;
 	
 	Map<String, String> generateDataVisualization(VitroRequest vitroRequest,
 								   	 Log log, 
-								   	 Dataset dataset) throws MalformedQueryParametersException;
+								   	 Dataset dataset) throws MalformedQueryParametersException, JsonProcessingException;
 	
 }

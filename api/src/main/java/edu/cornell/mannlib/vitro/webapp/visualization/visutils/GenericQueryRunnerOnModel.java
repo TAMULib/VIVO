@@ -1,4 +1,4 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 
 package edu.cornell.mannlib.vitro.webapp.visualization.visutils;
 
@@ -7,13 +7,13 @@ import java.util.Map;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.hp.hpl.jena.query.Query;
-import com.hp.hpl.jena.query.QueryExecution;
-import com.hp.hpl.jena.query.QueryExecutionFactory;
-import com.hp.hpl.jena.query.QueryFactory;
-import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.query.Syntax;
-import com.hp.hpl.jena.rdf.model.Model;
+import org.apache.jena.query.Query;
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QueryFactory;
+import org.apache.jena.query.ResultSet;
+import org.apache.jena.query.Syntax;
+import org.apache.jena.rdf.model.Model;
 
 import edu.cornell.mannlib.vitro.webapp.visualization.constants.QueryConstants;
 import edu.cornell.mannlib.vitro.webapp.visualization.exceptions.MalformedQueryParametersException;
@@ -73,12 +73,11 @@ public class GenericQueryRunnerOnModel implements QueryRunner<ResultSet> {
 		for (Map.Entry<String, String> currentfieldLabelToOutputFieldLabel 
 				: this.fieldLabelToOutputFieldLabel.entrySet()) {
 			
-			sparqlQuery.append("\t(str(?" + currentfieldLabelToOutputFieldLabel.getKey() + ") as ?" 
-									+ currentfieldLabelToOutputFieldLabel.getValue() + ")\n");
+			sparqlQuery.append("\t(str(?").append(currentfieldLabelToOutputFieldLabel.getKey()).append(") as ?").append(currentfieldLabelToOutputFieldLabel.getValue()).append(")\n");
 			
 		}
 		
-		sparqlQuery.append("\n" + this.aggregationRules + "\n");
+		sparqlQuery.append("\n").append(this.aggregationRules).append("\n");
 		
 		sparqlQuery.append("WHERE {\n");
 		

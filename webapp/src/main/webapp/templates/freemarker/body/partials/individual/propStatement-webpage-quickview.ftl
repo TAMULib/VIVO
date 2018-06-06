@@ -1,4 +1,4 @@
-<#-- $This file is distributed under the terms of the license in /doc/license.txt$ -->
+<#-- $This file is distributed under the terms of the license in LICENSE$ -->
 
 <#-- "Quick view" template for core:webpage 
     
@@ -70,7 +70,7 @@
 
 <script>
 
-$('img#img-${identifier}').load(function(){
+$('img#img-${identifier}').on("load", function(){
     $('span#span-${identifier}').hide();
     $('img#img-${identifier}').fadeIn();
     $('img#icon-${identifier}').fadeIn();

@@ -1,4 +1,4 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 
 var projectHasParticipantUtils = {
         
@@ -27,7 +27,7 @@ var projectHasParticipantUtils = {
     this.personUri = $('#personUri');
 
     // may not need this
-    this.firstName.attr('disabled', '');
+    this.firstName.attr('disabled', false);
     
     },
     

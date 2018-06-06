@@ -1,4 +1,4 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 
 var addAuthorForm = {
 
@@ -222,7 +222,7 @@ var addAuthorForm = {
         var urlString;
         var authType;
         
-        if  ( this.personRadio.attr("checked") ) {
+        if  ( this.personRadio.prop("checked") ) {
             $acField = this.lastNameField;
             urlString = addAuthorForm.acUrl + addAuthorForm.personUrl + addAuthorForm.tokenize;
             authType = "person";
@@ -694,7 +694,7 @@ var addAuthorForm = {
                                 $(this).show();
                             });
                             addAuthorForm.showFormButton.removeClass('disabledSubmit');
-                            addAuthorForm.showFormButton.attr('disabled','');
+                            addAuthorForm.showFormButton.attr('disabled',false);
                         }
                         else {
                             $('img#indicatorTwo').fadeOut(100, function() {
@@ -705,7 +705,7 @@ var addAuthorForm = {
                                  $(this).show();
                              });
                              addAuthorForm.submit.removeClass('disabledSubmit');
-                             addAuthorForm.submit.attr('disabled','');
+                             addAuthorForm.submit.attr('disabled',false);
                         }
                     });
 
@@ -771,7 +771,7 @@ var addAuthorForm = {
 	        this.orgSection.show();
 			this.orgNameWrapper.show();
 	        // person fields
-            this.personRadio.attr('checked', false);  // needed for reset when cancel button is clicked
+            this.personRadio.prop('checked', false);  // needed for reset when cancel button is clicked
 	        this.acSelector.removeClass("acSelector");
 	        this.acSelector.removeClass(this.acHelpTextClass);
 	        this.selectedAuthor.removeClass("acSelection");
@@ -786,13 +786,13 @@ var addAuthorForm = {
 	        this.middleNameField.val('');
 	        this.lastNameField.val('');
 	        // org fields
-	        this.orgRadio.attr('checked', true); // needed for reset when cancel button is clicked
+	        this.orgRadio.prop('checked', true); // needed for reset when cancel button is clicked
 	        this.orgName.addClass("acSelector");
 	        this.selectedOrg.addClass("acSelection");
 	        this.selectedOrgName.addClass("acSelectionInfo");
 	        this.orgLink.addClass("verifyMatch");
-	        this.orgName.attr('disabled', '');
-	        this.orgUriField.attr('disabled', '');
+	        this.orgName.attr('disabled', false);
+	        this.orgUriField.attr('disabled', false);
 
 	        addAuthorForm.addAcHelpText(this.orgName);
 	        addAuthorForm.initAutocomplete();
@@ -802,7 +802,7 @@ var addAuthorForm = {
 	        this.orgSection.hide();
 	        this.personSection.show();
 	        // org fields
-	        this.orgRadio.attr('checked', false);  // needed for reset when cancel button is clicked
+	        this.orgRadio.prop('checked', false);  // needed for reset when cancel button is clicked
 	        this.orgName.removeClass("acSelector");
 	        this.orgName.removeClass(this.acHelpTextClass);
 	        this.selectedOrg.removeClass("acSelection");
@@ -814,14 +814,14 @@ var addAuthorForm = {
 	        this.orgUriField.val('');
             // person fields
             this.acSelector.addClass("acSelector");
-            this.personRadio.attr('checked', true);  // needed for reset when cancel button is clicked
+            this.personRadio.prop('checked', true);  // needed for reset when cancel button is clicked
 	        this.selectedAuthor.addClass("acSelection");
 	        this.selectedAuthorName.addClass("acSelectionInfo");
 	        this.personLink.addClass("verifyMatch");
-	        this.acSelector.attr('disabled', '');
-	        this.firstNameField.attr('disabled', '');
-	        this.middleNameField.attr('disabled', '');
-	        this.lastNameField.attr('disabled', '');
+	        this.acSelector.attr('disabled', false);
+	        this.firstNameField.attr('disabled', false);
+	        this.middleNameField.attr('disabled', false);
+	        this.lastNameField.attr('disabled', false);
 
 	        addAuthorForm.addAcHelpText(this.acSelector);
 	        addAuthorForm.initAutocomplete();

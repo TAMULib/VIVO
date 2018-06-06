@@ -1,10 +1,10 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 
 package edu.cornell.mannlib.vitro.webapp.searchindex.extensions;
 
 import static edu.cornell.mannlib.vitro.webapp.search.VitroSearchTermNames.ALLTEXT;
 import static edu.cornell.mannlib.vitro.webapp.search.VitroSearchTermNames.ALLTEXTUNSTEMMED;
-import static edu.cornell.mannlib.vitro.webapp.utils.sparql.SelectQueryRunner.createQueryContext;
+import static edu.cornell.mannlib.vitro.webapp.utils.sparqlrunner.SparqlQueryRunner.createSelectQueryContext;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -16,9 +16,9 @@ import java.util.Set;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.hp.hpl.jena.rdf.model.ResourceFactory;
-import com.hp.hpl.jena.rdf.model.Statement;
-import com.hp.hpl.jena.vocabulary.RDFS;
+import org.apache.jena.rdf.model.ResourceFactory;
+import org.apache.jena.rdf.model.Statement;
+import org.apache.jena.vocabulary.RDFS;
 
 import edu.cornell.mannlib.vitro.webapp.beans.Individual;
 import edu.cornell.mannlib.vitro.webapp.beans.VClass;
@@ -104,31 +104,19 @@ public class LabelsAcrossContextNodes implements IndexingUriFinder,
 		this.rdfService = models.getRDFService();
 	}
 
-	@Property(uri = "http://www.w3.org/2000/01/rdf-schema#label")
+	@Property(uri = "http://www.w3.org/2000/01/rdf-schema#label", maxOccurs = 1)
 	public void setLabel(String l) {
 		label = l;
 	}
 
-	@Property(uri = "http://vitro.mannlib.cornell.edu/ns/vitro/ApplicationSetup#hasIncomingProperty")
+	@Property(uri = "http://vitro.mannlib.cornell.edu/ns/vitro/ApplicationSetup#hasIncomingProperty", minOccurs = 1, maxOccurs = 1)
 	public void setIncomingProperty(String incomingUri) {
-		if (incomingPropertyUri == null) {
-			incomingPropertyUri = incomingUri;
-		} else {
-			throw new IllegalStateException(
-					"Configuration includes multiple declarations for hasIncomingProperty: "
-							+ incomingPropertyUri + ", and " + incomingUri);
-		}
+		incomingPropertyUri = incomingUri;
 	}
 
-	@Property(uri = "http://vitro.mannlib.cornell.edu/ns/vitro/ApplicationSetup#hasOutgoingProperty")
+	@Property(uri = "http://vitro.mannlib.cornell.edu/ns/vitro/ApplicationSetup#hasOutgoingProperty", minOccurs = 1, maxOccurs = 1)
 	public void setOutgoingProperty(String outgoingUri) {
-		if (outgoingPropertyUri == null) {
-			outgoingPropertyUri = outgoingUri;
-		} else {
-			throw new IllegalStateException(
-					"Configuration includes multiple declarations for hasOutgoingProperty: "
-							+ outgoingPropertyUri + ", and " + outgoingUri);
-		}
+		outgoingPropertyUri = outgoingUri;
 	}
 
 	@Property(uri = "http://vitro.mannlib.cornell.edu/ns/vitro/ApplicationSetup#hasTypeRestriction")
@@ -148,14 +136,6 @@ public class LabelsAcrossContextNodes implements IndexingUriFinder,
 					.getClass().getSimpleName(),
 					formatRestrictions(typeRestrictions),
 					formatRestrictions(contextNodeClasses));
-		}
-		if (incomingPropertyUri == null) {
-			throw new IllegalStateException(
-					"Configuration did not declare hasIncomingProperty.");
-		}
-		if (outgoingPropertyUri == null) {
-			throw new IllegalStateException(
-					"Configuration did not declare hasOutgoingProperty.");
 		}
 	}
 
@@ -242,25 +222,26 @@ public class LabelsAcrossContextNodes implements IndexingUriFinder,
 
 	private void addLabelsFromAllContextNodeClasses(Individual ind,
 			SearchInputDocument doc) {
-		addValuesToTextFields(doc,
-				createQueryContext(rdfService, LABELS_WITHOUT_RESTRICTION)
+		addValuesToTextFields(
+				doc,
+				createSelectQueryContext(rdfService, LABELS_WITHOUT_RESTRICTION)
 						.bindVariableToUri("uri", ind.getURI())
 						.bindVariableToUri("incoming", incomingPropertyUri)
 						.bindVariableToUri("outgoing", outgoingPropertyUri)
-						.execute().getStringFields("label").flatten());
+						.execute().toStringFields("label").flatten());
 	}
 
 	private void addLabelsFromContextNodeClass(Individual ind,
 			SearchInputDocument doc, String contextNodeClass) {
 		addValuesToTextFields(
 				doc,
-				createQueryContext(rdfService,
+				createSelectQueryContext(rdfService,
 						LABELS_FOR_SPECIFIC_CONTEXT_NODE_TYPE)
 						.bindVariableToUri("uri", ind.getURI())
 						.bindVariableToUri("nodeType", contextNodeClass)
 						.bindVariableToUri("incoming", incomingPropertyUri)
 						.bindVariableToUri("outgoing", outgoingPropertyUri)
-						.execute().getStringFields("label").flatten());
+						.execute().toStringFields("label").flatten());
 	}
 
 	private void addValuesToTextFields(SearchInputDocument doc,
@@ -349,36 +330,32 @@ public class LabelsAcrossContextNodes implements IndexingUriFinder,
 	}
 
 	private Set<String> locatePartnersWithoutRestriction(String uri) {
-		return createQueryContext(rdfService,
+		return createSelectQueryContext(rdfService,
 				LOCATE_PARTNERS_WITHOUT_RESTRICTION)
 				.bindVariableToUri("uri", uri)
 				.bindVariableToUri("incoming", incomingPropertyUri)
 				.bindVariableToUri("outgoing", outgoingPropertyUri).execute()
-				.getStringFields("partner").flattenToSet();
+				.toStringFields("partner").flattenToSet();
 	}
 
 	private Collection<? extends String> locatePartnersAcrossContextNodeClass(
 			String uri, String contextNodeClass) {
-		return createQueryContext(rdfService,
+		return createSelectQueryContext(rdfService,
 				LOCATE_PARTNERS_ON_CONTEXT_NODE_TYPE)
 				.bindVariableToUri("uri", uri)
 				.bindVariableToUri("nodeType", contextNodeClass)
 				.bindVariableToUri("incoming", incomingPropertyUri)
 				.bindVariableToUri("outgoing", outgoingPropertyUri).execute()
-				.getStringFields("partner").flattenToSet();
+				.toStringFields("partner").flattenToSet();
 	}
 
 	private boolean isIncomingStatementOnAcceptableContextNode(Statement stmt) {
 		String subjectUri = stmt.getSubject().getURI();
 		String predicateUri = stmt.getPredicate().getURI();
 
-		if (incomingPropertyUri.equals(predicateUri)
+		return incomingPropertyUri.equals(predicateUri)
 				&& (contextNodeClasses.isEmpty() || isAnyMatch(
-						contextNodeClasses, getTypes(subjectUri)))) {
-			return true;
-		} else {
-			return false;
-		}
+				contextNodeClasses, getTypes(subjectUri)));
 	}
 
 	private boolean isAnyMatch(Set<String> set1, Set<String> set2) {
@@ -388,9 +365,9 @@ public class LabelsAcrossContextNodes implements IndexingUriFinder,
 	}
 
 	private Set<String> getTypes(String uri) {
-		return createQueryContext(rdfService, GET_TYPES)
-				.bindVariableToUri("uri", uri).execute()
-				.getStringFields("type").flattenToSet();
+		return createSelectQueryContext(rdfService, GET_TYPES)
+				.bindVariableToUri("uri", uri).execute().toStringFields("type")
+				.flattenToSet();
 	}
 
 	private Set<String> locateOtherPartners(Statement stmt) {
@@ -402,12 +379,12 @@ public class LabelsAcrossContextNodes implements IndexingUriFinder,
 		String objectUri = (stmt.getObject().isURIResource()) ? stmt
 				.getObject().asResource().getURI() : "NO_MATCH";
 
-		return createQueryContext(rdfService,
+		return createSelectQueryContext(rdfService,
 				LOCATE_OTHER_PARTNERS_ON_THIS_NODE)
 				.bindVariableToUri("contextNode", nodeUri)
 				.bindVariableToUri("uri", objectUri)
 				.bindVariableToUri("outgoing", outgoingPropertyUri).execute()
-				.getStringFields("partner").flattenToSet();
+				.toStringFields("partner").flattenToSet();
 	}
 
 	private List<String> filterByType(Collection<String> uris) {

@@ -1,4 +1,4 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 
 package edu.cornell.mannlib.vitro.webapp.controller.freemarker;
 
@@ -7,17 +7,18 @@ import static edu.cornell.mannlib.vitro.webapp.modelaccess.ModelNames.TBOX_ASSER
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.RDFNode;
-import com.hp.hpl.jena.rdf.model.ResourceFactory;
-import com.hp.hpl.jena.rdf.model.Statement;
-import com.hp.hpl.jena.rdf.model.StmtIterator;
-import com.hp.hpl.jena.shared.Lock;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.RDFNode;
+import org.apache.jena.rdf.model.ResourceFactory;
+import org.apache.jena.rdf.model.Statement;
+import org.apache.jena.rdf.model.StmtIterator;
+import org.apache.jena.shared.Lock;
 
 import edu.cornell.mannlib.vitro.webapp.auth.permissions.SimplePermission;
 import edu.cornell.mannlib.vitro.webapp.auth.requestedAction.AuthorizationRequest;
@@ -34,6 +35,7 @@ import edu.cornell.mannlib.vitro.webapp.modelaccess.ModelAccess;
  * Custom controller for menu management.  This will be replaced later once N3 Editing
  * has been successfully refactored and integrated with menu management.
  */
+@WebServlet(name = "InstitutionalInternalClassController", urlPatterns = {"/processInstitutionalInternalClass"} )
 public class InstitutionalInternalClassController extends FreemarkerHttpServlet {
     private static final Log log = LogFactory.getLog(InstitutionalInternalClassController.class);
    

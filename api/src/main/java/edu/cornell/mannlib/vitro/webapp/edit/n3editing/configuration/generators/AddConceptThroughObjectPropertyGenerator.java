@@ -1,4 +1,4 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 
 package edu.cornell.mannlib.vitro.webapp.edit.n3editing.configuration.generators;
 
@@ -75,9 +75,7 @@ public class AddConceptThroughObjectPropertyGenerator extends DefaultObjectPrope
    		    if (!rangeVClass.isUnion()) {
    		        types.add(rangeVClass);    
    		    } else {
-   		        for (VClass unionComponent : rangeVClass.getUnionComponents()) {
-   		            types.add(unionComponent);
-   		        }
+				types.addAll(rangeVClass.getUnionComponents());
    		    }
 	        return types;
    		} else {

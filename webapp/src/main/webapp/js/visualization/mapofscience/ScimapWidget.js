@@ -1,4 +1,4 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 
 $.extend(this, i18nStrings);
 
@@ -52,7 +52,7 @@ var ScimapWidget = Class.extend({
 				checked: true,
 				text: i18nStrings.showDisciplineLabels,
 				click: function() {
-					if($(this).attr('checked')) {
+					if($(this).prop('checked')) {
 						me.labelsMarkerManager.showMarkers();
 					} else {
 						me.labelsMarkerManager.hideMarkers();

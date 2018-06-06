@@ -1,4 +1,4 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 
 $(document).ready(function(){
     
@@ -80,7 +80,7 @@ $(document).ready(function(){
                             $(this).prepend(imgHtml);
                         }
                         else { 
-                            $(this).children('img').load( function() {
+                            $(this).children('img').on("load", function() {
                                 adjustImageHeight($(this));
                             });
                         }

@@ -1,4 +1,4 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 
 package edu.cornell.mannlib.vitro.webapp.visualization.temporalgraph;
 
@@ -10,17 +10,21 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.cornell.mannlib.vitro.webapp.rdfservice.RDFService;
 import edu.cornell.mannlib.vitro.webapp.visualization.model.OrganizationPeopleMap;
 import edu.cornell.mannlib.vitro.webapp.visualization.utilities.CounterUtils;
 import edu.cornell.mannlib.vitro.webapp.visualization.utilities.OrgUtils;
 import edu.cornell.mannlib.vitro.webapp.visualization.utilities.VisualizationCaches;
-import org.apache.commons.lang.StringEscapeUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 
-import com.google.gson.Gson;
-import com.hp.hpl.jena.query.Dataset;
+import org.apache.jena.query.Dataset;
 
 import edu.cornell.mannlib.vitro.webapp.auth.requestedAction.AuthorizationRequest;
 import edu.cornell.mannlib.vitro.webapp.controller.VitroRequest;
@@ -74,7 +78,7 @@ public class TemporalPublicationVisualizationRequestHandler implements
 	private Map<String, String> getSubjectEntityAndGenerateDataResponse(
 			VitroRequest vitroRequest, Log log, Dataset dataset,
 			String subjectEntityURI, VisConstants.DataVisMode visMode)
-			throws MalformedQueryParametersException {
+            throws MalformedQueryParametersException, JsonProcessingException {
 
 		RDFService rdfService = vitroRequest.getRDFService();
 
@@ -121,7 +125,6 @@ public class TemporalPublicationVisualizationRequestHandler implements
 
 			Map<String, String> fileData = new HashMap<String, String>();
 			if (VisConstants.DataVisMode.JSON.equals(visMode)) {
-				Gson json = new Gson();
 				Set subEntitiesJson = new HashSet();
 
 				// For each suborganisation
@@ -171,8 +174,10 @@ public class TemporalPublicationVisualizationRequestHandler implements
 
 				subEntitiesJson.add(subjectEntityJSON);
 
+				ObjectMapper mapper = new ObjectMapper();
+
 				fileData.put(DataVisualizationController.FILE_CONTENT_TYPE_KEY, "application/octet-stream");
-				fileData.put(DataVisualizationController.FILE_CONTENT_KEY, json.toJson(subEntitiesJson));
+				fileData.put(DataVisualizationController.FILE_CONTENT_KEY, mapper.writeValueAsString(subEntitiesJson));
 
 			} else {
 				String entityLabel = orgLabelMap.get(subjectEntityURI);
@@ -240,7 +245,7 @@ public class TemporalPublicationVisualizationRequestHandler implements
 
 	@Override
 	public Map<String, String> generateDataVisualization(VitroRequest vitroRequest, Log log, Dataset dataset)
-			throws MalformedQueryParametersException {
+            throws MalformedQueryParametersException, JsonProcessingException {
 
 		String entityURI = vitroRequest.getParameter(VisualizationFrameworkConstants.INDIVIDUAL_URI_KEY);
 		

@@ -1,10 +1,9 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 
 package edu.cornell.mannlib.vitro.webapp.edit.n3editing.configuration.generators;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,28 +11,23 @@ import java.util.Map.Entry;
 
 import javax.servlet.http.HttpSession;
 
-import com.hp.hpl.jena.query.QueryExecution;
-import com.hp.hpl.jena.query.QueryExecutionFactory;
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
 import edu.cornell.mannlib.vitro.webapp.rdfservice.RDFService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.hp.hpl.jena.query.QuerySolution;
-import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.rdf.model.RDFNode;
-import com.hp.hpl.jena.rdf.model.Literal;
-import com.hp.hpl.jena.vocabulary.RDFS;
-import com.hp.hpl.jena.vocabulary.XSD;
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.RDFNode;
+import org.apache.jena.vocabulary.RDFS;
+import org.apache.jena.vocabulary.XSD;
 
-import edu.cornell.mannlib.vitro.webapp.beans.DataPropertyComparator;
-import edu.cornell.mannlib.vitro.webapp.beans.DataPropertyStatement;
-import edu.cornell.mannlib.vitro.webapp.beans.Individual;
 import edu.cornell.mannlib.vitro.webapp.controller.VitroRequest;
 import edu.cornell.mannlib.vitro.webapp.dao.jena.QueryUtils;
 import edu.cornell.mannlib.vitro.webapp.edit.n3editing.PublicationHasAuthorValidator;
-import edu.cornell.mannlib.vitro.webapp.edit.n3editing.VTwo.DateTimeIntervalValidationVTwo;
 import edu.cornell.mannlib.vitro.webapp.edit.n3editing.VTwo.EditConfigurationUtils;
 import edu.cornell.mannlib.vitro.webapp.edit.n3editing.VTwo.EditConfigurationVTwo;
 import edu.cornell.mannlib.vitro.webapp.edit.n3editing.VTwo.fields.FieldVTwo;
@@ -352,7 +346,7 @@ public class AddAuthorsToInformationResourceGenerator extends VivoBaseGenerator 
 
 	private static String AUTHORSHIPS_MODEL = " \n"
 			+ "PREFIX core: <http://vivoweb.org/ontology/core#>\n"
-			+ "PREFIX afn:  <http://jena.hpl.hp.com/ARQ/function#>\n"
+			+ "PREFIX afn:  <http://jena.apache.org/ARQ/function#>\n"
 			+ "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
 			+ "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n"
 			+ "PREFIX vcard:  <http://www.w3.org/2006/vcard/ns#>\n"
@@ -418,7 +412,7 @@ public class AddAuthorsToInformationResourceGenerator extends VivoBaseGenerator 
 
     private static String AUTHORSHIPS_QUERY = " \n"
         + "PREFIX core: <http://vivoweb.org/ontology/core#> \n"
-        + "PREFIX afn:  <http://jena.hpl.hp.com/ARQ/function#> \n"
+        + "PREFIX afn:  <http://jena.apache.org/ARQ/function#> \n"
         + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \n"
         + "PREFIX foaf: <http://xmlns.com/foaf/0.1/> \n"
         + "PREFIX vcard:  <http://www.w3.org/2006/vcard/ns#> \n"

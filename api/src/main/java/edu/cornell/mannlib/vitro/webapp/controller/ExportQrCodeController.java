@@ -1,4 +1,4 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 
 package edu.cornell.mannlib.vitro.webapp.controller; 
 
@@ -11,8 +11,8 @@ import edu.cornell.mannlib.vitro.webapp.web.templatemodels.individual.Individual
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.hp.hpl.jena.query.QuerySolution;
-import com.hp.hpl.jena.query.ResultSet;
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.query.ResultSet;
 
 import edu.cornell.mannlib.vitro.webapp.beans.Individual;
 import edu.cornell.mannlib.vitro.webapp.controller.freemarker.FreemarkerHttpServlet;
@@ -24,10 +24,12 @@ import edu.cornell.mannlib.vitro.webapp.controller.individual.IndividualRequestA
 import edu.cornell.mannlib.vitro.webapp.controller.individual.IndividualRequestAnalyzer;
 import edu.cornell.mannlib.vitro.webapp.controller.individual.IndividualRequestInfo;
 import edu.cornell.mannlib.vitro.webapp.dao.jena.QueryUtils;
-import edu.cornell.mannlib.vitro.webapp.web.templatemodels.individual.VIVOIndividualTemplateModel;
 import freemarker.ext.beans.BeansWrapper;
 import freemarker.template.DefaultObjectWrapper;
 
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet(name = "ExportQrCodeController", urlPatterns = {"/qrcode"})
 public class ExportQrCodeController extends FreemarkerHttpServlet {
     
     private static final long serialVersionUID = 1L;

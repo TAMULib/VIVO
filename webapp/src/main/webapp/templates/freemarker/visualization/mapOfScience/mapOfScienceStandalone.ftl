@@ -1,4 +1,4 @@
-<#-- $This file is distributed under the terms of the license in /doc/license.txt$ -->
+<#-- $This file is distributed under the terms of the license in LICENSE$ -->
 
 <#-- The Order of each element in this file is very important. Do not make any changes to it unless making
 corresponding changes in the included Templates. -->
@@ -85,6 +85,7 @@ corresponding changes in the included Templates. -->
     </div>
 </div>
 
-${headScripts.add('<script type="text/javascript" src="${urls.base}/js/jquery_plugins/qtip/jquery.qtip-1.0.0-rc3.min.js"></script>')}
+${headScripts.add('<script type="text/javascript" src="${urls.base}/js/jquery_plugins/qtip/jquery.qtip.min.js"></script>')}
 
-${stylesheets.add('<link rel="stylesheet" type="text/css" href="${urls.base}/css/visualization/visualization.css" />')}
+${stylesheets.add('<link rel="stylesheet" type="text/css" href="${urls.base}/css/visualization/visualization.css" />',
+                  '<link rel="stylesheet" type="text/css" href="${urls.base}/css/jquery_plugins/qtip/jquery.qtip.min.css" />')}

@@ -1,4 +1,4 @@
-<#-- $This file is distributed under the terms of the license in /doc/license.txt$ -->
+<#-- $This file is distributed under the terms of the license in LICENSE$ -->
 <#--Two stage form for service provider role-->
 
 <#--
@@ -23,6 +23,11 @@ roleExamples-->
 <#assign genericLabel = "Collection or Series" />
 
 <#assign acTypes = "{activity: 'http://purl.org/ontology/bibo/Collection'}" />
+
+
+<#assign editTitle = "${i18n().edit_entry_for_editor_role}"/>
+
+<#assign createTitle = "${i18n().create_entry_for_editor_role}"/>
 
 <#--Each of the two stage forms will include the form below-->
 <#include "addRoleToPersonTwoStage.ftl">

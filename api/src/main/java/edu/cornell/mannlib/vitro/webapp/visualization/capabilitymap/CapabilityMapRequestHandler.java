@@ -1,15 +1,20 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 
 package edu.cornell.mannlib.vitro.webapp.visualization.capabilitymap;
 
-import com.google.gson.Gson;
-import com.hp.hpl.jena.query.Dataset;
-import com.hp.hpl.jena.query.QueryExecution;
-import com.hp.hpl.jena.query.QueryExecutionFactory;
-import com.hp.hpl.jena.query.QuerySolution;
-import com.hp.hpl.jena.rdf.model.Literal;
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.jena.query.Dataset;
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.rdf.model.Literal;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
 import edu.cornell.mannlib.vitro.webapp.auth.requestedAction.AuthorizationRequest;
 import edu.cornell.mannlib.vitro.webapp.controller.VitroRequest;
 import edu.cornell.mannlib.vitro.webapp.controller.freemarker.responsevalues.ResponseValues;
@@ -24,7 +29,6 @@ import edu.cornell.mannlib.vitro.webapp.visualization.model.ConceptPeopleMap;
 import edu.cornell.mannlib.vitro.webapp.visualization.model.OrganizationPeopleMap;
 import edu.cornell.mannlib.vitro.webapp.visualization.utilities.VisualizationCaches;
 import edu.cornell.mannlib.vitro.webapp.visualization.visutils.VisualizationRequestHandler;
-import org.apache.axis.utils.StringUtils;
 import org.apache.commons.logging.Log;
 
 import java.util.HashMap;
@@ -49,7 +53,11 @@ public class CapabilityMapRequestHandler implements VisualizationRequestHandler 
     }
 
     @Override
+<<<<<<< HEAD
     public Object generateAjaxVisualization(VitroRequest vitroRequest, Log log, Dataset dataSource) throws MalformedQueryParametersException {
+=======
+    public Object generateAjaxVisualization(VitroRequest vitroRequest, Log log, Dataset dataSource) throws MalformedQueryParametersException, JsonProcessingException {
+>>>>>>> Upstream/rel-1.10.0-RC
         ConceptLabelMap       conceptLabelMap = VisualizationCaches.conceptToLabel.getNoWait(vitroRequest.getRDFService());
         ConceptPeopleMap      conceptPeopleMap = VisualizationCaches.conceptToPeopleMap.getNoWait(vitroRequest.getRDFService());
         OrganizationPeopleMap organizationPeopleMap = VisualizationCaches.organisationToPeopleMap.getNoWait(vitroRequest.getRDFService());
@@ -67,8 +75,8 @@ public class CapabilityMapRequestHandler implements VisualizationRequestHandler 
                     }
                 }
 
-                Gson gson = new Gson();
-                return gson.toJson(concepts);
+                ObjectMapper mapper = new ObjectMapper();
+                return mapper.writeValueAsString(concepts);
             }
             return "";
         }
@@ -96,13 +104,13 @@ public class CapabilityMapRequestHandler implements VisualizationRequestHandler 
             }
             response.results.add(result);
 
-            Gson gson = new Gson();
+            ObjectMapper mapper = new ObjectMapper();
 
             String callback = vitroRequest.getParameter("callback");
             if (!StringUtils.isEmpty(callback)) {
-                return callback + "(" + gson.toJson(response) + ");";
+                return callback + "(" + mapper.writeValueAsString(response) + ");";
             }
-            return gson.toJson(response);
+            return mapper.writeValueAsString(response);
         }
 
         String query = vitroRequest.getParameter("query");
@@ -150,13 +158,12 @@ public class CapabilityMapRequestHandler implements VisualizationRequestHandler 
                 response.results.add(result);
             }
 
-            Gson gson = new Gson();
-
+            ObjectMapper mapper = new ObjectMapper();
             String callback = vitroRequest.getParameter("callback");
             if (!StringUtils.isEmpty(callback)) {
-                return callback + "(" + gson.toJson(response) + ");";
+                return callback + "(" + mapper.writeValueAsString(response) + ");";
             }
-            return gson.toJson(response);
+            return mapper.writeValueAsString(response);
         }
 
         return "";

@@ -1,21 +1,23 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 
 package edu.cornell.mannlib.vitro.webapp.controller.visualization;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
+import javax.servlet.annotation.WebServlet;
 
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.hp.hpl.jena.query.Dataset;
-import com.hp.hpl.jena.query.Syntax;
-import com.hp.hpl.jena.rdf.model.Model;
+import org.apache.jena.query.Dataset;
+import org.apache.jena.query.Syntax;
+import org.apache.jena.rdf.model.Model;
 
 import edu.cornell.mannlib.vitro.webapp.auth.requestedAction.AuthorizationRequest;
 import edu.cornell.mannlib.vitro.webapp.controller.VitroRequest;
@@ -33,6 +35,7 @@ import edu.cornell.mannlib.vitro.webapp.visualization.visutils.VisualizationRequ
  * @author cdtank
  */
 @SuppressWarnings("serial")
+@WebServlet(name = "ShortURLVisualizationController", urlPatterns = {"/vis/*"})
 public class ShortURLVisualizationController extends FreemarkerHttpServlet {
 
 	public static final String URL_ENCODING_SCHEME = "UTF-8";
@@ -168,7 +171,7 @@ public class ShortURLVisualizationController extends FreemarkerHttpServlet {
 							+ matchedPatternGroups.get(1);
 		}
 		
-		subjectURI = StringEscapeUtils.escapeHtml(subjectURI);
+		subjectURI = StringEscapeUtils.ESCAPE_HTML4.translate(subjectURI);
 		parameters.put(VisualizationFrameworkConstants.INDIVIDUAL_URI_KEY, subjectURI);
 
 		if (VisualizationFrameworkConstants.COAUTHORSHIP_VIS_SHORT_URL
@@ -243,13 +246,11 @@ public class ShortURLVisualizationController extends FreemarkerHttpServlet {
 
 		List<String> matchedGroups = new ArrayList<String>(); 
 		String subURIString = vitroRequest.getRequestURI().substring(vitroRequest.getContextPath().length()+1);
-		String[] urlParams = StringEscapeUtils.escapeHtml(subURIString).split("/");
+		String[] urlParams = StringEscapeUtils.ESCAPE_HTML4.translate(subURIString).split("/");
 		
 		if (urlParams.length > 1 
 				&& urlParams[0].equalsIgnoreCase("vis")) {
-			for (int ii=1; ii < urlParams.length; ii++) {
-				matchedGroups.add(urlParams[ii]);
-			}
+			matchedGroups.addAll(Arrays.asList(urlParams).subList(1, urlParams.length));
 		}
 		
 		return matchedGroups;

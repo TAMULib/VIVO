@@ -1,4 +1,4 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 
 var addEditorForm = {
 
@@ -612,7 +612,7 @@ var addEditorForm = {
                                 $(this).show();
                             });
                             addEditorForm.showFormButton.removeClass('disabledSubmit');
-                            addEditorForm.showFormButton.attr('disabled','');
+                            addEditorForm.showFormButton.attr('disabled',false);
                         }
                         else {
                             $('img#indicatorTwo').fadeOut(100, function() {
@@ -623,7 +623,7 @@ var addEditorForm = {
                                  $(this).show();
                              });
                              addEditorForm.submit.removeClass('disabledSubmit');
-                             addEditorForm.submit.attr('disabled','');
+                             addEditorForm.submit.attr('disabled',false);
                         }
                     });
 
@@ -683,14 +683,14 @@ var addEditorForm = {
         if ( authType == "person" ) {
 	        this.personSection.show();
             this.acSelector.addClass("acSelector");
-            this.personRadio.attr('checked', true);  // needed for reset when cancel button is clicked
+            this.personRadio.prop('checked', true);  // needed for reset when cancel button is clicked
 	        this.selectedEditor.addClass("acSelection");
 	        this.selectedEditorName.addClass("acSelectionInfo");
 	        this.personLink.addClass("verifyMatch");
-	        this.acSelector.attr('disabled', '');
-	        this.firstNameField.attr('disabled', '');
-	        this.middleNameField.attr('disabled', '');
-	        this.lastNameField.attr('disabled', '');
+	        this.acSelector.attr('disabled', false);
+	        this.firstNameField.attr('disabled', false);
+	        this.middleNameField.attr('disabled', false);
+	        this.lastNameField.attr('disabled', false);
 
 	        addEditorForm.addAcHelpText(this.acSelector);
 	        addEditorForm.initAutocomplete();

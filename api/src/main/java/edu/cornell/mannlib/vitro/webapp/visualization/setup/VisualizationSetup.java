@@ -1,11 +1,10 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 
 package edu.cornell.mannlib.vitro.webapp.visualization.setup;
 
 import edu.cornell.mannlib.vitro.webapp.modelaccess.ModelAccess;
 import edu.cornell.mannlib.vitro.webapp.rdfservice.RDFService;
 import edu.cornell.mannlib.vitro.webapp.visualization.utilities.CachingRDFServiceExecutor;
-import edu.cornell.mannlib.vitro.webapp.visualization.utilities.VisualizationCaches;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;

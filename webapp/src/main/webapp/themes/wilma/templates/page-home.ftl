@@ -1,4 +1,4 @@
-<#-- $This file is distributed under the terms of the license in /doc/license.txt$  -->
+<#-- $This file is distributed under the terms of the license in LICENSE$  -->
 
 <@widget name="login" include="assets" />
 
@@ -21,7 +21,7 @@
         <#if geoFocusMapsEnabled >
             <#include "geoFocusMapScripts.ftl">
         </#if>
-        <script type="text/javascript" src="${urls.base}/js/homePageUtils.js?version=x"></script>
+        <script async type="text/javascript" src="${urls.base}/js/homePageUtils.js?version=x"></script>
     </head>
     
     <body class="${bodyClasses!}" onload="${bodyOnload!}">

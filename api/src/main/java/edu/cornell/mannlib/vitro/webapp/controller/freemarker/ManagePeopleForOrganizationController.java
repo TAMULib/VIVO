@@ -1,4 +1,4 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 package edu.cornell.mannlib.vitro.webapp.controller.freemarker;
 
 import java.util.ArrayList;
@@ -10,9 +10,9 @@ import java.util.Map;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.hp.hpl.jena.query.QuerySolution;
-import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.rdf.model.RDFNode;
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.RDFNode;
 
 import edu.cornell.mannlib.vitro.webapp.auth.permissions.SimplePermission;
 import edu.cornell.mannlib.vitro.webapp.auth.requestedAction.AuthorizationRequest;
@@ -24,7 +24,10 @@ import edu.cornell.mannlib.vitro.webapp.controller.freemarker.responsevalues.Tem
 import edu.cornell.mannlib.vitro.webapp.dao.VClassDao;
 import edu.cornell.mannlib.vitro.webapp.dao.jena.QueryUtils;
 
+import javax.servlet.annotation.WebServlet;
 
+
+@WebServlet(name = "ManagePeopleForOrganizationController", urlPatterns = {"/managePeople"} )
 public class ManagePeopleForOrganizationController extends FreemarkerHttpServlet {
 
     private static final Log log = LogFactory.getLog(ManagePeopleForOrganizationController.class.getName());
@@ -66,7 +69,7 @@ public class ManagePeopleForOrganizationController extends FreemarkerHttpServlet
         + "PREFIX core: <http://vivoweb.org/ontology/core#> \n"
         + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> \n"
         + "PREFIX vitro: <http://vitro.mannlib.cornell.edu/ns/vitro/0.7#> \n"
-        + "PREFIX afn: <http://jena.hpl.hp.com/ARQ/function#> \n"
+        + "PREFIX afn: <http://jena.apache.org/ARQ/function#> \n"
         + "PREFIX foaf: <http://xmlns.com/foaf/0.1/> \n"
         + "SELECT DISTINCT ?subclass ?position ?positionLabel (str(?label) as ?name) ?person ?hideThis WHERE { \n"
         + "    ?subject core:relatedBy ?position . \n"

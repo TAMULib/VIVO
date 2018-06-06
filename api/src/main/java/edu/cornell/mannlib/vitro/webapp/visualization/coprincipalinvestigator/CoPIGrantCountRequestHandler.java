@@ -1,4 +1,4 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 package edu.cornell.mannlib.vitro.webapp.visualization.coprincipalinvestigator;
 
 import java.util.HashMap;
@@ -6,12 +6,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
-import org.apache.commons.lang.StringEscapeUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 
-import com.hp.hpl.jena.query.Dataset;
-import com.hp.hpl.jena.rdf.model.Model;
+import org.apache.jena.query.Dataset;
+import org.apache.jena.rdf.model.Model;
 
 import edu.cornell.mannlib.vitro.webapp.auth.requestedAction.AuthorizationRequest;
 import edu.cornell.mannlib.vitro.webapp.controller.VitroRequest;
@@ -164,7 +164,7 @@ public class CoPIGrantCountRequestHandler implements VisualizationRequestHandler
 		
 		String coPISeparator = ";";
 		for (Collaborator currentCoPI : coInvestigators) {
-			coPIsMerged.append(currentCoPI.getCollaboratorName() + coPISeparator);
+			coPIsMerged.append(currentCoPI.getCollaboratorName()).append(coPISeparator);
 		}
 		
 		return StringUtils.removeEnd(coPIsMerged.toString(), coPISeparator);

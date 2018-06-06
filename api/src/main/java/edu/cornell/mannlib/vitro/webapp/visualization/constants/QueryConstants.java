@@ -1,4 +1,4 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 
 package edu.cornell.mannlib.vitro.webapp.visualization.constants;
 
@@ -41,7 +41,7 @@ public class QueryConstants {
 			put("vivo", "http://vivo.library.cornell.edu/ns/0.1#");
 			put("geo", "http://aims.fao.org/aos/geopolitical.owl#");
 			put("public", "http://vitro.mannlib.cornell.edu/ns/vitro/public#");
-			put("afn", "http://jena.hpl.hp.com/ARQ/function#");
+			put("afn", "http://jena.apache.org/ARQ/function#");
 			put("vivosocnet", "http://vivo.cns.iu.edu/ns/#");
 			put("obo", "http://purl.obolibrary.org/obo/");
 			put("vcard", "http://www.w3.org/2006/vcard/ns#");
@@ -52,8 +52,7 @@ public class QueryConstants {
 		StringBuilder prefixSection = new StringBuilder(); 
 		
 		for (Map.Entry<String, String> prefixEntry : PREFIX_TO_NAMESPACE.entrySet()) {
-			prefixSection.append("PREFIX " + prefixEntry.getKey() 
-									+ ": <" + prefixEntry.getValue() + ">\n");
+			prefixSection.append("PREFIX ").append(prefixEntry.getKey()).append(": <").append(prefixEntry.getValue()).append(">\n");
 		}
 		return prefixSection.toString();
 	}

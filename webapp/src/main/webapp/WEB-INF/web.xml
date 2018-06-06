@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<!-- $This file is distributed under the terms of the license in /doc/license.txt$ -->
+<!-- $This file is distributed under the terms of the license in LICENSE$ -->
 
-<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
-  version="2.4">
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
 
   <!-- Environment variables for the Vitro web application -->
   <!-- Example: -->
@@ -56,106 +57,58 @@
   </listener>
 
   <!-- Filters ********************************************************** -->
-  <!-- in 2.4 spec, filter chain order is first by filter-mapping <url-pattern> order in web.xml,
-	 then filter-mapping <servlet-name> order in web.xml -->
+  <!-- Using filter-mappings to specify the correct filter chain order -->
 
-  <filter>
-    <filter-name>Startup Status Display Filter</filter-name>
-    <filter-class>edu.cornell.mannlib.vitro.webapp.filters.StartupStatusDisplayFilter</filter-class>
-  </filter>
   <filter-mapping>
     <filter-name>Startup Status Display Filter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-
-  <filter>
-    <filter-name>Session Timeout Limiting Filter</filter-name>
-    <filter-class>edu.cornell.mannlib.vitro.webapp.filters.SessionTimeoutLimitingFilter</filter-class>
-  </filter>
   <filter-mapping>
     <filter-name>Session Timeout Limiting Filter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-
-  <filter>
-    <filter-name>Character Set Encoding Filter</filter-name>
-    <filter-class>edu.cornell.mannlib.vitro.webapp.filters.CharsetEncodingFilter</filter-class>
-  </filter>
   <filter-mapping>
     <filter-name>Character Set Encoding Filter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-
-  <filter>
-    <description>Override the Locale in the HttpRequest, if appropriate.</description>
-    <filter-name>Locale selection filter</filter-name>
-    <filter-class>edu.cornell.mannlib.vitro.webapp.i18n.selection.LocaleSelectionFilter</filter-class>
-  </filter>
   <filter-mapping>
+<<<<<<< HEAD
+=======
     <filter-name>Locale selection filter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-
   <!-- If language support is enabled, this must not precede the LocaleSelectionFilter -->
-  <filter>
-    <description>Recognize conditional requests, and generate Cache-Control headers.</description>
-    <filter-name>Caching Response filter</filter-name>
-    <filter-class>edu.cornell.mannlib.vitro.webapp.filters.CachingResponseFilter</filter-class>
-  </filter>
   <filter-mapping>
     <filter-name>Caching Response filter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-
-  <filter>
-    <filter-name>JSession Strip Filter</filter-name>
-    <filter-class>edu.cornell.mannlib.vitro.webapp.filters.JSessionStripFilter</filter-class>
-  </filter>
   <filter-mapping>
     <filter-name>JSession Strip Filter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-
-  <filter>
-    <filter-name>URL Rewriter Filter</filter-name>
-    <filter-class>edu.cornell.mannlib.vitro.webapp.filters.URLRewriterFilter</filter-class>
-  </filter>
   <filter-mapping>
     <filter-name>URL Rewriter Filter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-
-  <filter>
-    <filter-name>RequestModelsPrep</filter-name>
-    <filter-class>edu.cornell.mannlib.vitro.webapp.filters.RequestModelsPrep</filter-class>
-  </filter>
   <filter-mapping>
     <filter-name>RequestModelsPrep</filter-name>
     <url-pattern>/*</url-pattern>
     <dispatcher>REQUEST</dispatcher>
     <dispatcher>FORWARD</dispatcher>
   </filter-mapping>
-
-  <filter>
-    <filter-name>ClickjackFilter</filter-name>
-    <filter-class>edu.cornell.mannlib.vitro.webapp.filters.ClickjackFilter</filter-class>
-  </filter>
   <filter-mapping>
     <filter-name>ClickjackFilter</filter-name>
     <url-pattern>/*</url-pattern>
     <dispatcher>REQUEST</dispatcher>
     <dispatcher>FORWARD</dispatcher>
   </filter-mapping>
-
-   <filter>
-    <filter-name>PageRoutingFilter</filter-name>
-    <filter-class>edu.cornell.mannlib.vitro.webapp.filters.PageRoutingFilter</filter-class>
-  </filter>
   <filter-mapping>
+>>>>>>> Upstream/rel-1.10.0-RC
     <filter-name>PageRoutingFilter</filter-name>
     <url-pattern>/*</url-pattern>
     <dispatcher>REQUEST</dispatcher>
   </filter-mapping>
+<<<<<<< HEAD
   
   <!--  Spring setup ****************************************************  -->
 <!--
@@ -1061,19 +1014,35 @@
     <servlet-name>HomePageController</servlet-name>
     <url-pattern>/home</url-pattern>
   </servlet-mapping>
+=======
+>>>>>>> Upstream/rel-1.10.0-RC
 
-  <servlet>
-    <servlet-name>DashboardPropertyListController</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.DashboardPropertyListController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DashboardPropertyListController</servlet-name>
-    <url-pattern>/dashboardPropList</url-pattern>
-  </servlet-mapping>
+  <filter>
+    <filter-name>ExpiresFilter</filter-name>
+    <filter-class>org.apache.catalina.filters.ExpiresFilter</filter-class>
+    <init-param>
+      <param-name>ExpiresByType image</param-name>
+      <param-value>access plus 1 week</param-value>
+    </init-param>
+    <init-param>
+      <param-name>ExpiresByType text/css</param-name>
+      <param-value>access plus 1 week</param-value>
+    </init-param>
+    <init-param>
+      <param-name>ExpiresByType application/javascript</param-name>
+      <param-value>access plus 1 week</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>ExpiresFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
 
+  <!-- DWR servlet -->
   <servlet>
     <servlet-name>dwr-invoker</servlet-name>
-    <servlet-class>uk.ltd.getahead.dwr.DWRServlet</servlet-class>
+    <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
     <init-param>
       <param-name>debug</param-name>
       <param-value>true</param-value>
@@ -1087,72 +1056,8 @@
     <servlet-name>dwr-invoker</servlet-name>
     <url-pattern>/dwr/*</url-pattern>
   </servlet-mapping>
-  
-  <servlet>
-   <servlet-name>sendMail</servlet-name>
-   <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.freemarker.ContactMailController</servlet-class>
-   <load-on-startup>5</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>sendMail</servlet-name>
-    <url-pattern>/submitFeedback</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>mailusers</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.MailUsersServlet</servlet-class>
-     <load-on-startup>5</load-on-startup>
-  </servlet>
-  
-  <servlet>
-    <servlet-name>ontology</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.OntologyController</servlet-class>
-  </servlet>
-  
-  <servlet>
-    <servlet-name>individual</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.individual.IndividualController</servlet-class>
-  </servlet>
 
-  <servlet>
-    <servlet-name>authenticate</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.edit.Authenticate</servlet-class>
-  </servlet>
-
-  <servlet>
-    <servlet-name>loginExternalAuthSetup</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.authenticate.LoginExternalAuthSetup</servlet-class>
-  </servlet>
-
-  <servlet>
-    <servlet-name>loginExternalAuthReturn</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.authenticate.LoginExternalAuthReturn</servlet-class>
-  </servlet>
-
-  <servlet>
-    <servlet-name>programLogin</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.authenticate.ProgramLogin</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>programLogin</servlet-name>
-    <url-pattern>/programLogin</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>adminLogin</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.authenticate.AdminLoginController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>adminLogin</servlet-name>
-    <url-pattern>/admin/login</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>logout</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.edit.Logout</servlet-class>
-  </servlet>
-
- <!-- THIS SHOULD BE COMMENTED OUT FOR PRODUCTION 
+ <!-- THIS SHOULD BE COMMENTED OUT FOR PRODUCTION
   <servlet>
     <servlet-name>FakeExternalAuthController</servlet-name>
     <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.authenticate.FakeExternalAuthController</servlet-class>
@@ -1163,331 +1068,7 @@
     <url-pattern>/admin/fakeExternalAuth</url-pattern>
   </servlet-mapping>
 -->
- 
-  <servlet>
-    <servlet-name>browsecontroller</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.freemarker.BrowseController</servlet-class>
-    <load-on-startup>5</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>browsecontroller</servlet-name>
-    <url-pattern>/browse</url-pattern>
-  </servlet-mapping>
 
-  <servlet>
-    <servlet-name>serveFiles</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.filestorage.serving.FileServingServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>serveFiles</servlet-name>
-    <url-pattern>/file/*</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>SparqlQuery</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.admin.SparqlQueryController</servlet-class>
-  </servlet>
-
-  <servlet-mapping>
-    <servlet-name>SparqlQuery</servlet-name>
-    <url-pattern>/admin/sparqlquery</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>SparqlQueryApi</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.api.SparqlQueryApiController</servlet-class>
-  </servlet>
-
-  <servlet-mapping>
-    <servlet-name>SparqlQueryApi</servlet-name>
-    <url-pattern>/api/sparqlQuery</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>SparqlUpdateApi</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.api.SparqlUpdateApiController</servlet-class>
-  </servlet>
-
-  <servlet-mapping>
-    <servlet-name>SparqlUpdateApi</servlet-name>
-    <url-pattern>/api/sparqlUpdate</url-pattern>
-  </servlet-mapping>
-  
-   <servlet>
-    <servlet-name>StandardVisualizationController</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.visualization.StandardVisualizationController</servlet-class>
-   </servlet>
-   
-  <servlet>
-    <servlet-name>ShortURLVisualizationController</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.visualization.ShortURLVisualizationController</servlet-class>
-  </servlet>   
-
-  <servlet-mapping>
-    <servlet-name>StandardVisualizationController</servlet-name>
-    <url-pattern>/visualizationfm</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>StandardVisualizationController</servlet-name>
-    <url-pattern>/visualization</url-pattern>
-  </servlet-mapping>
-  
-  <!--
-	This mapping is done to facilitate shorter vis urls.  
-  -->
-  <servlet-mapping>
-    <servlet-name>ShortURLVisualizationController</servlet-name>
-    <url-pattern>/vis/*</url-pattern>
-  </servlet-mapping>
-
-   <servlet>
-    <servlet-name>AjaxVisualizationController</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.visualization.AjaxVisualizationController</servlet-class>
-  </servlet>
-
-  <servlet-mapping>
-    <servlet-name>AjaxVisualizationController</servlet-name>
-    <url-pattern>/visualizationAjax</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>DataVisualizationController</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.visualization.DataVisualizationController</servlet-class>
-  </servlet>
-
-  <servlet-mapping>
-    <servlet-name>DataVisualizationController</servlet-name>
-    <url-pattern>/visualizationData</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-  	<servlet-name>primitiveRdfEdit</servlet-name>
-  	<servlet-class>edu.cornell.mannlib.vitro.webapp.controller.edit.PrimitiveRdfEdit</servlet-class>  	
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>primitiveRdfEdit</servlet-name>
-    <url-pattern>/edit/primitiveRdfEdit</url-pattern>    
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>primitiveDelete</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.edit.PrimitiveDelete</servlet-class>    
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>primitiveDelete</servlet-name>
-    <url-pattern>/edit/primitiveDelete</url-pattern>    
-  </servlet-mapping>
- 
-  <servlet>
-    <servlet-name>PageController</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.freemarker.PageController</servlet-class>    
-  </servlet>
-  <!--  PageController lacks a servlet-mapping since it gets called by getNamedDispatcher 
-  <servlet-mapping>
-    <servlet-name>PageController</servlet-name>
-    <url-pattern>NONE</url-pattern>    
-  </servlet-mapping>
-  -->
-
-  <servlet>
-    <servlet-name>ExportQrCodeController</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.ExportQrCodeController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ExportQrCodeController</servlet-name>
-    <url-pattern>/qrcode</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>AboutQrCodesController</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.AboutQrCodesController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AboutQrCodesController</servlet-name>
-    <url-pattern>/qrcode/about</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>FileHarvestController</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.harvester.FileHarvestController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>FileHarvestController</servlet-name>
-    <url-pattern>/harvester/harvest</url-pattern>
-  </servlet-mapping>
-
-  <!-- VIVO OpenSocial Extension by UCSF -->
-  <servlet>
-    <servlet-name>GadgetController</servlet-name>
-    <servlet-class>edu.ucsf.vitro.opensocial.GadgetController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>GadgetController</servlet-name>
-    <url-pattern>/orng/*</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <description>Multiple-language support. Allows user to select his preferred langauge</description>
-    <servlet-name>LocaleSelectionController</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.i18n.selection.LocaleSelectionController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>LocaleSelectionController</servlet-name>
-    <url-pattern>/selectLocale</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <description>SiteMap support</description>
-    <servlet-name>SiteMapServlet</servlet-name>
-    <servlet-class>org.vivoweb.webapp.sitemap.SiteMapServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SiteMapServlet</servlet-name>
-    <url-pattern>/robots.txt</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>SiteMapServlet</servlet-name>
-    <url-pattern>/sitemap.xml</url-pattern>
-  </servlet-mapping>
-
-    
-  <!-- ============================== servlet-mappings ======================== -->
-   <servlet-mapping>
-    <servlet-name>mailusers</servlet-name>
-    <url-pattern>/mailusers</url-pattern>
-  </servlet-mapping>
-  
-   <servlet-mapping>
-    <servlet-name>ontology</servlet-name>
-    <url-pattern>/ontology/*</url-pattern>
-  </servlet-mapping>
-    
-  <servlet-mapping>
-    <servlet-name>individual</servlet-name>
-    <url-pattern>/entity</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>individual</servlet-name>
-    <url-pattern>/entity/*</url-pattern>
-  </servlet-mapping>
-    <servlet-mapping>
-    <servlet-name>individual</servlet-name>
-    <url-pattern>/individual</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>individual</servlet-name>
-    <url-pattern>/individual/*</url-pattern>
-  </servlet-mapping>
-    <servlet-mapping>
-    <servlet-name>individual</servlet-name>
-    <url-pattern>/display</url-pattern>
-  </servlet-mapping> 
-  <servlet-mapping>
-    <servlet-name>individual</servlet-name>
-    <url-pattern>/display/*</url-pattern>
-  </servlet-mapping>    
-
-  <servlet-mapping>
-    <servlet-name>authenticate</servlet-name>
-    <url-pattern>/authenticate</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>loginExternalAuthSetup</servlet-name>
-    <url-pattern>/loginExternalAuth</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>loginExternalAuthReturn</servlet-name>
-    <url-pattern>/loginExternalAuthReturn</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>logout</servlet-name>
-    <url-pattern>/logout</url-pattern>
-  </servlet-mapping>
-
-  <!-- ==================== sparql query builder ==================== -->
-  
-  <servlet>
-    <servlet-name>SparlQueryBuilder</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.controller.SparqlQueryBuilderServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SparlQueryBuilder</servlet-name>
-    <url-pattern>/admin/sparqlquerybuilder</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>GetAllClasses</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.sparql.GetAllClasses</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>GetAllClasses</servlet-name>
-    <url-pattern>/admin/getAllClasses</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>GetAllPrefix</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.sparql.GetAllPrefix</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>GetAllPrefix</servlet-name>
-    <url-pattern>/admin/getAllPrefix</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>GetClazzDataProperties</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.sparql.GetClazzDataProperties</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>GetClazzDataProperties</servlet-name>
-    <url-pattern>/admin/getClazzDataProperties</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>GetClazzAllProperties</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.sparql.GetClazzAllProperties</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>GetClazzAllProperties</servlet-name>
-    <url-pattern>/admin/getClazzAllProperties</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>GetClazzObjectProperties</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.sparql.GetClazzObjectProperties</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>GetClazzObjectProperties</servlet-name>
-    <url-pattern>/admin/getClazzObjectProperties</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>GetObjectClasses</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.sparql.GetObjectClasses</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>GetObjectClasses</servlet-name>
-    <url-pattern>/admin/getObjectClasses</url-pattern>
-  </servlet-mapping>
-
-  <servlet>
-    <servlet-name>SearchServiceController</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vitro.webapp.search.controller.SearchServiceController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SearchServiceController</servlet-name>
-    <url-pattern>/searchService/*</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <servlet-name>OrcidIntegrationController</servlet-name>
-    <servlet-class>edu.cornell.mannlib.vivo.orcid.controller.OrcidIntegrationController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>OrcidIntegrationController</servlet-name>
-    <url-pattern>/orcid/*</url-pattern>
-  </servlet-mapping>
-  
   <!-- ==================== mime types ============================== -->
   
   <mime-mapping>
@@ -1571,25 +1152,9 @@
     </taglib>
 
     <taglib>
-      <taglib-uri>http://mannlib.cornell.edu/vitro/ListSparqlTag/0.1/</taglib-uri>
-      <taglib-location>/WEB-INF/tlds/ListSparqlTag.tld</taglib-location>
-    </taglib>
-
-    <taglib>
       <taglib-uri>http://jakarta.apache.org/taglibs/string-1.1</taglib-uri>
       <taglib-location>/WEB-INF/tlds/taglibs-string.tld</taglib-location>
     </taglib>
   </jsp-config>
 
-  <!-- ==================== error pages ================================ -->
-  <!-- 	<error-page>
- -->
-  <!-- 		<error-code>404</error-code>
- -->
-  <!-- 		<location>/templates/error/error404.jsp</location>
- -->
-  <!-- 	</error-page>
- -->
-
-  
 </web-app>

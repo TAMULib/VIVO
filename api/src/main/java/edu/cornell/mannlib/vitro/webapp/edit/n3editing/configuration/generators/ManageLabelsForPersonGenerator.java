@@ -1,4 +1,4 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 package edu.cornell.mannlib.vitro.webapp.edit.n3editing.configuration.generators;
 
 import static edu.cornell.mannlib.vitro.webapp.auth.requestedAction.RequestedAction.SOME_LITERAL;
@@ -18,12 +18,13 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.hp.hpl.jena.query.QuerySolution;
-import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.rdf.model.Literal;
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.Literal;
 
 import edu.cornell.mannlib.vitro.webapp.auth.policy.PolicyHelper;
 import edu.cornell.mannlib.vitro.webapp.auth.requestedAction.propstmt.AddDataPropertyStatement;
@@ -296,18 +297,18 @@ public class ManageLabelsForPersonGenerator extends BaseEditConfigurationGenerat
 			//for selection when creating a new label
 			//The assumption here is we don't want to allow the user to add a new label when a label
 			//already exists in that language
-			if(languageName != "untyped" && !existingLabelsLanguageNames.contains(languageName)) {
+			if(!"untyped".equals(languageName) && !existingLabelsLanguageNames.contains(languageName)) {
 				availableLocales.add(localeInfo);
 			}
 		}
 		//Sort list by language label and return
-		Collections.sort(availableLocales, new Comparator<HashMap<String, String>>() {
-			public int compare(HashMap<String, String> h1, HashMap<String, String> h2) {
-				String languageName1 = (String) h1.get("label");
-				String languageName2 = (String) h2.get("label");
-				return languageName1.compareTo(languageName2);
-			}
-		});
+		availableLocales.sort(new Comparator<HashMap<String, String>>() {
+            public int compare(HashMap<String, String> h1, HashMap<String, String> h2) {
+                String languageName1 = (String) h1.get("label");
+                String languageName2 = (String) h2.get("label");
+                return languageName1.compareTo(languageName2);
+            }
+        });
 		
 		return availableLocales;
 	}
@@ -368,7 +369,7 @@ public class ManageLabelsForPersonGenerator extends BaseEditConfigurationGenerat
 		for(Literal l: labels) {
 			String languageTag = l.getLanguage();
 			String languageName = "";
-			if(languageTag == "") {
+			if(StringUtils.isEmpty(languageTag)) {
 				languageName = "untyped";
 			}
 			else if(localeCodeToNameMap.containsKey(languageTag)) {
@@ -377,7 +378,7 @@ public class ManageLabelsForPersonGenerator extends BaseEditConfigurationGenerat
 				log.warn("This language tag " + languageTag + " does not have corresponding name in the system and was not processed");
 			}
 			
-			if(languageName != "") {
+			if(!StringUtils.isEmpty(languageName)) {
 				if(!labelsHash.containsKey(languageName)) {
 					labelsHash.put(languageName, new ArrayList<LabelInformation>());
 				}
@@ -397,7 +398,7 @@ public class ManageLabelsForPersonGenerator extends BaseEditConfigurationGenerat
 		LabelInformationComparator lic = new LabelInformationComparator();
 		for(String languageName: labelsHash.keySet()) {
 			List<LabelInformation> labelInfo = labelsHash.get(languageName);
-			Collections.sort(labelInfo, lic);
+			labelInfo.sort(lic);
 		}
 		return labelsHash;
 		

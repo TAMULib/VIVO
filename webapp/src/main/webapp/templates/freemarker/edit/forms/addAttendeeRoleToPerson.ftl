@@ -1,4 +1,4 @@
-<#-- $This file is distributed under the terms of the license in /doc/license.txt$ -->
+<#-- $This file is distributed under the terms of the license in LICENSE$ -->
 <#--Two stage form for service provider role-->
 
 <#--
@@ -24,5 +24,9 @@ roleExamples-->
 <#assign acMultipleTypes = "'true'" />
 <#assign acTypes = "{activity: 'http://vivoweb.org/ontology/core#EventSeries,http://purl.org/NET/c4dm/event.owl#Event'}" />
 
-<#--Each of the two stage forms will include the form below-->
+<#assign editTitle = "${i18n().edit_entry_for_attendee_role}"/>
+
+<#assign createTitle = "${i18n().create_entry_for_attendee_role}"/>
+
 <#include "addRoleToPersonTwoStage.ftl">
+

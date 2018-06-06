@@ -1,8 +1,4 @@
 /.build/
-/.classpath
-/.project
-/.settings
-/bin/
 /deploy.properties
 /build.properties
 /runtime.properties
@@ -17,5 +13,11 @@ utilities/rdbmigration/.work
 **/target
 
 **/overlays
+
+# Eclipse artifacts
+**/.settings
+**/.classpath
+**/.project
+**/bin/
 
 /installer/settings.xml

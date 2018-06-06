@@ -1,4 +1,4 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 
 var adviseeRelUtils = {
         
@@ -36,7 +36,7 @@ var adviseeRelUtils = {
     
 
     // may not need this
-    this.firstName.attr('disabled', '');
+    this.firstName.attr('disabled', false);
     
     },
     

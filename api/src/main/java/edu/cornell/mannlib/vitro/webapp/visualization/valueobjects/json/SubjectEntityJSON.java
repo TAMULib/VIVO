@@ -1,16 +1,23 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 package edu.cornell.mannlib.vitro.webapp.visualization.valueobjects.json;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import edu.cornell.mannlib.vitro.webapp.visualization.valueobjects.Individual;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class SubjectEntityJSON {
-	
+	@JsonProperty
 	private String subjectEntityLabel;
+
+	@JsonProperty
 	private String subjectEntityURI;
+
+	@JsonProperty
 	private Map<String, String> parentURIToLabel = new HashMap<String, String>();
 	
 	public SubjectEntityJSON(String subjectEntityURI, String label,

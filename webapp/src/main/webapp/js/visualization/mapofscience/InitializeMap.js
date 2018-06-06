@@ -1,4 +1,4 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 
 $.extend(this, i18nStrings);
 
@@ -83,7 +83,7 @@ function helper() {
 }
 
 /* Using .load instead of .ready due to issue with IE and Google Maps API */
-$(window).load(function() {
+$(window).bind("load",function() {
 	
 	ERROR_DISPLAY_WIDGET = new ErrorDisplayWidget({
 		containerID: 'error-container'

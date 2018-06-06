@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!-- $This file is distributed under the terms of the license in /doc/license.txt$ -->
+<!-- $This file is distributed under the terms of the license in LICENSE$ -->
 
 <!-- See guidelines at https://wiki.duraspace.org/x/eYXVAw -->
 
@@ -40,6 +40,7 @@
         WHERE
         {
             ?subject ?property ?authorship .
+<<<<<<< HEAD
             ?authorship a core:Authorship .
             ?authorship core:relates ?infoResource .
             ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
@@ -172,80 +173,83 @@
                 ?authorship a core:Authorship .
                 ?authorship core:relates ?infoResource .
                 ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
+=======
+            ?authorship a core:Authorship ;
+                core:relates ?infoResource .
+            ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; ;
+                rdfs:label ?infoResourceName .
+            OPTIONAL {
+                <precise-subquery>?subject ?property ?authorship .
+                ?authorship a core:Authorship ;
+                    core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .</precise-subquery>
+>>>>>>> Upstream/rel-1.10.0-RC
                 ?infoResource vitro:mostSpecificType ?subclass .
             }
-            UNION
-            {
-                ?subject ?property ?authorship .
-                ?authorship a core:Authorship .
-                ?authorship core:relates ?infoResource .
-                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
-                ?infoResource rdfs:label ?infoResourceName
-            }
-            UNION
-            {
-                ?subject ?property ?authorship .
-                ?authorship a core:Authorship .
-                ?authorship core:relates ?infoResource .
-                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
+            OPTIONAL {
+                <precise-subquery>?subject ?property ?authorship .
+                ?authorship a core:Authorship ;
+                    core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .</precise-subquery>
                 ?infoResource bibo:volume ?volume .
             }
-            UNION
-            {
-                ?subject ?property ?authorship .
-                ?authorship a core:Authorship .
-                ?authorship core:relates ?infoResource .
-                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
+            OPTIONAL {
+                <precise-subquery>?subject ?property ?authorship .
+                ?authorship a core:Authorship ;
+                    core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .</precise-subquery>
                 ?infoResource bibo:pageStart ?startPage .
             }
-            UNION
-            {
-                ?subject ?property ?authorship .
-                ?authorship a core:Authorship .
-                ?authorship core:relates ?infoResource .
-                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
+            OPTIONAL {
+                <precise-subquery>?subject ?property ?authorship .
+                ?authorship a core:Authorship ;
+                    core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .</precise-subquery>
                 ?infoResource bibo:pageEnd ?endPage .
             }
-            UNION
-            {
-                ?subject ?property ?authorship .
-                ?authorship a core:Authorship .
-                ?authorship core:relates ?infoResource .
-                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
+            OPTIONAL {
+                <precise-subquery>?subject ?property ?authorship .
+                ?authorship a core:Authorship ;
+                    core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .</precise-subquery>
                 ?infoResource bibo:doi ?doi .
             }
-            UNION
-            {
-                ?subject ?property ?authorship .
-                ?authorship a core:Authorship .
-                ?authorship core:relates ?infoResource .
-                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
+            OPTIONAL {
+                <precise-subquery>?subject ?property ?authorship .
+                ?authorship a core:Authorship ;
+                    core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .</precise-subquery>
                 ?infoResource bibo:pmid ?pmid .
             }
-            UNION
-            {
-                ?subject ?property ?authorship .
-                ?authorship a core:Authorship .
-                ?authorship core:relates ?infoResource .
-                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
+            OPTIONAL {
+                <precise-subquery>?subject ?property ?authorship .
+                ?authorship a core:Authorship ;
+                    core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .</precise-subquery>
                 ?infoResource bibo:isbn10 ?isbn10 .
             }
-            UNION
-            {
-                ?subject ?property ?authorship .
-                ?authorship a core:Authorship .
-                ?authorship core:relates ?infoResource .
-                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
+            OPTIONAL {
+                <precise-subquery>?subject ?property ?authorship .
+                ?authorship a core:Authorship ;
+                    core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .</precise-subquery>
                 ?infoResource bibo:isbn13 ?isbn13 .
             }
-            UNION
-            {
-                ?subject ?property ?authorship .
-                ?authorship a core:Authorship .
-                ?authorship core:relates ?infoResource .
-                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
+            OPTIONAL {
+                <precise-subquery>?subject ?property ?authorship .
+                ?authorship a core:Authorship ;
+                    core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .</precise-subquery>
+                ?infoResource bibo:oclc ?oclc .
+            }
+            OPTIONAL {
+                <precise-subquery>?subject ?property ?authorship .
+                ?authorship a core:Authorship ;
+                    core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .</precise-subquery>
                 ?infoResource core:placeOfPublication ?locale .
             }
+<<<<<<< HEAD
 			UNION
             {
                 ?subject ?property ?authorship .
@@ -300,71 +304,66 @@
                 ?authorship a core:Authorship .
                 ?authorship core:relates ?infoResource .
                 ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
+=======
+            OPTIONAL {
+                <precise-subquery>?subject ?property ?authorship .
+                ?authorship a core:Authorship ;
+                    core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .</precise-subquery>
+>>>>>>> Upstream/rel-1.10.0-RC
                 ?infoResource bibo:reproducedIn ?appearsInObj .
                 ?appearsInObj rdfs:label ?appearsIn .
             }
-            UNION
-            {
-                ?subject ?property ?authorship .
-                ?authorship a core:Authorship .
-                ?authorship core:relates ?infoResource .
-                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
+            OPTIONAL {
+                <precise-subquery>?subject ?property ?authorship .
+                ?authorship a core:Authorship ;
+                    core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .</precise-subquery>
                 ?infoResource core:publisher ?publisherObj .
                 ?publisherObj rdfs:label ?publisher .
             }
-            UNION
-            {
-                ?subject ?property ?authorship .
-                ?authorship a core:Authorship .
-                ?authorship core:relates ?infoResource .
-                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
-                ?infoResource core:dateTimeValue ?dateTimeValue .
-                ?dateTimeValue core:dateTime ?dateTime .
-            }
-            UNION
-            {
-                ?subject ?property ?authorship .
-                ?authorship a core:Authorship .
-                ?authorship core:relates ?infoResource .
-                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
-                ?infoResource core:hasPublicationVenue ?publishedIn .
-                ?publishedIn  rdfs:label ?journal .
-            }
-            UNION
-            {
-                ?subject ?property ?authorship .
-                ?authorship a core:Authorship .
-                ?authorship core:relates ?infoResource .
-                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
+            OPTIONAL {
+                <precise-subquery>?subject ?property ?authorship .
+                ?authorship a core:Authorship ;
+                    core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .</precise-subquery>
                 ?infoResource &lt;http://purl.obolibrary.org/obo/BFO_0000050&gt; ?partOfObj .
                 ?partOfObj rdfs:label ?partOf .
             }
-            UNION
-            {
-                ?subject ?property ?authorship .
-                ?authorship a core:Authorship .
-                ?authorship core:relates ?infoResource .
-                ?infoResource a bibo:Book .
+            OPTIONAL {
+                <precise-subquery>?subject ?property ?authorship .
+                ?authorship a core:Authorship ;
+                    core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .</precise-subquery>
+                ?infoResource core:hasPublicationVenue ?publishedIn .
+                ?publishedIn  rdfs:label ?journal .
+            }
+            OPTIONAL {
+                <precise-subquery>?subject ?property ?authorship .
+                ?authorship a core:Authorship ;
+                    core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .</precise-subquery>
+                ?infoResource core:dateTimeValue ?dateTimeValue .
+                ?dateTimeValue core:dateTime ?dateTime .
+            }
+            OPTIONAL {
+                <precise-subquery>?subject ?property ?authorship .
+                ?authorship a core:Authorship ;
+                    core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .</precise-subquery>
                 ?infoResource core:relatedBy ?editorship .
                 ?editorship a core:Editorship .
                 ?editorship core:relates ?editorObj .
                 ?editorObj a foaf:Person .
                 ?editorObj rdfs:label ?editor .
             }
-            UNION
-            {
-                ?subject ?property ?authorship .
-                ?authorship a core:Authorship .
-                ?authorship core:relates ?infoResource .
-                ?infoResource a bibo:BookSection .
-                ?infoResource core:relatedBy ?editorship .
-                ?editorship a core:Editorship .
-                ?editorship core:relates ?editorObj .
-                ?editorObj a foaf:Person .
-                ?editorObj rdfs:label ?editor .
+            OPTIONAL {
+                <precise-subquery>?subject ?property ?authorship .
+                ?authorship a core:Authorship .</precise-subquery>
+                ?authorship core:hideFromDisplay ?hideThis .
             }
-        }
-    </query-construct>
+        } ORDER BY ?subclass  DESC(?dateTime) ?infoResourceName
+    </query-select>
 
     <template>propStatement-authorInAuthorship.ftl</template>
 </list-view-config>

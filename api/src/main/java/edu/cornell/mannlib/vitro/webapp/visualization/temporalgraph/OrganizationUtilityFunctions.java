@@ -1,18 +1,18 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 package edu.cornell.mannlib.vitro.webapp.visualization.temporalgraph;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.jena.iri.IRI;
 import org.apache.jena.iri.IRIFactory;
 
-import com.hp.hpl.jena.query.Dataset;
-import com.hp.hpl.jena.query.QuerySolution;
-import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.rdf.model.RDFNode;
+import org.apache.jena.query.Dataset;
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.query.ResultSet;
+import org.apache.jena.rdf.model.RDFNode;
 
 import edu.cornell.mannlib.vitro.webapp.beans.Individual;
 import edu.cornell.mannlib.vitro.webapp.config.ConfigurationProperties;
@@ -27,40 +27,14 @@ import edu.cornell.mannlib.vitro.webapp.visualization.visutils.QueryRunner;
 
 public class OrganizationUtilityFunctions {
 
-	public static String getHighestLevelOrganizationURI(ResultSet resultSet,
-			Map<String, String> fieldLabelToOutputFieldLabel) {
-
-		GenericQueryMap queryResult = new GenericQueryMap();
-
+	public static String getHighestLevelOrganizationURI(ResultSet resultSet, Map<String, String> fieldLabelToOutputFieldLabel) {
 		while (resultSet.hasNext()) {
 			QuerySolution solution = resultSet.nextSolution();
 
-			RDFNode organizationNode = solution
-					.get(fieldLabelToOutputFieldLabel.get("organization"));
+			RDFNode organizationNode = solution.get(fieldLabelToOutputFieldLabel.get("organization"));
 
 			if (organizationNode != null) {
-				queryResult.addEntry(
-						fieldLabelToOutputFieldLabel.get("organization"),
-						organizationNode.toString());
-
 				return organizationNode.toString();
-
-			}
-
-			RDFNode organizationLabelNode = solution
-					.get(fieldLabelToOutputFieldLabel.get("organizationLabel"));
-
-			if (organizationLabelNode != null) {
-				queryResult.addEntry(
-						fieldLabelToOutputFieldLabel.get("organizationLabel"),
-						organizationLabelNode.toString());
-			}
-
-			RDFNode numberOfChildrenNode = solution.getLiteral("numOfChildren");
-
-			if (numberOfChildrenNode != null) {
-				queryResult.addEntry("numOfChildren", String
-						.valueOf(numberOfChildrenNode.asLiteral().getInt()));
 			}
 		}
 

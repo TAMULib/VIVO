@@ -1,4 +1,4 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 package edu.cornell.mannlib.vitro.webapp.controller.ajax;
 
 import java.io.IOException;
@@ -7,21 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.json.JSONException;
 
-import com.hp.hpl.jena.query.QuerySolution;
-import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.rdf.model.RDFNode;
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.query.ResultSet;
 
 import edu.cornell.mannlib.vitro.webapp.controller.VitroRequest;
-import edu.cornell.mannlib.vitro.webapp.controller.ajax.VitroAjaxController;
 import edu.cornell.mannlib.vitro.webapp.controller.freemarker.UrlBuilder;
 import edu.cornell.mannlib.vitro.webapp.dao.jena.QueryUtils;
 
@@ -36,7 +31,7 @@ public class GeoFocusMapLocations extends AbstractAjaxResponder {
         + "PREFIX core: <http://vivoweb.org/ontology/core#>  \n"
         + "PREFIX foaf: <http://xmlns.com/foaf/0.1/>  \n"
         + "PREFIX vivoc: <http://vivo.library.cornell.edu/ns/0.1#>  \n"
-        + "PREFIX afn:  <http://jena.hpl.hp.com/ARQ/function#> "
+        + "PREFIX afn:  <http://jena.apache.org/ARQ/function#> "
         + "SELECT DISTINCT ?label ?location (afn:localname(?location) AS ?localName) (COUNT(DISTINCT ?person) AS ?count)  \n"
         + "WHERE { { \n"
         + "    ?location rdf:type core:GeographicRegion .  \n"
@@ -65,11 +60,11 @@ public class GeoFocusMapLocations extends AbstractAjaxResponder {
     }
 
 	@Override
-	public String prepareResponse() throws IOException, JSONException {
+	public String prepareResponse() throws IOException {
 		try {
             geoLocations = getGeoLocations(vreq);
             
-            String response = "[";
+            StringBuilder response = new StringBuilder("[");
             String geometry = "{\"geometry\": {\"type\": \"Point\",\"coordinates\": \"\"},";
             String typeProps = "\"type\": \"Feature\",\"properties\": {\"mapType\": \"\",";
             String previousLabel = "";
@@ -112,18 +107,18 @@ public class GeoFocusMapLocations extends AbstractAjaxResponder {
                                         + "\",\"local\": \""
                                         + local
                                         + "\"}},";                 
-                    response +=  tempStr;
+                    response.append(tempStr);
                     previousLabel = label;
                 }
             }
 			if ( response.lastIndexOf(",") > 0 ) {
-			    response = response.substring(0, response.lastIndexOf(","));
+			    response = new StringBuilder(response.substring(0, response.lastIndexOf(",")));
 			}
-			response += " ]";
+			response.append(" ]");
 			if ( log.isDebugEnabled() ) {
-				log.debug(response);
+				log.debug(response.toString());
 			}
-			return response;
+			return response.toString();
 		} catch (Exception e) {
 			log.error("Failed geographic focus locations", e);
 			return EMPTY_RESPONSE;

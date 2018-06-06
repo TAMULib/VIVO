@@ -1,4 +1,4 @@
-/* $This file is distributed under the terms of the license in /doc/license.txt$ */
+/* $This file is distributed under the terms of the license in LICENSE$ */
 
 var manageWebpages = {
 
@@ -210,7 +210,7 @@ var manageWebpages = {
                             $(this).show();
                         });
                         $('a#showAddForm').removeClass('disabledSubmit');
-                        $('a#showAddForm').attr('disabled', '');
+                        $('a#showAddForm').attr('disabled', false);
                     });
 
                 } else {
