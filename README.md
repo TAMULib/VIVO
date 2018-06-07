@@ -17,11 +17,7 @@ https://wiki.duraspace.org/display/VIVO/
 ### Installation Instructions
 
 Installation instructions for the latest release can be found at this location on the wiki:  
-<<<<<<< HEAD
-https://wiki.duraspace.org/display/VIVODOC19x/Installing+VIVO#InstallingVIVO-Git
-=======
 https://wiki.duraspace.org/display/VIVODOC19x/Installing+VIVO
->>>>>>> Upstream/rel-1.10.0-RC
 
 ## Contact us
 There are several ways to contact the VIVO community. 

@@ -22,10 +22,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import edu.cornell.mannlib.orcidclient.model.ExternalIdentifier;
-<<<<<<< HEAD
-import edu.cornell.mannlib.orcidclient.model.ExternalIdentifiers;
-=======
->>>>>>> Upstream/rel-1.10.0-RC
 import edu.cornell.mannlib.orcidclient.model.OrcidBio;
 import edu.cornell.mannlib.orcidclient.model.OrcidId;
 import edu.cornell.mannlib.orcidclient.model.OrcidProfile;

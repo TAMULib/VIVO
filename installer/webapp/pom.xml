@@ -7,21 +7,13 @@
 
     <groupId>org.vivoweb</groupId>
     <artifactId>vivo-installer-vivo</artifactId>
-<<<<<<< HEAD
-    <version>1.9.3</version>
-=======
     <version>1.10.0-SNAPSHOT</version>
->>>>>>> Upstream/rel-1.10.0-RC
     <packaging>war</packaging>
 
     <parent>
         <groupId>org.vivoweb</groupId>
         <artifactId>vivo-installer</artifactId>
-<<<<<<< HEAD
-        <version>1.9.3</version>
-=======
         <version>1.10.0-SNAPSHOT</version>
->>>>>>> Upstream/rel-1.10.0-RC
         <relativePath>..</relativePath>
     </parent>
 

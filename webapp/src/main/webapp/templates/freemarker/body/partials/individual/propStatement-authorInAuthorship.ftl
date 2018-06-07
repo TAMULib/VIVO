@@ -1,4 +1,4 @@
-<#-- $This file is distributed under the terms of the license in LICENSE$ -->
+<#-- $This file is distributed under the terms of the license in /doc/license.txt$ -->
 
 <#-- Custom object property statement view for faux property "selected publications". See the PropertyConfig.n3 file for details.
     
@@ -18,7 +18,7 @@
     <span class="hideThis">&nbsp;</span>
     <script type="text/javascript" >
         $('span.hideThis').parent().parent().addClass("hideThis");
-        if ( jQuery.isEmptyObject($('h3#relatedBy-Authorship').attr('class')) ) {
+        if ( $('h3#relatedBy-Authorship').attr('class').length == 0 ) {
             $('h3#relatedBy-Authorship').addClass('hiddenPubs');
         }
         $('span.hideThis').parent().remove();
@@ -200,14 +200,30 @@
         </#if>
     </#local>
 
-<<<<<<< HEAD
 	${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle?trim}${citationDetails?trim}
 
 	<div>	
 		<img src="../themes/tamu/images/blank.gif"> ${digitalObjectIdentifier} ${pubMedID} ${altMetric}
 	</div>	
 
-=======
+</#if>
+</#macro>
+        </#if>
+
+    <#local altMetric>
+        <#if altmetricEnabled??>
+            <#if statement.doi??>
+                <div data-badge-popover="right" data-badge-type="4" data-doi="${statement.doi}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            <#elseif statement.pmid??>
+                <div data-badge-popover="right" data-badge-type="4" data-pmid="${statement.pmid}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            <#elseif statement.isbn10??>
+                <div data-badge-popover="right" data-badge-type="4" data-isbn="${statement.isbn10}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            <#elseif statement.isbn13??>
+                <div data-badge-popover="right" data-badge-type="4" data-isbn="${statement.isbn13}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            </#if>
+        </#if>
+    </#local>
+
     <#local plum>
         <#if plumPrintEnabled??>
             <#if statement.doi??>
@@ -236,6 +252,5 @@
     </#local>
 
     ${resourceTitle} ${citationDetails} <@dt.yearSpan "${statement.dateTime!}" /> ${altMetric} ${plum}
->>>>>>> Upstream/rel-1.10.0-RC
 </#if>
 </#macro>

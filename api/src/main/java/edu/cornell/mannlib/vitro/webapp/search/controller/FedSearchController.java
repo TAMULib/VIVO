@@ -9,10 +9,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import javax.servlet.ServletException;
-<<<<<<< HEAD
-=======
 import javax.servlet.annotation.WebServlet;
->>>>>>> Upstream/rel-1.10.0-RC
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
@@ -23,10 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-<<<<<<< HEAD
-=======
 @WebServlet(name = "FedSearchController", urlPatterns = {"/FS.xml","/ctsasearch"} ) // fedsearch
->>>>>>> Upstream/rel-1.10.0-RC
 public class FedSearchController extends PagedSearchController {
     private static final Log log = LogFactory.getLog(FedSearchController.class);
 
@@ -90,12 +84,6 @@ public class FedSearchController extends PagedSearchController {
                 response.setContentType("text/xml;charset=UTF-8");
                 response.setHeader("Content-Disposition", "attachment; filename=search.xml");
                 Map<String, Object> body = new HashMap<String, Object>();
-<<<<<<< HEAD
-                body.putAll(rvalues.getMap());
-                body.put("serverBase", serverBase);
-                body.put("classgroup", classgroup);
-                body.put("populationType", getPopulationType(request));
-=======
 
                 body.putAll(rvalues.getMap());
                 // Note - the template requires the following properties from the above map
@@ -105,7 +93,6 @@ public class FedSearchController extends PagedSearchController {
                 body.put("populationType", getPopulationType(request));
                 body.put("classgroup", classgroup);
                 body.put("serverBase", serverBase);
->>>>>>> Upstream/rel-1.10.0-RC
                 writeTemplate("search-fsresult.ftl", body, request, response);
             } catch (Exception e) {
                 log.error(e, e);
