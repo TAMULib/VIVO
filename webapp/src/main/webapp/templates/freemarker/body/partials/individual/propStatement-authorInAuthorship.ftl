@@ -206,9 +206,6 @@
 		<img src="../themes/tamu/images/blank.gif"> ${digitalObjectIdentifier} ${pubMedID} ${altMetric}
 	</div>	
 
-</#if>
-</#macro>
-        </#if>
 
     <#local altMetric>
         <#if altmetricEnabled??>
