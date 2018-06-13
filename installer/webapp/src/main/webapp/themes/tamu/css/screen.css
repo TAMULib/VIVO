@@ -24,3 +24,4 @@ VIVO tamu theme: screen styles
 
 @import url("reset.css");
 @import url("tamu.css");
+@import url("../../../local/css/local.css");
