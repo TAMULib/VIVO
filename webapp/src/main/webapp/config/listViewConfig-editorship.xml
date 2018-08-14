@@ -44,7 +44,6 @@
             OPTIONAL { ?infoResource vitro:mostSpecificType ?subclass }
             OPTIONAL { ?infoResource bibo:doi ?digitalObjectIdentifier }	
             OPTIONAL { ?infoResource tamu:fullAuthorList ?fullAuthorListTAMU }
-            OPTIONAL { ?infoResource tamu:fullAuthorList ?fullAuthorListTAMU }
 			OPTIONAL { ?infoResource tamu:fullEditorList ?fullEditorListTAMU }
             OPTIONAL { ?infoResource core:pmcid ?pubMedID }		
 			OPTIONAL { ?infoResource tamu:bookTitleForChapter ?bookTitleForChapterTAMU }

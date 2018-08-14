@@ -2043,6 +2043,16 @@ a.pubmed-link {
     font-size: smaller;
     padding: 0px 2px 0px 2px;
 }
+a.openaccess-link {
+    padding: 0px 2px 0px 2px;
+}
+img.openaccess-link {
+    height: auto; 
+    width: auto; 
+    max-width: 75px; 
+    max-height: 25px;
+	padding: 0px 2px 0px 2px;
+}
 #cit_year {
     padding: 0;
     background: #f4f4f4;

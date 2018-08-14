@@ -61,6 +61,28 @@
 			</#if>
         </#if>
     </#local>	
+
+    <#local uriTAMU>
+        <#if statement.uriTAMU??>
+		    <#if statement.uriTAMU?has_content>
+				<a class="openaccess-link" href="${statement.uriTAMU}" target="_blank"><img class="openaccess-link" src="../themes/tamu/images/open-access-logo.svg"></a>
+			</#if>
+        </#if>
+    </#local>	
+	
+    <#local altMetric>
+        <#if altmetricEnabled??>
+            <#if statement.doi??>
+                <div data-badge-popover="right" data-badge-type="4" data-doi="${statement.doi}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            <#elseif statement.pmid??>
+                <div data-badge-popover="right" data-badge-type="4" data-pmid="${statement.pmid}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            <#elseif statement.isbn10??>
+                <div data-badge-popover="right" data-badge-type="4" data-isbn="${statement.isbn10}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            <#elseif statement.isbn13??>
+                <div data-badge-popover="right" data-badge-type="4" data-isbn="${statement.isbn13}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            </#if>
+        </#if>
+    </#local>
 	
     <#if statement.subclass??>
         <#if statement.subclass?contains("Article")>
@@ -145,7 +167,7 @@
     ${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle} ${citationDetails}  
 
 	<div>	
-		<img src="../themes/tamu/images/blank.gif"> ${digitalObjectIdentifier} ${pubMedID} 
+		<img src="../themes/tamu/images/blank.gif"> ${digitalObjectIdentifier} ${pubMedID} ${uriTAMU} ${altMetric}
 	</div>	
 	
 </#macro>
