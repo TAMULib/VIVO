@@ -857,4 +857,9 @@
     <rdfs:label xml:lang="en-US">M.P.A. Master in Public Affairs</rdfs:label>
     <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
   </rdf:Description> 
+   <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n7947">
+    <core:abbreviation>M.A.Sc.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">M.A.Sc. Master of Applied Science</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>   
 </rdf:RDF>
