@@ -198,6 +198,8 @@
         <#if altmetricEnabled??>
             <#if statement.doi??>
                 <div data-badge-popover="right" data-badge-type="4" data-doi="${statement.doi}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            <#elseif statement.uriTAMU?has_content>
+                <div data-badge-popover="right" data-badge-type="4" data-handle="${statement.uriTAMU?replace("http://hdl.handle.net/", "")}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
             <#elseif statement.pmid??>
                 <div data-badge-popover="right" data-badge-type="4" data-pmid="${statement.pmid}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
             <#elseif statement.isbn10??>
