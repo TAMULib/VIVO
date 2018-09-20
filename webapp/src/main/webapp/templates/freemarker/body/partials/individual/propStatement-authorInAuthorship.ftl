@@ -189,7 +189,7 @@
     <#local uriTAMU>
         <#if statement.uriTAMU??>
 		    <#if statement.uriTAMU?has_content>
-				<a class="openaccess-link" href="${statement.uriTAMU}" target="_blank"><img class="openaccess-link" src="../themes/tamu/images/open-access-logo.svg"></a>
+				<a class="openaccess-link" href="${statement.uriTAMU}" target="_blank"><img class="openaccess-link" src="${urls.base}/themes/tamu/images/open-access-logo.svg"></a>
 			</#if>
         </#if>
     </#local>	
@@ -211,7 +211,7 @@
 	${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle?trim}${citationDetails?trim}
 
 	<div>	
-		<img src="../themes/tamu/images/blank.gif"> ${digitalObjectIdentifier} ${pubMedID} ${uriTAMU} ${altMetric}
+		<img src="${urls.base}/themes/tamu/images/blank.gif"> ${digitalObjectIdentifier} ${pubMedID} ${uriTAMU} ${altMetric}
 	</div>	
 
 </#if>
