@@ -2066,3 +2066,7 @@ a.orcid_link {
    color: #a6ce39;
    font-size: smaller;
 }
+
+section.property-group div {
+    margin-top:0px;
+}
