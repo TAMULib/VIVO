@@ -39,7 +39,7 @@
     <#local digitalObjectIdentifier>
         <#if statement.digitalObjectIdentifier??>
 		    <#if statement.digitalObjectIdentifier?has_content>
-				<a class="full-text-link" href="http://dx.doi.org/${statement.digitalObjectIdentifier}">DOI</a>
+				<a class="full-text-link" href="http://dx.doi.org/${statement.digitalObjectIdentifier}" target="_blank"><img class="doi-link" src="${urls.base}/themes/tamu/images/doi.jpg"></a>
 			</#if>
         </#if>
     </#local>
@@ -57,7 +57,7 @@
     <#local pubMedID>
         <#if statement.pubMedID??>
 		    <#if statement.pubMedID?has_content>
-				<a class="pubmed-link" href="https://www.ncbi.nlm.nih.gov/pubmed/${statement.pubMedID}">PubMed</a>
+				<a class="pubmed-link" href="https://www.ncbi.nlm.nih.gov/pubmed/${statement.pubMedID}" target="_blank"><img class="pubmed-link" src="${urls.base}/themes/tamu/images/pubmed.jpg"></a>
 			</#if>
         </#if>
     </#local>	
@@ -65,7 +65,7 @@
     <#local uriTAMU>
         <#if statement.uriTAMU??>
 		    <#if statement.uriTAMU?has_content>
-				<a class="openaccess-link" href="${statement.uriTAMU}" target="_blank"><img class="openaccess-link" src="${urls.base}/themes/tamu/images/open-access-logo.svg"></a>
+				<a class="openaccess-link" href="${statement.uriTAMU}" target="_blank"><img class="openaccess-link" src="${urls.base}/themes/tamu/images/open_access.jpg"></a>
 			</#if>
         </#if>
     </#local>	
