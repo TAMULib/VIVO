@@ -39,7 +39,7 @@
     <#local digitalObjectIdentifier>
         <#if statement.digitalObjectIdentifier??>
 		    <#if statement.digitalObjectIdentifier?has_content>
-				<a class="full-text-link" href="http://dx.doi.org/${statement.digitalObjectIdentifier}">DOI</a>
+				<a class="full-text-link" href="http://dx.doi.org/${statement.digitalObjectIdentifier}" target="_blank"><img class="doi-link" src="${urls.base}/themes/tamu/images/doi.jpg"></a>
 			</#if>
         </#if>
     </#local>
@@ -57,7 +57,7 @@
     <#local pubMedID>
         <#if statement.pubMedID??>
 		    <#if statement.pubMedID?has_content>
-				<a class="pubmed-link" href="https://www.ncbi.nlm.nih.gov/pubmed/${statement.pubMedID}">PubMed</a>
+				<a class="pubmed-link" href="https://www.ncbi.nlm.nih.gov/pubmed/${statement.pubMedID}" target="_blank"><img class="pubmed-link" src="${urls.base}/themes/tamu/images/pubmed.jpg"></a>
 			</#if>
         </#if>
     </#local>	
@@ -65,7 +65,7 @@
     <#local uriTAMU>
         <#if statement.uriTAMU??>
 		    <#if statement.uriTAMU?has_content>
-				<a class="openaccess-link" href="${statement.uriTAMU}" target="_blank"><img class="openaccess-link" src="../themes/tamu/images/open-access-logo.svg"></a>
+				<a class="openaccess-link" href="${statement.uriTAMU}" target="_blank"><img class="openaccess-link" src="${urls.base}/themes/tamu/images/open_access.jpg"></a>
 			</#if>
         </#if>
     </#local>	
@@ -74,6 +74,8 @@
         <#if altmetricEnabled??>
             <#if statement.doi??>
                 <div data-badge-popover="right" data-badge-type="4" data-doi="${statement.doi}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            <#elseif statement.uriTAMU?has_content>
+                <div data-badge-popover="right" data-badge-type="4" data-handle="${statement.uriTAMU?replace("http://hdl.handle.net/", "")}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
             <#elseif statement.pmid??>
                 <div data-badge-popover="right" data-badge-type="4" data-pmid="${statement.pmid}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
             <#elseif statement.isbn10??>
@@ -163,11 +165,21 @@
             <a href="${profileUrl(statement.uri("editorship"))}" title="${i18n().missing_info_resource}">${i18n().missing_info_resource}</a>
         </#if>
     </#local>
-
+	
+    <#local dimensions>
+        <#if altmetricEnabled??>
+            <#if statement.doi??>
+				<span class="__dimensions_badge_embed__" data-doi="${statement.doi}" data-hide-zero-citations="true" data-style="small_rectangle" style="display: inline; top: -5px; position: relative;"></span><script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
+			<#elseif statement.pmid??>
+				<span class="__dimensions_badge_embed__" data-doi="${statement.pmid}" data-hide-zero-citations="true" data-style="small_rectangle" style="display: inline;"></span><script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
+            </#if>
+        </#if>
+    </#local>
+	
     ${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle} ${citationDetails}  
 
 	<div>	
-		<img src="../themes/tamu/images/blank.gif"> ${digitalObjectIdentifier} ${pubMedID} ${uriTAMU} ${altMetric}
+		<img src="${urls.base}/themes/tamu/images/blank.gif"> ${digitalObjectIdentifier} ${pubMedID} ${uriTAMU} ${altMetric} ${dimensions}
 	</div>	
 	
 </#macro>
