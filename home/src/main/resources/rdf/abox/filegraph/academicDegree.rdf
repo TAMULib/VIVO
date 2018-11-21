@@ -861,5 +861,50 @@
     <core:abbreviation>M.A.Sc.</core:abbreviation>
     <rdfs:label xml:lang="en-US">M.A.Sc. Master of Applied Science</rdfs:label>
     <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
-  </rdf:Description>   
+  </rdf:Description>
+   <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n1954">
+    <core:abbreviation>B.L.A.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">B.L.A. Bachelor of Landscape Architecture</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n3641">
+    <core:abbreviation>M.L.A.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">M.L.A. Master of Landscape Architecture</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>
+   <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n14131">
+    <core:abbreviation>GradD.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">GradD. Graduate Diploma</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n28989">
+    <core:abbreviation>D.E.A.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">D.E.A. Degree of in-Depth Studies</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n30790">
+    <core:abbreviation>D.N.P.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">D.N.P. Doctor of Nursing Practice</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/display/n12570">
+    <core:abbreviation>M. Arch.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">M. Arch. Master of Architecture</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/display/n12984">
+    <core:abbreviation>B.E.D.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">B.E.D. Bachelor of Environmental Design</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n23980">
+    <core:abbreviation>M.E.E.P.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">M.E.E.P. Master of Energy and Environmental Policy</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n3820 ">
+    <core:abbreviation>M.L.S.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">M.L.S. Master of Legal Studies</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>
 </rdf:RDF>
