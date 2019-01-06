@@ -210,6 +210,16 @@
             </#if>
         </#if>
     </#local>
+	
+    <#local dimensions>
+        <#if altmetricEnabled??>
+            <#if statement.doi??>
+				<span class="__dimensions_badge_embed__" data-doi="${statement.doi}" data-hide-zero-citations="true" data-style="small_rectangle" style="display: inline; top: -5px; position: relative;"></span><script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
+			<#elseif statement.pmid??>
+				<span class="__dimensions_badge_embed__" data-doi="${statement.pmid}" data-hide-zero-citations="true" data-style="small_rectangle" style="display: inline;"></span><script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
+            </#if>
+        </#if>
+    </#local>	
 
 	${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle?trim}${citationDetails?trim}
 	<div>	
