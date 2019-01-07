@@ -902,7 +902,7 @@
     <rdfs:label xml:lang="en-US">M.E.E.P. Master of Energy and Environmental Policy</rdfs:label>
     <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n3820 ">
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n3820">
     <core:abbreviation>M.L.S.</core:abbreviation>
     <rdfs:label xml:lang="en-US">M.L.S. Master of Legal Studies</rdfs:label>
     <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
