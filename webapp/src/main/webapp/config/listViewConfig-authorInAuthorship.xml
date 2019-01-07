@@ -34,6 +34,7 @@
 			?digitalObjectIdentifier
 			?fullAuthorListTAMU
 			?fullEditorListTAMU
+			?uriTAMU
 			?pubMedID 
 			?bookTitleForChapterTAMU
 			?issue
@@ -56,6 +57,7 @@
             OPTIONAL { ?infoResource bibo:doi ?digitalObjectIdentifier }	
             OPTIONAL { ?infoResource tamu:fullAuthorList ?fullAuthorListTAMU }
 			OPTIONAL { ?infoResource tamu:fullEditorList ?fullEditorListTAMU }
+			OPTIONAL { ?infoResource bibo:uri ?uriTAMU }
             OPTIONAL { ?infoResource core:pmcid ?pubMedID }		
 			OPTIONAL { ?infoResource tamu:bookTitleForChapter ?bookTitleForChapterTAMU }			
             OPTIONAL { ?infoResource bibo:issue ?issue }			
@@ -122,7 +124,8 @@
             ?infoResource core:placeOfPublication ?locale .
             ?infoResource bibo:doi ?digitalObjectIdentifier .
             ?infoResource tamu:fullAuthorList ?fullAuthorListTAMU .	
-			?infoResource tamu:fullEditorList ?fullEditorListTAMU .				
+			?infoResource tamu:fullEditorList ?fullEditorListTAMU .	
+			?infoResource bibo:uri ?uriTAMU .			
 			?infoResource core:pmcid ?pubMedID .	
 			?infoResource tamu:bookTitleForChapter ?bookTitleForChapterTAMU .				
             ?infoResource bibo:issue ?issue .				
@@ -269,6 +272,14 @@
                 ?authorship core:relates ?infoResource .
                 ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
                 ?infoResource tamu:fullEditorList ?fullEditorListTAMU .
+            }
+            UNION
+            {
+                ?subject ?property ?authorship .
+                ?authorship a core:Authorship .
+                ?authorship core:relates ?infoResource .
+                ?infoResource a &lt;http://purl.obolibrary.org/obo/IAO_0000030&gt; .
+                ?infoResource bibo:uri ?uriTAMU .
             }			
 			UNION
             {

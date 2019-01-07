@@ -1,27 +1,3 @@
-<#-- $This file is distributed under the terms of the license in LICENSE$ -->
-
-<#-- Custom object property statement view for faux property "editor of". See the PropertyConfig.n3 file for details.
-    
-     This template must be self-contained and not rely on other variables set for the individual page, because it
-     is also used to generate the property statement during a deletion.  
- -->
- 
-<#import "lib-sequence.ftl" as s>
-<#import "lib-datetime.ftl" as dt>
-
-<@showEditorship statement />
-
-<#-- Use a macro to keep variable assignments local; otherwise the values carry over to the
-     next statement -->
-<#macro showEditorship statement>
-<#local citationDetails>
-    <#if statement.subclass??>
-        <#if statement.subclass?contains("Article")>
-            <#if statement.journal??>
-                <em>${statement.journal!}</em>.&nbsp;
-                <#if statement.volume?? && statement.startPage?? && statement.endPage??>
-                    ${statement.volume!}:${statement.startPage!}-${statement.endPage!}.
-                <#elseif statement.volume?? && statement.startPage??>
 <#-- $This file is distributed under the terms of the license in /doc/license.txt$ -->
 
 <#-- Custom object property statement view for faux property "editor of". See the PropertyConfig.n3 file for details.
@@ -63,7 +39,7 @@
     <#local digitalObjectIdentifier>
         <#if statement.digitalObjectIdentifier??>
 		    <#if statement.digitalObjectIdentifier?has_content>
-				<a class="full-text-link" href="http://dx.doi.org/${statement.digitalObjectIdentifier}">DOI</a>
+				<a class="full-text-link" href="http://dx.doi.org/${statement.digitalObjectIdentifier}" target="_blank"><img class="doi-link" src="${urls.base}/themes/tamu/images/doi.jpg"></a>
 			</#if>
         </#if>
     </#local>
@@ -81,10 +57,34 @@
     <#local pubMedID>
         <#if statement.pubMedID??>
 		    <#if statement.pubMedID?has_content>
-				<a class="pubmed-link" href="https://www.ncbi.nlm.nih.gov/pubmed/${statement.pubMedID}">PubMed</a>
+				<a class="pubmed-link" href="https://www.ncbi.nlm.nih.gov/pubmed/${statement.pubMedID}" target="_blank"><img class="pubmed-link" src="${urls.base}/themes/tamu/images/pubmed.jpg"></a>
 			</#if>
         </#if>
     </#local>	
+
+    <#local uriTAMU>
+        <#if statement.uriTAMU??>
+		    <#if statement.uriTAMU?has_content>
+				<a class="openaccess-link" href="${statement.uriTAMU}" target="_blank"><img class="openaccess-link" src="${urls.base}/themes/tamu/images/open_access.jpg"></a>
+			</#if>
+        </#if>
+    </#local>	
+	
+    <#local altMetric>
+        <#if altmetricEnabled??>
+            <#if statement.doi??>
+                <div data-badge-popover="right" data-badge-type="4" data-doi="${statement.doi}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            <#elseif statement.uriTAMU?has_content>
+                <div data-badge-popover="right" data-badge-type="4" data-handle="${statement.uriTAMU?replace("http://hdl.handle.net/", "")}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            <#elseif statement.pmid??>
+                <div data-badge-popover="right" data-badge-type="4" data-pmid="${statement.pmid}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            <#elseif statement.isbn10??>
+                <div data-badge-popover="right" data-badge-type="4" data-isbn="${statement.isbn10}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            <#elseif statement.isbn13??>
+                <div data-badge-popover="right" data-badge-type="4" data-isbn="${statement.isbn13}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            </#if>
+        </#if>
+    </#local>
 	
     <#if statement.subclass??>
         <#if statement.subclass?contains("Article")>
@@ -165,21 +165,21 @@
             <a href="${profileUrl(statement.uri("editorship"))}" title="${i18n().missing_info_resource}">${i18n().missing_info_resource}</a>
         </#if>
     </#local>
-
+	
+    <#local dimensions>
+        <#if altmetricEnabled??>
+            <#if statement.doi??>
+				<span class="__dimensions_badge_embed__" data-doi="${statement.doi}" data-hide-zero-citations="true" data-style="small_rectangle" style="display: inline; top: -5px; position: relative;"></span><script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
+			<#elseif statement.pmid??>
+				<span class="__dimensions_badge_embed__" data-doi="${statement.pmid}" data-hide-zero-citations="true" data-style="small_rectangle" style="display: inline;"></span><script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
+            </#if>
+        </#if>
+    </#local>
+	
     ${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle} ${citationDetails}  
 
 	<div>	
-		<img src="../themes/tamu/images/blank.gif"> ${digitalObjectIdentifier} ${pubMedID} 
+		<img src="${urls.base}/themes/tamu/images/blank.gif"> ${digitalObjectIdentifier} ${pubMedID} ${uriTAMU} ${altMetric} ${dimensions}
 	</div>	
 	
-</#macro>
-            <#else>
-                <a href="${profileUrl(statement.uri("infoResource"))}"  title="${i18n().resource_name}">${statement.infoResourceName}</a>
-            </#if>
-        <#else>
-            <#-- This shouldn't happen, but we must provide for it -->
-            <a href="${profileUrl(statement.uri("editorship"))}" title="${i18n().missing_info_resource}">${i18n().missing_info_resource}</a>
-        </#if>
-    </#local>
-
 </#macro>

@@ -163,7 +163,7 @@
     <#local digitalObjectIdentifier>
         <#if statement.digitalObjectIdentifier??>
 		    <#if statement.digitalObjectIdentifier?has_content>
-				<a class="full-text-link" href="http://dx.doi.org/${statement.digitalObjectIdentifier}" target="_blank">DOI</a>
+				<a class="full-text-link" href="http://dx.doi.org/${statement.digitalObjectIdentifier}" target="_blank"><img class="doi-link" src="${urls.base}/themes/tamu/images/doi.jpg"></a>
 			</#if>
         </#if>
     </#local>
@@ -181,15 +181,26 @@
     <#local pubMedID>
         <#if statement.pubMedID??>
 		    <#if statement.pubMedID?has_content>
-				<a class="pubmed-link" href="https://www.ncbi.nlm.nih.gov/pubmed/${statement.pubMedID}" target="_blank">PubMed</a>
+				<a class="pubmed-link" href="https://www.ncbi.nlm.nih.gov/pubmed/${statement.pubMedID}" target="_blank"><img class="pubmed-link" src="${urls.base}/themes/tamu/images/pubmed.jpg"></a>
+				
+			</#if>
+        </#if>
+    </#local>
+
+    <#local uriTAMU>
+        <#if statement.uriTAMU??>
+		    <#if statement.uriTAMU?has_content>
+				<a class="openaccess-link" href="${statement.uriTAMU}" target="_blank"><img class="openaccess-link" src="${urls.base}/themes/tamu/images/open_access.jpg"></a>
 			</#if>
         </#if>
     </#local>	
-
+	
     <#local altMetric>
         <#if altmetricEnabled??>
             <#if statement.doi??>
                 <div data-badge-popover="right" data-badge-type="4" data-doi="${statement.doi}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
+            <#elseif statement.uriTAMU?has_content>
+                <div data-badge-popover="right" data-badge-type="4" data-handle="${statement.uriTAMU?replace("http://hdl.handle.net/", "")}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
             <#elseif statement.pmid??>
                 <div data-badge-popover="right" data-badge-type="4" data-pmid="${statement.pmid}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
             <#elseif statement.isbn10??>
@@ -209,27 +220,6 @@
             </#if>
         </#if>
     </#local>	
-
-	${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle?trim}${citationDetails?trim}
-
-	<div>	
-		<img src="../themes/tamu/images/blank.gif"> ${digitalObjectIdentifier} ${pubMedID} ${altMetric}
-	</div>	
-
-
-    <#local altMetric>
-        <#if altmetricEnabled??>
-            <#if statement.doi??>
-                <div data-badge-popover="right" data-badge-type="4" data-doi="${statement.doi}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
-            <#elseif statement.pmid??>
-                <div data-badge-popover="right" data-badge-type="4" data-pmid="${statement.pmid}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
-            <#elseif statement.isbn10??>
-                <div data-badge-popover="right" data-badge-type="4" data-isbn="${statement.isbn10}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
-            <#elseif statement.isbn13??>
-                <div data-badge-popover="right" data-badge-type="4" data-isbn="${statement.isbn13}" data-hide-no-mentions="true" class="altmetric-embed" style="display: inline;"></div>
-            </#if>
-        </#if>
-    </#local>
 
     <#local plum>
         <#if plumPrintEnabled??>
@@ -258,6 +248,11 @@
         </#if>
     </#local>
 
-    ${resourceTitle} ${citationDetails} <@dt.yearSpan "${statement.dateTime!}" /> ${altMetric} ${plum}
+	${fullAuthorListTAMU} <@dt.citation_yearSpan "${statement.dateTime!}" /> ${resourceTitle?trim}${citationDetails?trim}
+
+	<div>	
+		<img src="${urls.base}/themes/tamu/images/blank.gif"> ${digitalObjectIdentifier} ${pubMedID} ${uriTAMU} ${altMetric} ${dimensions}
+	</div>
+	
 </#if>
 </#macro>
