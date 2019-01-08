@@ -1,4 +1,4 @@
-<#-- $This file is distributed under the terms of the license in /doc/license.txt$ -->
+<#-- $This file is distributed under the terms of the license in LICENSE$ -->
 
 <#-- Custom object property statement view for faux property "positions". See the PropertyConfig.n3 file for details.
     
@@ -20,7 +20,9 @@
     </#local>
     <#local linkedIndividual>
         <#if statement.org??>
-            <span itemprop="worksFor" itemscope itemtype="http://schema.org/Organization"><a href="${profileUrl(statement.uri("org"))}" title="${i18n().organization_name}"><span itemprop="name">${statement.orgName}</span></a></span>
+            <span itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
+               <a href="${profileUrl(statement.uri("org"))}" title="${i18n().organization_name}"><span itemprop="name">${statement.orgName}</span></a>
+            </span>
         <#else>
             <#-- This shouldn't happen, but we must provide for it -->
             <a href="${profileUrl(statement.uri("position"))}" title="${i18n().missing_organization}">${i18n().missing_organization}</a>
@@ -30,7 +32,9 @@
          For now, we are only displaying the parent in the list view. -->
     <#local middleOrganization>
         <#if statement.middleOrg??>
-            <span itemprop="worksFor" itemscope itemtype="http://schema.org/Organization"><a href="${profileUrl(statement.uri("middleOrg"))}" title="${i18n().middle_organization}"><span itemprop="name">${statement.middleOrgName!}</span></a></span>
+            <span itemprop="worksFor" itemscope itemtype="http://schema.org/Organization">
+                <a href="${profileUrl(statement.uri("middleOrg"))}" title="${i18n().middle_organization}"><span itemprop="name">${statement.middleOrgName!}</span></a>
+            </span>
         </#if>
     </#local>
     
