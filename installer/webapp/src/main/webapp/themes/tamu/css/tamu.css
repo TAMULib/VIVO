@@ -2001,6 +2001,7 @@ span.subclassExpandMinus {
 .self_edit {
 	float: right;
 	margin-top: 12px;
+	margin-right: 5%;
 }
 
 .btn-self-edit {
