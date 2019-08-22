@@ -307,4 +307,13 @@
 	<rdfs:subClassOf rdf:resource="http://vivoweb.org/ontology/core#ResearcherRole"/>
     <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Role of a person to collaborate on grant.</obo:IAO_0000115>
   </rdf:Description>
+  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#FeaturedProfileDisplay">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#dbAdmin"/>
+    <vitro:prohibitedFromUpdateBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#dbAdmin"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <vitro:inPropertyGroupAnnot rdf:resource="http://vivoweb.org/ontology#vitroPropertyGroupidentifiers"/>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:label xml:lang="en-US">featured profile display</rdfs:label>
+  </rdf:Description>
 </rdf:RDF>
