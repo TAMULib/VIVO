@@ -2,5 +2,5 @@
 <#-- Template for the body of the About page -->
  
 <script type="text/javascript">
-   window.location.replace("//scholars.library.tamu.edu/index.php");
+   window.location.replace("https://scholars.library.tamu.edu/vivo/");
 </script>
