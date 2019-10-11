@@ -912,4 +912,24 @@
     <rdfs:label xml:lang="en-US">D.V.Sc. Doctor of Veterinary Science</rdfs:label>
     <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n15349">
+    <core:abbreviation>B.S.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">B.S. Bachelor of Statistics</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n23143">
+    <core:abbreviation>B.M.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">B.M. Bachelor of Mathematics</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n14752">
+    <core:abbreviation>M.S.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">M.S. Master of Statistics</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>  
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n3404">
+    <core:abbreviation>M.M.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">M.M. Master of Mathematics</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>    
 </rdf:RDF>
