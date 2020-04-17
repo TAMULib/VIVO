@@ -2017,7 +2017,13 @@ span.subclassExpandMinus {
     background-image: none;
     border: 1px solid transparent;
     border-radius: 4px;
-	background: #4D4D4D;
+	color: #500000;
+	border-color: #500000;
+}
+
+.btn-self-edit:hover {
+	background-color: #500000;
+    border-color: #500000;
 	color: #ffffff;
 }
 

@@ -6,7 +6,7 @@
 <div>
 <nav role="navigation">
 	<div class="self_edit" id="self_edit">
-		<button aria-pressed="false" autocomplete="off" class="btn-self-edit" data-toggle="button" onclick="window.location.href='https://scholars.library.tamu.edu/vivo_editor/edit_people.php'" type="button">Update Profile</button>
+		<button aria-pressed="false" autocomplete="off" class="btn-self-edit" data-toggle="button" onclick="window.location.href='https://scholars.library.tamu.edu/vivo_editor/edit_people.php'" type="button">EDIT MY PROFILE</button>
 	</div>
 	<ul id="main-nav" class="nav-wrapper" role="list">
         <#list menu.items as item>
