@@ -931,5 +931,15 @@
     <core:abbreviation>M.M.</core:abbreviation>
     <rdfs:label xml:lang="en-US">M.M. Master of Mathematics</rdfs:label>
     <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
-  </rdf:Description>    
+  </rdf:Description> 
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n12217">
+    <core:abbreviation>D.Engr.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">D.Engr. Doctor of Engineering</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>  
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n22107">
+    <core:abbreviation>D.O.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">D.O. Doctor of Osteopathy</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>     
 </rdf:RDF>
