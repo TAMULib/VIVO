@@ -941,5 +941,15 @@
     <core:abbreviation>D.O.</core:abbreviation>
     <rdfs:label xml:lang="en-US">D.O. Doctor of Osteopathy</rdfs:label>
     <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
-  </rdf:Description>     
+  </rdf:Description>  
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n421">
+    <core:abbreviation>M.S.I.E.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">M.S.I.E. Master of Science in Industrial Engineering</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description> 
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n26048">
+    <core:abbreviation>M.P.E.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">M.P.E. Master in Process Engineering</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>   
 </rdf:RDF>
