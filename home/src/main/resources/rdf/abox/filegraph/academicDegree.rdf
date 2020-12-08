@@ -527,7 +527,7 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://vivoweb.org/ontology/degree/academicDegree118">
     <core:abbreviation>A.D.N.</core:abbreviation>
-    <rdfs:label xml:lang="en-US">ADN Associate Degree Nursing</rdfs:label>
+    <rdfs:label xml:lang="en-US">A.D.N. Associate Degree Nursing</rdfs:label>
     <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://vivoweb.org/ontology/degree/academicDegree132">
