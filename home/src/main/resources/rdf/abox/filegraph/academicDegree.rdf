@@ -951,5 +951,10 @@
     <core:abbreviation>M.P.E.</core:abbreviation>
     <rdfs:label xml:lang="en-US">M.P.E. Master in Process Engineering</rdfs:label>
     <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
-  </rdf:Description>   
+  </rdf:Description> 
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n815">
+    <core:abbreviation>M.R.E.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">M.R.E.  Master of Real Estate</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>     
 </rdf:RDF>
