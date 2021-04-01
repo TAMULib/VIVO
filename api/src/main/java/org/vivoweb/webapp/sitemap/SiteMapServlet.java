@@ -78,7 +78,7 @@ public class SiteMapServlet extends VitroHttpServlet {
                             if (!StringUtils.isEmpty(profileUrl)) {
                                 try {
                                     out.println("  <url>");
-                                    out.println("    <loc>" + schemeAndServer + profileUrl + "</loc>");
+                                    out.println("    <loc>" + "https://scholars.library.tamu.edu" + profileUrl + "</loc>");
                                     out.println("    <changefreq>weekly</changefreq>");
                                     out.println("  </url>");
                                 } catch (Exception e) {
