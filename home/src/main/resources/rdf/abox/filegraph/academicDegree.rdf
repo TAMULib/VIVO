@@ -956,5 +956,19 @@
     <core:abbreviation>M.R.E.</core:abbreviation>
     <rdfs:label xml:lang="en-US">M.R.E.  Master of Real Estate</rdfs:label>
     <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
-  </rdf:Description>     
+  </rdf:Description> 
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n15341">
+    <core:abbreviation>LIC.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">LIC. License</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>  
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n6690">
+    <core:abbreviation>M.B.B.S.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">M.B.B.S. Bachelor of Medicine, Bachelor of Surgery</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description> 
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n626">
+    <rdfs:label xml:lang="en-US">Docent</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description>   
 </rdf:RDF>
