@@ -13,7 +13,7 @@
     <name>VIVO Installer</name>
 
     <properties>
-        <vitro-version>${project.version}</vitro-version>
+        <vitro-version>1.13.0</vitro-version>
     </properties>
 
     <build>
@@ -154,11 +154,11 @@
                         <executions>
                             <execution>
                                 <id>default-compile</id>
-                                <phase />
+                                <phase/>
                             </execution>
                             <execution>
                                 <id>default-testCompile</id>
-                                <phase />
+                                <phase/>
                             </execution>
                         </executions>
                     </plugin>
@@ -174,11 +174,11 @@
                         <executions>
                             <execution>
                                 <id>default-resources</id>
-                                <phase />
+                                <phase/>
                             </execution>
                             <execution>
                                 <id>default-testResources</id>
-                                <phase />
+                                <phase/>
                             </execution>
                         </executions>
                     </plugin>
