@@ -30,6 +30,7 @@ services:
         - TDB_FILE_MODE=direct
         - VITRO_BRANCH=i18n-redesign
         - VIVO_BRANCH=i18n-redesign
+        - BASE_PATH=ROOT
     environment:
       - RESET_HOME=${RESET_HOME}
       - VERBOSE=${VERBOSE}

@@ -1,8 +1,10 @@
+ARG BASE_PATH=vivo
 ARG USER_ID=3001
 ARG USER_NAME=vivo
 ARG HOME_DIR=/$USER_NAME
 
 FROM maven:3-eclipse-temurin-11 as maven
+ARG BASE_PATH
 ARG USER_ID
 ARG USER_NAME
 ARG HOME_DIR
@@ -35,6 +37,7 @@ RUN mvn clean package -s $SETTINGS_PATH
 
 
 FROM tomcat:9-jdk11-temurin
+ARG BASE_PATH
 ARG USER_ID
 ARG USER_NAME
 ARG HOME_DIR
@@ -62,7 +65,7 @@ RUN \
 USER $USER_NAME
 
 COPY --from=maven $HOME_DIR/VIVO/installer/home/target/vivo /vivo-home
-COPY --from=maven $HOME_DIR/VIVO/installer/webapp/target/vivo.war /usr/local/tomcat/webapps/vivo.war
+COPY --from=maven $HOME_DIR/VIVO/installer/webapp/target/vivo.war /usr/local/tomcat/webapps/$BASE_PATH.war
 
 COPY start.sh /start.sh
 
