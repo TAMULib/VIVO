@@ -14,7 +14,7 @@ services:
     ports:
       - 8983:8983
     volumes:
-      - ${LOCAL_SOLR_DATA}:/var/solr
+      - ${LOCAL_SOLR_DATA}:/opt/solr/server/solr/mycores
     networks:
       - net
 

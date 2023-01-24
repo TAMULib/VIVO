@@ -62,7 +62,7 @@ RUN \
 USER $USER_NAME
 
 COPY --from=maven $HOME_DIR/VIVO/installer/home/target/vivo /vivo-home
-COPY --from=maven $HOME_DIR/VIVO/installer/webapp/target/vivo.war /usr/local/tomcat/webapps/ROOT.war
+COPY --from=maven $HOME_DIR/VIVO/installer/webapp/target/vivo.war /usr/local/tomcat/webapps/vivo.war
 
 COPY start.sh /start.sh
 
