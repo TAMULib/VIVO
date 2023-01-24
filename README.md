@@ -31,22 +31,28 @@ Docker Compose environment variables:
 
 .env defaults
 ```
+LOCAL_SOLR_DATA=./vivo-solr
+RESET_CORE=false
+
 LOCAL_VIVO_HOME=./vivo-home
 RESET_HOME=false
-RESET_CORE=false
+
+VERBOSE=no
 ```
+
+- `LOCAL_VIVO_HOME`: VIVO Solr data directory on your host machine which will mount to volume in Solr docker container. Set this environment variable to persist your VIVO Solr data on your host machine.
+- `RESET_CORE`: Convenience to reset VIVO Solr core when starting container. **Caution**, will require complete reindex.
 
 - `LOCAL_VIVO_HOME`: VIVO home directory on your host machine which will mount to volume in docker container. Set this environment variable to persist your VIVO data on your host machine.
 - `RESET_HOME`: Convenience to reset VIVO home when starting container. **Caution**, will delete local configuration, content, and configuration model.
-- `RESET_CORE`: Convenience to reset VIVO Solr core when starting container. **Caution**, will require complete reindex.
 
-Before building VIVO, you will also need to clone (and switch to the same branch, if other than main) of [Vitro](https://github.com/vivo-project/Vitro). The Vitro project must be cloned to a sibling directory next to VIVO so that it can be found during the build. 
 
-Build and start VIVO.
+Before building VIVO, you will also need to clone (and switch to the same branch, if other than main) of [Vitro](https://github.com/vivo-project/Vitro). The Vitro project must be cloned to a sibling directory next to VIVO so that it can be found during the build. You will also need to clone (and switch to the appropriate branch) of [Vitro-languages](https://github.com/vivo-project/Vitro-languages) and [VIVO-languages](https://github.com/vivo-project/VIVO-languages).
 
-1. In VIVO (with Vitro cloned alongside it), run:
+Build and start VIVO using Docker Compose.
+
+1. In VIVO, run:
 ```
-mvn clean package -s installer/example-settings.xml
 docker-compose up
 ```
 
