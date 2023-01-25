@@ -13,7 +13,7 @@ if [[ "$RESET_HOME" = "true" ]]; then
   rm -rf /usr/local/vivo/home/*
 
   if [[ "$LOAD_SAMPLE_DATA" = "true" ]]; then
-    echo 'Clearing VIVO HOME /usr/local/vivo/home'
+    echo 'Loading sample data'
     git clone git@github.com:wwelling/sample-data.git
     cp -r sample-data/i18n/* /usr/local/vivo/home/rdf/abox/filegraph/.
     cp -r sample-data/fr_CA_x_uqam/* /usr/local/vivo/home/rdf/rdf/i18n/.
