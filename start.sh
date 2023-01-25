@@ -54,36 +54,36 @@ if [ -f /usr/local/vivo/home/config/example.runtime.properties ]; then
 
     if [[ ! -z "${EMAIL_SMTP_HOST}" ]]; then
       echo "Templating runtime.properties email.smtpHost = $EMAIL_SMTP_HOST"
-      sed -i "s,  # email.smtpHost = smtp.mydomain.edu,email.smtpHost = $EMAIL_SMTP_HOST,q" /usr/local/vivo/home/config/runtime.properties
+      sed -i "s,  # email.smtpHost = smtp.mydomain.edu,email.smtpHost = $EMAIL_SMTP_HOST,g" /usr/local/vivo/home/config/runtime.properties
     fi
     if [[ ! -z "${EMAIL_PORT}" ]]; then
       echo "Templating runtime.properties email.port = $EMAIL_PORT"
-      sed -i "s,  # email.port = 25 or 587,email.port = $EMAIL_PORT,q" /usr/local/vivo/home/config/runtime.properties
+      sed -i "s,  # email.port = 25 or 587,email.port = $EMAIL_PORT,g" /usr/local/vivo/home/config/runtime.properties
     fi
     if [[ ! -z "${EMAIL_USERNAME}" ]]; then
       echo "Templating runtime.properties email.username = $EMAIL_USERNAME"
-      sed -i "s,  # email.username = vivtroAdmin@mydomain.edu,email.username = $EMAIL_USERNAME,q" /usr/local/vivo/home/config/runtime.properties
+      sed -i "s,  # email.username = vivtroAdmin@mydomain.edu,email.username = $EMAIL_USERNAME,g" /usr/local/vivo/home/config/runtime.properties
     fi
     if [[ ! -z "${EMAIL_PASSWORD}" ]]; then
       echo "Templating runtime.properties email.password = ***"
-      sed -i "s,  # email.password = secret,email.password = $EMAIL_PASSWORD,q" /usr/local/vivo/home/config/runtime.properties
+      sed -i "s,  # email.password = secret,email.password = $EMAIL_PASSWORD,g" /usr/local/vivo/home/config/runtime.properties
     fi
     if [[ ! -z "${EMAIL_REPLY_TO}" ]]; then
       echo "Templating runtime.properties email.replyTo = $EMAIL_REPLY_TO"
-      sed -i "s,  # email.replyTo = vitroAdmin@mydomain.edu,email.replyTo = $EMAIL_REPLY_TO,q" /usr/local/vivo/home/config/runtime.properties
+      sed -i "s,  # email.replyTo = vitroAdmin@mydomain.edu,email.replyTo = $EMAIL_REPLY_TO,g" /usr/local/vivo/home/config/runtime.properties
     fi
 
     if [[ ! -z "${LANGUAGE_FILTER_ENABLED}" ]]; then
       echo "Templating runtime.properties email.replyTo = $LANGUAGE_FILTER_ENABLED"
-      sed -i "s,# RDFService.languageFilter = false,RDFService.languageFilter = $LANGUAGE_FILTER_ENABLED,q" /usr/local/vivo/home/config/runtime.properties
+      sed -i "s,# RDFService.languageFilter = false,RDFService.languageFilter = $LANGUAGE_FILTER_ENABLED,g" /usr/local/vivo/home/config/runtime.properties
     fi
     if [[ ! -z "${FORCE_LOCALE}" ]]; then
       echo "Templating runtime.properties email.replyTo = $FORCE_LOCALE"
-      sed -i "s,# languages.forceLocale = en_US,languages.forceLocale = $FORCE_LOCALE,q" /usr/local/vivo/home/config/runtime.properties
+      sed -i "s,# languages.forceLocale = en_US,languages.forceLocale = $FORCE_LOCALE,g" /usr/local/vivo/home/config/runtime.properties
     fi
     if [[ ! -z "${SELECTABLE_LOCALES}" ]]; then
       echo "Templating runtime.properties email.replyTo = $SELECTABLE_LOCALES"
-      sed -i "s,# languages.selectableLocales = en_US, es_GO,languages.selectableLocales = $SELECTABLE_LOCALES,q" /usr/local/vivo/home/config/runtime.properties
+      sed -i "s,# languages.selectableLocales = en_US, es_GO,languages.selectableLocales = $SELECTABLE_LOCALES,g" /usr/local/vivo/home/config/runtime.properties
     fi
 
   else
