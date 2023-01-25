@@ -36,7 +36,7 @@ if [[ "$RESET_HOME" = "true" ]] && [[ "$LOAD_SAMPLE_DATA" = "true" ]]; then
   echo 'Loading sample data'
   git clone --branch main https://github.com/wwelling/sample-data.git
   cp -r sample-data/i18n/* /usr/local/vivo/home/rdf/abox/filegraph/.
-  cp -r sample-data/fr_CA_x_uqam/* /usr/local/vivo/home/rdf/rdf/i18n/.
+  cp -r sample-data/fr_CA_x_uqam/* /usr/local/vivo/home/rdf/i18n/.
 fi
 
 # copy runtime.properties if it does not already exist in target home directory
