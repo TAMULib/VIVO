@@ -45,6 +45,7 @@ VIVO docker container is available at [vivoweb/vivo](https://hub.docker.com/repo
 | LANGUAGE_FILTER_ENABLED       | Enable language filter to respect browser Accept-Language header | not defined                           |
 | FORCE_LOCALE                  | Ignore browser Accept-Language header                            | not defined                           |
 | SELECTABLE_LOCALES            | Selectable locales                                               | not defined                           |
+| LOAD_SAMPLE_DATA              | Load sample data                                                 | false                                 |
 
 ### Docker Compose
 
@@ -57,6 +58,7 @@ RESET_CORE=false
 
 LOCAL_VIVO_HOME=./vivo-home
 RESET_HOME=false
+LOAD_SAMPLE_DATA=false
 
 VERBOSE=no
 ```
@@ -66,6 +68,7 @@ VERBOSE=no
 
 - `LOCAL_VIVO_HOME`: VIVO home directory on your host machine which will mount to volume in docker container. Set this environment variable to persist your VIVO data on your host machine.
 - `RESET_HOME`: Convenience to reset VIVO home when starting container. **Caution**, will delete local configuration, content, and configuration model.
+- `LOAD_SAMPLE_DATA`: Convenience to load sample data into VIVO home when starting container. **Caveat**, requires resetting home directory, `RESET_HOME=true`.
 
 Build and start VIVO using Docker Compose.
 

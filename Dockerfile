@@ -57,7 +57,8 @@ ENV SELF_ID_MATCHING_PROPERTY=${SELF_ID_MATCHING_PROPERTY}
 
 RUN \
   apt-get update -y && \
-  apt-get upgrade -y
+  apt-get upgrade -y && \
+  apt install git -y
 
 RUN \
   addgroup --gid $USER_ID $USER_NAME && \
