@@ -33,9 +33,13 @@ fi
 
 # load sample data
 if [[ "$RESET_HOME" = "true" ]] && [[ "$LOAD_SAMPLE_DATA" = "true" ]]; then
-  echo 'Loading sample data'
-  git clone --branch main https://github.com/wwelling/sample-data.git
+  echo 'Cloning sample-data'
+  git clone --branch main https://github.com/wwelling/sample-data.git > /dev/null
+
+  echo 'Loading sample-data/i18n/*'
   cp -r sample-data/i18n/* /usr/local/vivo/home/rdf/abox/filegraph/.
+
+  echo 'Loading sample-data/fr_CA_x_uqam/*'
   cp -r sample-data/fr_CA_x_uqam/* /usr/local/vivo/home/rdf/i18n/.
 fi
 
