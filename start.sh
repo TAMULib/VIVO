@@ -41,7 +41,7 @@ if [ -f /usr/local/vivo/home/config/example.runtime.properties ]; then
     # template runtime.properties
 
     echo "Templating runtime.properties vitro.local.solr.url = $SOLR_URL"
-    sed -i "vitro.local.solr.url = http://localhost:8983/solr/vivocore,vitro.local.solr.url = $SOLR_URL,g" /usr/local/vivo/home/config/runtime.properties
+    sed -i "s,vitro.local.solr.url = http://localhost:8983/solr/vivocore,vitro.local.solr.url = $SOLR_URL,g" /usr/local/vivo/home/config/runtime.properties
 
     echo "Templating runtime.properties rootUser.emailAddress = $INITIAL_ROOT_USER_EMAIL"
     sed -i "s,rootUser.emailAddress = vivo_root@mydomain.edu,rootUser.emailAddress = $INITIAL_ROOT_USER_EMAIL,g" /usr/local/vivo/home/config/runtime.properties
