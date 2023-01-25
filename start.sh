@@ -74,18 +74,17 @@ if [ -f /usr/local/vivo/home/config/example.runtime.properties ]; then
     fi
 
     if [[ ! -z "${LANGUAGE_FILTER_ENABLED}" ]]; then
-      echo "Templating runtime.properties email.replyTo = $LANGUAGE_FILTER_ENABLED"
+      echo "Templating runtime.properties RDFService.languageFilter = $LANGUAGE_FILTER_ENABLED"
       sed -i "s,# RDFService.languageFilter = false,RDFService.languageFilter = $LANGUAGE_FILTER_ENABLED,g" /usr/local/vivo/home/config/runtime.properties
     fi
     if [[ ! -z "${FORCE_LOCALE}" ]]; then
-      echo "Templating runtime.properties email.replyTo = $FORCE_LOCALE"
+      echo "Templating runtime.properties languages.forceLocale = $FORCE_LOCALE"
       sed -i "s,# languages.forceLocale = en_US,languages.forceLocale = $FORCE_LOCALE,g" /usr/local/vivo/home/config/runtime.properties
     fi
     if [[ ! -z "${SELECTABLE_LOCALES}" ]]; then
-      echo "Templating runtime.properties email.replyTo = $SELECTABLE_LOCALES"
-      sed -i "s,# languages.selectableLocales = en_US, es_GO,languages.selectableLocales = $SELECTABLE_LOCALES,g" /usr/local/vivo/home/config/runtime.properties
+      echo "Templating runtime.properties languages.selectableLocales = $SELECTABLE_LOCALES"
+      sed -i "s/# languages.selectableLocales = en_US, es_GO/languages.selectableLocales = $SELECTABLE_LOCALES/g" /usr/local/vivo/home/config/runtime.properties
     fi
-
   else
     # TODO: convert example.runtime.properties into a template file to reconfigure on restart
     # This will only be applicable if not desired to manually edit configuration file. In this case a flag will be required to override.
