@@ -32,7 +32,7 @@ if [ ! -d /usr/local/vivo/home/rdf ]; then
 fi
 
 # load sample data
-if [[ "$RESET_HOME" = "true" ]] &&  [[ "$LOAD_SAMPLE_DATA" = "true" ]]; then
+if [[ "$RESET_HOME" = "true" ]] && [[ "$LOAD_SAMPLE_DATA" = "true" ]]; then
   echo 'Loading sample data'
   git clone --branch main https://github.com/wwelling/sample-data.git
   cp -r sample-data/i18n/* /usr/local/vivo/home/rdf/abox/filegraph/.
@@ -94,7 +94,7 @@ if [ -f /usr/local/vivo/home/config/example.runtime.properties ]; then
       sed -i "s/# languages.selectableLocales = en_US, es_GO/languages.selectableLocales = $SELECTABLE_LOCALES/g" /usr/local/vivo/home/config/runtime.properties
     fi
   else
-    # TODO: convert example.runtime.properties into a template file to reconfigure on restart
+    # TODO: Convert example.runtime.properties into a template file to reconfigure on restart without resetting home.
     # This will only be applicable if not desired to manually edit configuration file. In this case a flag will be required to override.
     echo "Using existing /usr/local/vivo/home/config/runtime.properties"
   fi
