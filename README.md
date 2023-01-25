@@ -25,6 +25,23 @@ https://wiki.lyrasis.org/display/VIVODOC112x/Installing+VIVO
 
 VIVO docker container is available at [vivoweb/vivo](https://hub.docker.com/repository/docker/vivoweb/vivo) with accompanying [vivoweb/vivo-solr](https://hub.docker.com/repository/docker/vivoweb/vivo-solr). These can be used independently or with docker-compose.
 
+#### Environment
+
+| Variable                      | Description                                                      | Default                               |
+| ----------------------------- | ---------------------------------------------------------------- | ------------------------------------- |
+| SOLR_URL                      | VIVO Solr URL                                                    | http://localhost:8983/solr/vivocore   |
+| INITIAL_ROOT_USER_EMAIL       | VIVO application root user email address                         | vivo_root@mydomain.edu                |
+| DEFAULT_NAMESPACE             | Namespace will be used when generating URIs                      | http://vivo.mydomain.edu/individual/  |
+| SELF_ID_MATCHING_PROPERTY     | Individual property associated with user account                 | http://vivo.mydomain.edu/ns#networkId |
+| EMAIL_SMTP_HOST               | Email SMTP host                                                  | not defined                           |
+| EMAIL_PORT                    | Email server port                                                | not defined                           |
+| EMAIL_USERNAME                | Email server username                                            | not defined                           |
+| EMAIL_PASSWORD                | Email server password                                            | not defined                           |
+| EMAIL_REPLY_TO                | Reply to email address                                           | not defined                           |
+| LANGUAGE_FILTER_ENABLED       | Enable language filter to respect browser Accept-Language header | not defined                           |
+| FORCE_LOCALE                  | Ignore browser Accept-Language header                            | not defined                           |
+| SELECTABLE_LOCALES            | Selectable locales                                               | not defined                           |
+
 ### Docker Compose
 
 Docker Compose environment variables:

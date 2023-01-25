@@ -38,10 +38,44 @@ if [ -f /usr/local/vivo/home/config/example.runtime.properties ]; then
     echo "Copying example.runtime.properties to /usr/local/vivo/home/config/runtime.properties"
     cp /usr/local/vivo/home/config/example.runtime.properties /usr/local/vivo/home/config/runtime.properties
 
-    # template runtime.properties vitro.local.solr.url value to $SOLR_URL value
+    # template runtime.properties
+
     echo "Templating runtime.properties vitro.local.solr.url = $SOLR_URL"
-    sed -i "s,http://localhost:8983/solr/vivocore,$SOLR_URL,g" /usr/local/vivo/home/config/runtime.properties
+    sed -i "vitro.local.solr.url = http://localhost:8983/solr/vivocore,vitro.local.solr.url = $SOLR_URL,g" /usr/local/vivo/home/config/runtime.properties
+
+    echo "Templating runtime.properties rootUser.emailAddress = $INITIAL_ROOT_USER_EMAIL"
+    sed -i "s,rootUser.emailAddress = vivo_root@mydomain.edu,rootUser.emailAddress = $INITIAL_ROOT_USER_EMAIL,g" /usr/local/vivo/home/config/runtime.properties
+
+    echo "Templating runtime.properties Vitro.defaultNamespace = $DEFAULT_NAMESPACE"
+    sed -i "s,Vitro.defaultNamespace = http://vivo.mydomain.edu/individual/,Vitro.defaultNamespace = $DEFAULT_NAMESPACE,g" /usr/local/vivo/home/config/runtime.properties
+
+    echo "Templating runtime.properties selfEditing.idMatchingProperty = $SELF_ID_MATCHING_PROPERTY"
+    sed -i "s,selfEditing.idMatchingProperty = http://vivo.mydomain.edu/ns#networkId,selfEditing.idMatchingProperty = $SELF_ID_MATCHING_PROPERTY,g" /usr/local/vivo/home/config/runtime.properties
+
+    if [[ -z "${EMAIL_SMTP_HOST}" ]]; then
+      echo "Templating runtime.properties email.smtpHost = $EMAIL_SMTP_HOST"
+      sed -i "s,  # email.smtpHost = smtp.mydomain.edu,email.smtpHost = $EMAIL_SMTP_HOST,q" /usr/local/vivo/home/config/runtime.properties
+    fi
+    if [[ -z "${EMAIL_PORT}" ]]; then
+      echo "Templating runtime.properties email.port = $EMAIL_PORT"
+      sed -i "s,  # email.port = 25 or 587,email.port = $EMAIL_PORT,q" /usr/local/vivo/home/config/runtime.properties
+    fi
+    if [[ -z "${EMAIL_USERNAME}" ]]; then
+      echo "Templating runtime.properties email.username = $EMAIL_USERNAME"
+      sed -i "s,  # email.username = vivtroAdmin@mydomain.edu,email.username = $EMAIL_USERNAME,q" /usr/local/vivo/home/config/runtime.properties
+    fi
+    if [[ -z "${EMAIL_PASSWORD}" ]]; then
+      echo "Templating runtime.properties email.password = ***"
+      sed -i "s,  # email.password = secret,email.password = $EMAIL_PASSWORD,q" /usr/local/vivo/home/config/runtime.properties
+    fi
+    if [[ -z "${EMAIL_REPLY_TO}" ]]; then
+      echo "Templating runtime.properties email.replyTo = $EMAIL_REPLY_TO"
+      sed -i "s,  # email.replyTo = vitroAdmin@mydomain.edu,email.replyTo = $EMAIL_REPLY_TO,q" /usr/local/vivo/home/config/runtime.properties
+    fi
+
   else
+    # TODO: convert example.runtime.properties into a template file to reconfigure on restart
+    # This will only be applicable if not desired to manually edit configuration file. In this case a flag will be required to override.
     echo "Using existing /usr/local/vivo/home/config/runtime.properties"
   fi
 fi

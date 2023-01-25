@@ -15,8 +15,8 @@ ARG VIVO_BRANCH=i18n-redesign
 ARG SETTINGS_PATH=installer/example-settings.xml
 
 RUN \
-  apt upgrade -y && \
   apt update -y && \
+  apt upgrade -y && \
   apt install git -y
 
 RUN \
@@ -43,11 +43,17 @@ ARG USER_NAME
 ARG HOME_DIR
 
 ARG SOLR_URL=http://localhost:8983/solr/vivocore
+ARG INITIAL_ROOT_USER_EMAIL=vivo_root@mydomain.edu
+ARG DEFAULT_NAMESPACE=http://vivo.mydomain.edu/individual/
+ARG SELF_ID_MATCHING_PROPERTY=http://vivo.mydomain.edu/ns
 ARG VIVO_DIR=/usr/local/vivo/home
 ARG TDB_FILE_MODE=direct
 
 ENV JAVA_OPTS="${JAVA_OPTS} -Dtdb:fileMode=$TDB_FILE_MODE"
 ENV SOLR_URL=${SOLR_URL}
+ENV INITIAL_ROOT_USER_EMAIL=${INITIAL_ROOT_USER_EMAIL}
+ENV DEFAULT_NAMESPACE=${DEFAULT_NAMESPACE}
+ENV SELF_ID_MATCHING_PROPERTY=${SELF_ID_MATCHING_PROPERTY}
 
 RUN \
   apt-get update -y && \
