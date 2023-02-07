@@ -28,6 +28,8 @@ services:
         - SOLR_URL=http://solr:8983/solr/vivocore
         - VIVO_DIR=/usr/local/vivo/home
         - TDB_FILE_MODE=direct
+        - VITRO_BRANCH=https://github.com/vivo-project/Vitro.git
+        - VIVO_BRANCH=https://github.com/vivo-project/VIVO.git
         - VITRO_BRANCH=i18n-redesign
         - VIVO_BRANCH=i18n-redesign
         - BASE_PATH=ROOT

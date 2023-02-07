@@ -9,6 +9,9 @@ ARG USER_ID
 ARG USER_NAME
 ARG HOME_DIR
 
+ARG VITRO_REPO_URL=https://github.com/vivo-project/Vitro.git
+ARG VIVO_REPO_URL=https://github.com/vivo-project/VIVO.git
+
 ARG VITRO_BRANCH=i18n-redesign
 ARG VIVO_BRANCH=i18n-redesign
 
@@ -28,8 +31,8 @@ USER $USER_NAME
 WORKDIR $HOME_DIR
 
 RUN \
-  git clone --branch $VITRO_BRANCH https://github.com/vivo-project/Vitro.git && \
-  git clone --branch $VIVO_BRANCH https://github.com/vivo-project/VIVO.git
+  git clone --branch $VITRO_BRANCH $VITRO_REPO_URL && \
+  git clone --branch $VIVO_BRANCH $VIVO_REPO_URL
 
 WORKDIR $HOME_DIR/VIVO
 
