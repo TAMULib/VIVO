@@ -103,15 +103,6 @@
     <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
     <rdfs:label xml:lang="en-US">featured profile display</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#PublicationToInterfolio">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-    <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#dbAdmin"/>
-    <vitro:prohibitedFromUpdateBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#dbAdmin"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <vitro:inPropertyGroupAnnot rdf:resource="http://vivoweb.org/ontology#vitroPropertyGroupidentifiers"/>
-    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-    <rdfs:label xml:lang="en-US">publication to interfolio</rdfs:label>
-  </rdf:Description>
   <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <vitro:ontologyPrefixAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tamu</vitro:ontologyPrefixAnnot>
@@ -124,11 +115,11 @@
     <vitro:displayLimitAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">-1</vitro:displayLimitAnnot>
     <vitro:hiddenFromPublishBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
     <rdfs:label xml:lang="en-US">Institutional Repository Document</rdfs:label>
-    <rdfs:subClassOf rdf:nodeID="A0"/>
     <vitro:prohibitedFromUpdateBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
     <vitro:displayRankAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">-1</vitro:displayRankAnnot>
     <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:nodeID="A0"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#GreyLiteratureObj">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -162,6 +153,15 @@
     <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000023"/>
     <vitro:selectFromExistingAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</vitro:selectFromExistingAnnot>
     <owl:inverseOf rdf:resource="http://vivo.library.tamu.edu/ontology/TAMU#ETDChairedBy"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#PublicationToInterfolio">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#dbAdmin"/>
+    <vitro:prohibitedFromUpdateBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#dbAdmin"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <vitro:inPropertyGroupAnnot rdf:resource="http://vivoweb.org/ontology#vitroPropertyGroupidentifiers"/>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:label xml:lang="en-US">publication to interfolio</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#ISNI">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
@@ -237,13 +237,13 @@
   <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#TeachingMaterial">
     <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:nodeID="A0"/>
     <vitro:displayLimitAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">-1</vitro:displayLimitAnnot>
     <vitro:displayRankAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">-1</vitro:displayRankAnnot>
     <vitro:prohibitedFromUpdateBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
     <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/Document"/>
     <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Documents stored OAKTrust institutional repository' Open Teaching Materials collection</obo:IAO_0000115>
     <vitro:inClassGroup rdf:resource="http://vivoweb.org/ontology#vitroClassGrouppublications"/>
+    <rdfs:subClassOf rdf:nodeID="A0"/>
     <rdfs:label xml:lang="en-US">Open Teaching Materials</rdfs:label>
     <vitro:hiddenFromPublishBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
   </rdf:Description>
@@ -295,11 +295,11 @@
     <rdfs:label xml:lang="en-US">Capstone</rdfs:label>
     <vitro:prohibitedFromUpdateBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
     <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
+    <rdfs:subClassOf rdf:nodeID="A1"/>
     <rdfs:subClassOf rdf:resource="http://purl.org/ontology/bibo/Document"/>
     <ns:term_status>stable</ns:term_status>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <vitro:displayRankAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">-1</vitro:displayRankAnnot>
-    <rdfs:subClassOf rdf:nodeID="A1"/>
     <vitro:hiddenFromPublishBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
     <rdfs:subClassOf rdf:nodeID="A2"/>
     <vitro:displayLimitAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">-1</vitro:displayLimitAnnot>
@@ -490,5 +490,35 @@
     <vitro:descriptionAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#string">External organizations conferring degrees for or collaborating with our faculty. It also contains Texas A&amp;M University.</vitro:descriptionAnnot>
     <vitro:hiddenFromPublishBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
     <rdfs:label xml:lang="en-US">External Organization</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#venue">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/2006/vcard/ns#Address"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en-US">venue</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#location">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/2006/vcard/ns#Address"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en-US">location</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#subtype">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.w3.org/2006/vcard/ns#Address"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en-US">subtype</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#creativeWork">
+      <vitro:hiddenFromPublishBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
+    <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
+    <vitro:displayLimitAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">-1</vitro:displayLimitAnnot>
+    <vitro:inClassGroup rdf:resource="http://vivoweb.org/ontology#vitroClassGroupevents"/>
+    <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The showing of an object or a collection of objects, in an organized manner.</obo:IAO_0000115>
+    <vitro:displayRankAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">-1</vitro:displayRankAnnot>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <vitro:prohibitedFromUpdateBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/NET/c4dm/event.owl#Event"/>
+    <rdfs:label xml:lang="en-US">Creative Work</rdfs:label>
   </rdf:Description>
 </rdf:RDF>
