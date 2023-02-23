@@ -23,7 +23,7 @@ RUN \
   apt install git -y
 
 RUN \
-  addgroup --gid $USER_ID $USER_NAME && \
+  addgroup --disabled-password --gid $USER_ID $USER_NAME && \
   adduser --disabled-password --home $HOME_DIR --uid $USER_ID --gid $USER_ID $USER_NAME
 
 USER $USER_NAME
@@ -64,20 +64,22 @@ RUN \
   apt install git -y
 
 RUN \
-  addgroup --gid $USER_ID $USER_NAME && \
+  addgroup --disabled-password --gid $USER_ID $USER_NAME && \
   adduser --disabled-password --home $HOME_DIR --uid $USER_ID --gid $USER_ID $USER_NAME
-
-RUN \
-  mkdir /usr/local/vivo && \
-  mkdir /usr/local/vivo/home && \
-  chown -R $USER_ID:$USER_ID /usr/local/vivo /usr/local/tomcat
-
-USER $USER_NAME
 
 COPY --from=maven $HOME_DIR/VIVO/installer/home/target/vivo /vivo-home
 COPY --from=maven $HOME_DIR/VIVO/installer/webapp/target/vivo.war /usr/local/tomcat/webapps/$BASE_PATH.war
 
 COPY start.sh /start.sh
+
+RUN \
+  mkdir -p /usr/local/vivo/home && \
+  chown -R $USER_ID:$USER_ID /usr/local/vivo /usr/local/tomcat /vivo-home /usr/local/tomcat/webapps/$BASE_PATH.war && \
+  chmod -R u+rwx,go+r-wx /usr/local/tomcat/webapps/$BASE_PATH.war && \
+  chmod -R ugo+X /usr/local/tomcat/webapps/$BASE_PATH.war && \
+  chmod go-w,ugo+rx /start.sh
+
+USER $USER_NAME
 
 EXPOSE 8080
 
