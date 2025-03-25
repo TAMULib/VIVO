@@ -1000,5 +1000,10 @@
     <core:abbreviation>M.Dent.Sc.</core:abbreviation>
     <rdfs:label xml:lang="en-US">M.Dent.Sc. Master of Dental Science</rdfs:label>
     <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
+  </rdf:Description> 
+  <rdf:Description rdf:about="http://scholars.library.tamu.edu/vivo/individual/n13975">
+    <core:abbreviation>M.P.S.A.</core:abbreviation>
+    <rdfs:label xml:lang="en-US">M.P.S.A. Master of Public Service and Administration</rdfs:label>
+    <rdf:type rdf:resource="http://vivoweb.org/ontology/core#AcademicDegree"/>
   </rdf:Description>   
 </rdf:RDF>
