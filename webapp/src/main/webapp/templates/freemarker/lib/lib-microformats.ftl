@@ -7,7 +7,12 @@
 			<#assign mst = type />
 			<#break>
 		</#list>
-        <@getItemType mst "organization"/>
+		<#if individual.itemType??>
+		  <div style="color:red;font-size:12px;">
+			DEBUG itemType: ${individual.itemType}
+		  </div>
+		</#if>		
+        <@getItemType type=(individual.itemType!"") class="organization"/>
     <#elseif individual.event()>
         itemscope itemtype="http://schema.org/Event"
 	<#elseif individual.infoContentEntity()>
