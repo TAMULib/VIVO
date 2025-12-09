@@ -8,13 +8,9 @@
 			<#break>
 		</#list>
 		<#if individual.itemType??>
-		  <div style="color:red;font-size:12px;">
-			DEBUG itemType: ${individual.itemType}
-		  </div>
+			<!-- DEBUG itemType = [${individual.itemType!"NULL"}] -->
 		<#else>
-          <div style="color:red;font-size:12px;">
-			DEBUG NO itemType
-		  </div>	  
+			<!-- DEBUG No Item Type -->	  
 		</#if>		
         <@getItemType type=(individual.itemType!"") class="organization"/>
     <#elseif individual.event()>
