@@ -11,6 +11,10 @@
 		  <div style="color:red;font-size:12px;">
 			DEBUG itemType: ${individual.itemType}
 		  </div>
+		<#else>
+          <div style="color:red;font-size:12px;">
+			DEBUG NO itemType
+		  </div>	  
 		</#if>		
         <@getItemType type=(individual.itemType!"") class="organization"/>
     <#elseif individual.event()>
