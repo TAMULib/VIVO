@@ -7,7 +7,7 @@
 			<#assign mst = type />
 			<#break>
 		</#list>
-		<@getItemType type=(individual.itemType!"") class="organization"/>
+		<@getItemType mst "organization"/>
     <#elseif individual.event()>
         itemscope itemtype="http://schema.org/Event"
 	<#elseif individual.infoContentEntity()>
