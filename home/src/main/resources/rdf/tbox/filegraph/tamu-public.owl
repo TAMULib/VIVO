@@ -354,10 +354,6 @@
     <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Role of a person to collaborate on grant.</obo:IAO_0000115>
     <vitro:displayRankAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">-1</vitro:displayRankAnnot>
   </rdf:Description>
-  
-  
-  
-  
   <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#ProjectDirectorRole">
     <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
     <vitro:extendedLinkedData rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</vitro:extendedLinkedData>
@@ -370,7 +366,6 @@
     <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Role of a person to collaborate on grant.</obo:IAO_0000115>
     <vitro:displayRankAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">-1</vitro:displayRankAnnot>
   </rdf:Description>
-  
   <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#ConsultantRole">
     <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
     <vitro:extendedLinkedData rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</vitro:extendedLinkedData>
@@ -383,7 +378,6 @@
     <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Role of a person to collaborate on grant.</obo:IAO_0000115>
     <vitro:displayRankAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">-1</vitro:displayRankAnnot>
   </rdf:Description>
-  
   <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#MultiplePrincipalInvestigatorRole">
     <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
     <vitro:extendedLinkedData rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</vitro:extendedLinkedData>
@@ -396,7 +390,6 @@
     <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Role of a person to collaborate on grant.</obo:IAO_0000115>
     <vitro:displayRankAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">-1</vitro:displayRankAnnot>
   </rdf:Description>
-
   <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#CoInvestigatorRole">
     <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
     <vitro:extendedLinkedData rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</vitro:extendedLinkedData>
@@ -409,7 +402,6 @@
     <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Role of a person to collaborate on grant.</obo:IAO_0000115>
     <vitro:displayRankAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">-1</vitro:displayRankAnnot>
   </rdf:Description>
-
   <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#ConsultantRole">
     <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
     <vitro:extendedLinkedData rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</vitro:extendedLinkedData>
@@ -422,7 +414,6 @@
     <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Role of a person to collaborate on grant.</obo:IAO_0000115>
     <vitro:displayRankAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">-1</vitro:displayRankAnnot>
   </rdf:Description>
-
   <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#MentorRole">
     <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
     <vitro:extendedLinkedData rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</vitro:extendedLinkedData>
@@ -435,7 +426,6 @@
     <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Role of a person to collaborate on grant.</obo:IAO_0000115>
     <vitro:displayRankAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">-1</vitro:displayRankAnnot>
   </rdf:Description>
-
   <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#StudentRole">
     <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#public"/>
     <vitro:extendedLinkedData rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</vitro:extendedLinkedData>
@@ -448,7 +438,6 @@
     <obo:IAO_0000115 rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Role of a person to collaborate on grant.</obo:IAO_0000115>
     <vitro:displayRankAnnot rdf:datatype="http://www.w3.org/2001/XMLSchema#int">-1</vitro:displayRankAnnot>
   </rdf:Description>
-
   <rdf:Description rdf:about="http://vivo.library.tamu.edu/ontology/TAMU#UIN">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     <vitro:hiddenFromDisplayBelowRoleLevelAnnot rdf:resource="http://vitro.mannlib.cornell.edu/ns/vitro/role#dbAdmin"/>
